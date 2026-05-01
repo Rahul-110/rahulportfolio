@@ -1,0 +1,42 @@
+---
+import Section from "../components/ui/Section.astro";
+---
+
+<Section
+  id="testimonials"
+  eyebrow="Testimonials"
+  title="Trusted collaboration"
+  subtitle="Clean, minimal testimonials with subtle motion to maintain a premium tone."
+>
+  <div class="grid gap-5 md:grid-cols-3">
+    {[
+      {
+        q: "Clear UX thinking and a polished UI system. The handoff was production-ready.",
+        n: "Hiring Manager",
+        r: "Product Company",
+      },
+      {
+        q: "Fast iterations, strong hierarchy, and the micro-interactions made the product feel premium.",
+        n: "Founder",
+        r: "Startup",
+      },
+      {
+        q: "Great communication, excellent craft, and a structured process we could trust.",
+        n: "PM",
+        r: "SaaS Team",
+      },
+    ].map((t) => (
+      <figure class="glass rounded-[--radius-lg] p-6 transition hover:-translate-y-1 hover:shadow-[--shadow-glow]">
+        <blockquote class="text-sm text-[--text] leading-relaxed">“{t.q}”</blockquote>
+        <figcaption class="mt-5 flex items-center justify-between">
+          <div>
+            <div class="text-sm font-semibold">{t.n}</div>
+            <div class="text-xs text-muted">{t.r}</div>
+          </div>
+          <span class="text-xs font-semibold text-[--muted2]">★ ★ ★ ★ ★</span>
+        </figcaption>
+      </figure>
+    ))}
+  </div>
+</Section>
+
