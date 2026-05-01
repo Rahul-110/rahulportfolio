@@ -1,0 +1,130 @@
+---
+import Section from "../components/ui/Section.astro";
+import AboutTimelineReveal from "../components/motion/AboutTimelineReveal";
+---
+
+<Section
+  id="story"
+  eyebrow="About"
+  title="About me — growth through real work"
+  subtitle="A journey that reads like progression: internships → systems → ownership as a UI/UX Designer."
+>
+  <AboutTimelineReveal client:load />
+
+  <div class="grid gap-6 md:grid-cols-2 md:gap-10" data-about-root>
+    <!-- Left: story content (text) -->
+    <div class="glass relative overflow-hidden rounded-[--radius-lg] p-6 sm:p-8">
+      <div
+        class="pointer-events-none absolute inset-0 -z-10 opacity-[0.18]"
+        style="background-image: url('https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=1600&q=80&fm=webp'); background-size: cover; background-position: center;"
+        data-parallax
+        data-speed="0.10"
+        data-axis="y"
+        data-dir="down"
+      />
+
+      <p class="text-xs font-semibold tracking-[0.2em] text-[--muted2] uppercase" data-about-fade>
+        My story
+      </p>
+      <h3 class="mt-4 font-display text-2xl tracking-tight" data-about-fade>
+        Designing with clarity, built through shipping
+      </h3>
+      <p class="mt-4 text-sm text-muted" data-about-fade>
+        I learned UI/UX by working on real projects under real constraints. Each role shaped how I think:
+        from visual execution → consistent systems → end-to-end ownership.
+      </p>
+
+      <div class="mt-7 space-y-4">
+        <div class="card bg-[--surface] p-5 hairline" data-about-fade>
+          <div class="text-sm font-semibold">01 — Foundation</div>
+          <div class="mt-2 text-sm text-muted">
+            Built strong UI craft, grid discipline, typography, and component consistency.
+          </div>
+        </div>
+        <div class="card bg-[--surface] p-5 hairline" data-about-fade>
+          <div class="text-sm font-semibold">02 — Systems</div>
+          <div class="mt-2 text-sm text-muted">
+            Learned to design for scale: states, edge cases, reusable patterns, and handoff clarity.
+          </div>
+        </div>
+        <div class="card bg-[--surface] p-5 hairline" data-about-fade>
+          <div class="text-sm font-semibold">03 — Ownership</div>
+          <div class="mt-2 text-sm text-muted">
+            Now I deliver premium end-to-end UI/UX: hierarchy-first screens, design systems, and motion with purpose.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: vertical timeline -->
+    <div class="glass relative overflow-hidden rounded-[--radius-lg] p-6 sm:p-8">
+      <div
+        class="pointer-events-none absolute -right-24 -top-24 size-72 rounded-full blur-3xl"
+        style="background: radial-gradient(circle, rgba(167,139,250,.22), transparent 60%);"
+      />
+
+      <!-- Header -->
+      <div class="mb-6 grid grid-cols-[72px_1fr] items-center gap-4 card bg-[--surface] p-4 hairline" data-about-fade>
+        <img
+          src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=320&q=80&fm=webp"
+          srcset="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=160&q=80&fm=webp 160w, https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=320&q=80&fm=webp 320w"
+          sizes="72px"
+          alt="Profile portrait"
+          class="size-[72px] card object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+        <div>
+          <div class="text-sm font-semibold">Rahul · UI/UX Designer</div>
+          <div class="mt-1 text-xs text-muted">Timeline — where I’ve grown</div>
+        </div>
+      </div>
+
+      <div class="relative pl-6">
+        <!-- Connecting line -->
+        <div class="pointer-events-none absolute left-[11px] top-0 h-full w-px bg-gradient-to-b from-[rgba(167,139,250,0.55)] via-[rgba(255,255,255,0.12)] to-transparent" />
+
+        {[
+          { org: "Kartexa", title: "Internship", meta: "Foundation · UI craft", current: false },
+          { org: "Duhzine IT Solutions", title: "Internship", meta: "Real projects · Systems", current: false },
+          { org: "Netpy Technologies", title: "UI/UX Designer", meta: "1+ year · Ownership", current: true },
+        ].map((t) => (
+          <div class="relative pb-6 last:pb-0" data-timeline-item>
+            <!-- Dot -->
+            <div
+              class={`absolute left-0 top-1.5 size-[22px] rounded-full border ${
+                t.current ? "border-[rgba(167,139,250,0.55)]" : "border-[--border]"
+              } bg-[rgba(10,10,15,0.65)] backdrop-blur-xl`}
+            >
+              <div
+                class={`absolute inset-1 rounded-full ${
+                  t.current ? "bg-[--accent]" : "bg-[rgba(255,255,255,0.18)]"
+                }`}
+              />
+              {t.current && (
+                <div class="absolute inset-0 rounded-full opacity-40 blur-[10px]" style="background: rgba(167,139,250,0.55);" />
+              )}
+            </div>
+
+            <div class={`ml-10 rounded-[--radius-lg] p-5 bg-[--surface] hairline ${t.current ? "shadow-[--shadow-glow]" : ""}`}>
+              <div class="flex items-center justify-between gap-4">
+                <div class="text-sm font-semibold">{t.org}</div>
+                {t.current ? (
+                  <span class="rounded-full border border-[rgba(167,139,250,0.35)] bg-[rgba(167,139,250,0.10)] px-3 py-1 text-[11px] font-semibold text-[--text]">
+                    Current
+                  </span>
+                ) : (
+                  <span class="text-[11px] font-semibold text-[--muted2]">{t.title}</span>
+                )}
+              </div>
+              <div class="mt-1 text-xs text-muted">
+                {t.current ? `${t.title} · ${t.meta}` : t.meta}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</Section>
+
