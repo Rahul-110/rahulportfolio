@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickCart Behance Cover Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #050816;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+    
+    /* Behance Cover Container - 2:1 aspect ratio */
+    .cover {
+      width: 100%;
+      max-width: 1600px;
+      aspect-ratio: 2 / 1;
+      background: linear-gradient(135deg, #050816 0%, #0a0e27 50%, #050816 100%);
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 50px 100px rgba(0,0,0,0.5);
+    }
+    
+    /* Background Grid */
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(168, 85, 247, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.5;
+    }
+    
+    /* Glow Orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+    }
+    
+    .orb-1 {
+      width: 400px;
+      height: 400px;
+      background: rgba(168, 85, 247, 0.3);
+      top: -100px;
+      left: -50px;
+    }
+    
+    .orb-2 {
+      width: 300px;
+      height: 300px;
+      background: rgba(99, 102, 241, 0.25);
+      bottom: -50px;
+      right: 30%;
+    }
+    
+    .orb-3 {
+      width: 250px;
+      height: 250px;
+      background: rgba(168, 85, 247, 0.2);
+      top: 50%;
+      right: 10%;
+      transform: translateY(-50%);
+    }
+    
+    /* Content */
+    .content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      height: 100%;
+      padding: 60px 80px;
+    }
+    
+    /* Left Side */
+    .left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .eyebrow {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    
+    .title {
+      font-size: 120px;
+      font-weight: 800;
+      line-height: 0.9;
+      color: white;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    
+    .subtitle {
+      font-size: 28px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 30px;
+    }
+    
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    
+    .tag {
+      padding: 10px 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      backdrop-filter: blur(10px);
+    }
+    
+    .tag-highlight {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.3) 0%, rgba(99, 102, 241, 0.3) 100%);
+      border-color: rgba(168, 85, 247, 0.5);
+      color: white;
+    }
+    
+    /* Right Side - Phone */
+    .right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .phone {
+      width: 280px;
+      height: 560px;
+      background: linear-gradient(145deg, #1a1a2e 0%, #0f0f1e 100%);
+      border-radius: 40px;
+      padding: 12px;
+      box-shadow: 
+        0 40px 80px rgba(0,0,0,0.6),
+        0 0 0 2px rgba(168, 85, 247, 0.3),
+        0 0 60px rgba(168, 85, 247, 0.2);
+      position: relative;
+    }
+    
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #0f0f1e 0%, #1a1a2e 100%);
+      border-radius: 32px;
+      overflow: hidden;
+      padding: 20px;
+    }
+    
+    .screen-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.6);
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+    
+    .screen-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 24px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .search-bar span {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+    }
+    
+    .categories {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    
+    .cat {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    
+    .cat.active {
+      background: linear-gradient(135deg, #A855F7 0%, #6366F1 100%);
+    }
+    
+    .cat:not(.active) {
+      background: rgba(255,255,255,0.05);
+    }
+    
+    .product {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    
+    .product-img {
+      width: 100%;
+      height: 80px;
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(99, 102, 241, 0.2) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+    
+    .product-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 4px;
+    }
+    
+    .product-price {
+      font-size: 16px;
+      font-weight: 700;
+      color: #A855F7;
+    }
+    
+    /* Floating Stats */
+    .stat-card {
+      position: absolute;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    
+    .stat-1 {
+      top: 20%;
+      left: -60px;
+    }
+    
+    .stat-2 {
+      bottom: 25%;
+      right: -40px;
+    }
+    
+    .stat-value {
+      font-size: 32px;
+      font-weight: 800;
+      color: #A855F7;
+      margin-bottom: 4px;
+    }
+    
+    .stat-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+    }
+    
+    /* Phone Glow */
+    .phone-glow {
+      position: absolute;
+      inset: -30px;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+      border-radius: 60px;
+      z-index: -1;
+    }
+    
+    /* Screenshot Button */
+    .controls {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 16px;
+      z-index: 100;
+    }
+    
+    .btn {
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #A855F7 0%, #6366F1 100%);
+      border: none;
+      border-radius: 12px;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);
+      transition: transform 0.2s;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="cover" id="cover">
+    <div class="bg-grid"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    
+    <div class="content">
+      <!-- Left Side -->
+      <div class="left">
+        <div class="eyebrow">UI/UX Case Study</div>
+        <h1 class="title">QuickCart</h1>
+        <h2 class="subtitle">Online Delivery App</h2>
+        <div class="tags">
+          <span class="tag tag-highlight">Quick Commerce</span>
+          <span class="tag">UX Research</span>
+          <span class="tag">Mobile App</span>
+          <span class="tag">Product Design</span>
+        </div>
+      </div>
+      
+      <!-- Right Side -->
+      <div class="right">
+        <!-- Floating Stats -->
+        <div class="stat-card stat-1">
+          <div class="stat-value">2.4M+</div>
+          <div class="stat-label">Deliveries</div>
+        </div>
+        <div class="stat-card stat-2">
+          <div class="stat-value">4.9</div>
+          <div class="stat-label">User Rating</div>
+        </div>
+        
+        <!-- Phone -->
+        <div class="phone">
+          <div class="phone-glow"></div>
+          <div class="phone-screen">
+            <div class="screen-header">
+              <span>📍 San Francisco, CA</span>
+            </div>
+            <div class="screen-title">Find the best<br>groceries</div>
+            <div class="search-bar">
+              <span>🔍 Search products...</span>
+            </div>
+            <div class="categories">
+              <div class="cat active">🥬</div>
+              <div class="cat">🍎</div>
+              <div class="cat">🥛</div>
+              <div class="cat">🥩</div>
+            </div>
+            <div class="product">
+              <div class="product-img">🥦</div>
+              <div class="product-name">Organic Broccoli</div>
+              <div class="product-price">$4.99</div>
+            </div>
+            <div class="product">
+              <div class="product-img">🍞</div>
+              <div class="product-name">Sourdough Bread</div>
+              <div class="product-price">$6.49</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="controls">
+    <button class="btn" onclick="downloadCover()">📸 Download Cover</button>
+    <button class="btn btn-secondary" onclick="toggleSize()">🔍 Toggle Size</button>
+  </div>
+  
+  <script>
+    let fullSize = false;
+    
+    function toggleSize() {
+      const cover = document.getElementById('cover');
+      fullSize = !fullSize;
+      
+      if (fullSize) {
+        cover.style.width = '8080px';
+        cover.style.maxWidth = 'none';
+        cover.style.transform = 'scale(0.2)';
+        cover.style.transformOrigin = 'top left';
+        document.body.style.overflow = 'auto';
+        document.body.style.width = '8080px';
+        document.body.style.height = '4040px';
+      } else {
+        cover.style.width = '';
+        cover.style.maxWidth = '';
+        cover.style.transform = '';
+        cover.style.transformOrigin = '';
+        document.body.style.overflow = '';
+        document.body.style.width = '';
+        document.body.style.height = '';
+      }
+    }
+    
+    function downloadCover() {
+      alert('To save at full resolution:\n1. Click "Toggle Size" to switch to 8080×4040\n2. Use browser screenshot tool (DevTools > Capture screenshot)\n3. Or use a screen capture extension');
+    }
+  </script>
+</body>
+</html>

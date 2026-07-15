@@ -1,0 +1,35 @@
+---
+import Section from "../components/ui/Section.astro";
+---
+
+<Section
+  id="services"
+  eyebrow="Services"
+  title="What I Can Help You Build"
+  subtitle="Premium UI/UX design services for modern products and platforms."
+>
+  <div class="grid gap-4 md:grid-cols-3">
+    {[
+      "AI Product Interfaces",
+      "SaaS Platforms",
+      "CRM & Dashboard Design",
+      "Mobile App Design",
+      "Landing Pages",
+      "Design Systems",
+      "UX Research",
+      "Interactive Prototypes",
+      "AI Workflow Integration",
+    ].map((service) => (
+      <div class="glass rounded-[--radius-lg] p-6 transition hover:-translate-y-1 hover:shadow-[--shadow-glow]">
+        <div class="flex items-center gap-3">
+          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[--accent] text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <h3 class="text-sm font-semibold">{service}</h3>
+        </div>
+      </div>
+    ))}
+  </div>
+</Section>

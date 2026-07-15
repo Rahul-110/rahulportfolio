@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav/Nav.astro";
+import Hero from "../sections/Hero.astro";
+import Story from "../sections/Story.astro";
+import CaseStudies from "../sections/CaseStudies.astro";
+import Skills from "../sections/Skills.astro";
+import Services from "../sections/Services.tsx";
+import Contact from "../sections/Contact.astro";
+---
+
+<BaseLayout title="Rahul Portfolio">
+  <main class="min-h-dvh">
+    <Nav />
+    <Hero />
+    <Story />
+    <CaseStudies />
+    <Skills />
+    <Services client:load />
+    <Contact />
+  </main>
+</BaseLayout>

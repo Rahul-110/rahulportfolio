@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juice Rush Behance Cover Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #faf8f5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+    
+    /* Behance Cover Container - 2:1 aspect ratio */
+    .cover {
+      width: 100%;
+      max-width: 1600px;
+      aspect-ratio: 2 / 1;
+      background: linear-gradient(135deg, #fff8f0 0%, #fff5e6 50%, #fff9f0 100%);
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 50px 100px rgba(249, 115, 22, 0.15);
+    }
+    
+    /* Background decorative elements */
+    .bg-shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.6;
+    }
+    
+    .shape-1 {
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      top: -80px;
+      left: -50px;
+    }
+    
+    .shape-2 {
+      width: 250px;
+      height: 250px;
+      background: linear-gradient(135deg, #a3e635 0%, #84cc16 100%);
+      bottom: -40px;
+      right: 25%;
+      opacity: 0.4;
+    }
+    
+    .shape-3 {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
+      top: 40%;
+      right: 5%;
+      opacity: 0.5;
+    }
+    
+    .shape-4 {
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
+      bottom: 20%;
+      left: 15%;
+      opacity: 0.4;
+    }
+    
+    /* Floating fruit emojis */
+    .fruit {
+      position: absolute;
+      font-size: 60px;
+      opacity: 0.15;
+      filter: blur(2px);
+    }
+    
+    .fruit-1 { top: 10%; left: 5%; transform: rotate(-20deg); }
+    .fruit-2 { top: 60%; left: 8%; transform: rotate(15deg); }
+    .fruit-3 { bottom: 15%; left: 20%; transform: rotate(-10deg); }
+    .fruit-4 { top: 20%; right: 35%; transform: rotate(25deg); }
+    .fruit-5 { bottom: 30%; right: 15%; transform: rotate(-15deg); }
+    
+    /* Content */
+    .content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      height: 100%;
+      padding: 60px 80px;
+    }
+    
+    /* Left Side */
+    .left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .brand-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 20px 40px rgba(249, 115, 22, 0.3);
+    }
+    
+    .eyebrow {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(249, 115, 22, 0.7);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    
+    .title {
+      font-size: 120px;
+      font-weight: 800;
+      line-height: 0.9;
+      color: #1a1a1a;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    
+    .subtitle {
+      font-size: 28px;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.6);
+      margin-bottom: 30px;
+    }
+    
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    
+    .tag {
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(249, 115, 22, 0.2);
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .tag-highlight {
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(251, 191, 36, 0.15) 100%);
+      border-color: rgba(249, 115, 22, 0.4);
+      color: #ea580c;
+    }
+    
+    /* Right Side - Phone */
+    .right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .phone {
+      width: 280px;
+      height: 560px;
+      background: linear-gradient(145deg, #ffffff 0%, #f8f8f8 100%);
+      border-radius: 40px;
+      padding: 12px;
+      box-shadow: 
+        0 40px 80px rgba(0, 0, 0, 0.15),
+        0 0 0 2px rgba(249, 115, 22, 0.2),
+        0 0 60px rgba(249, 115, 22, 0.15);
+      position: relative;
+    }
+    
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #fff8f0 0%, #ffffff 100%);
+      border-radius: 32px;
+      overflow: hidden;
+      padding: 20px;
+    }
+    
+    .screen-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .logo-text {
+      font-size: 18px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .screen-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    
+    .screen-subtitle {
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
+    }
+    
+    .juice-card {
+      background: white;
+      border-radius: 20px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .juice-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+    
+    .juice-img.orange { background: linear-gradient(135deg, #fed7aa 0%, #fbbf24 100%); }
+    .juice-img.green { background: linear-gradient(135deg, #d9f99d 0%, #a3e635 100%); }
+    .juice-img.pink { background: linear-gradient(135deg, #fbcfe8 0%, #f472b6 100%); }
+    
+    .juice-info {
+      flex: 1;
+    }
+    
+    .juice-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+    }
+    
+    .juice-price {
+      font-size: 18px;
+      font-weight: 700;
+      color: #f97316;
+    }
+    
+    .add-btn {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+    }
+    
+    /* Floating Stats */
+    .stat-card {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(249, 115, 22, 0.2);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .stat-1 {
+      top: 20%;
+      left: -60px;
+    }
+    
+    .stat-2 {
+      bottom: 25%;
+      right: -40px;
+    }
+    
+    .stat-value {
+      font-size: 32px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 4px;
+    }
+    
+    .stat-label {
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Phone Glow */
+    .phone-glow {
+      position: absolute;
+      inset: -30px;
+      background: radial-gradient(circle, rgba(249, 115, 22, 0.1) 0%, transparent 70%);
+      border-radius: 60px;
+      z-index: -1;
+    }
+    
+    /* Controls */
+    .controls {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 16px;
+      z-index: 100;
+    }
+    
+    .btn {
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+      border: none;
+      border-radius: 12px;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
+      transition: transform 0.2s;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.9);
+      color: #1a1a1a;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="cover" id="cover">
+    <!-- Background shapes -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+    <div class="bg-shape shape-4"></div>
+    
+    <!-- Floating fruits -->
+    <div class="fruit fruit-1">🍊</div>
+    <div class="fruit fruit-2">🥭</div>
+    <div class="fruit fruit-3">🍋</div>
+    <div class="fruit fruit-4">🍓</div>
+    <div class="fruit fruit-5">🥝</div>
+    
+    <div class="content">
+      <!-- Left Side -->
+      <div class="left">
+        <div class="brand-icon">🧃</div>
+        <div class="eyebrow">UI/UX Case Study</div>
+        <h1 class="title">Juice<br>Rush</h1>
+        <h2 class="subtitle">Fresh Juice Delivery Mobile App</h2>
+        <div class="tags">
+          <span class="tag tag-highlight">Food Delivery</span>
+          <span class="tag">Brand Identity</span>
+          <span class="tag">Mobile App</span>
+          <span class="tag">Product Design</span>
+        </div>
+      </div>
+      
+      <!-- Right Side -->
+      <div class="right">
+        <!-- Floating Stats -->
+        <div class="stat-card stat-1">
+          <div class="stat-value">150K+</div>
+          <div class="stat-label">App Downloads</div>
+        </div>
+        <div class="stat-card stat-2">
+          <div class="stat-value">4.8</div>
+          <div class="stat-label">App Store Rating</div>
+        </div>
+        
+        <!-- Phone -->
+        <div class="phone">
+          <div class="phone-glow"></div>
+          <div class="phone-screen">
+            <div class="screen-header">
+              <span class="logo-text">Juice Rush</span>
+            </div>
+            <div class="screen-title">Fresh &<br>Healthy</div>
+            <div class="screen-subtitle">Order healthy juices & smoothies</div>
+            
+            <div class="juice-card">
+              <div class="juice-img orange">🍊</div>
+              <div class="juice-info">
+                <div class="juice-name">Orange Sunrise</div>
+                <div class="juice-price">$6.99</div>
+              </div>
+              <div class="add-btn">+</div>
+            </div>
+            
+            <div class="juice-card">
+              <div class="juice-img green">🥬</div>
+              <div class="juice-info">
+                <div class="juice-name">Green Detox</div>
+                <div class="juice-price">$8.49</div>
+              </div>
+              <div class="add-btn">+</div>
+            </div>
+            
+            <div class="juice-card">
+              <div class="juice-img pink">🍓</div>
+              <div class="juice-info">
+                <div class="juice-name">Berry Blast</div>
+                <div class="juice-price">$7.99</div>
+              </div>
+              <div class="add-btn">+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="controls">
+    <button class="btn" onclick="downloadCover()">📸 Save as PNG</button>
+    <button class="btn btn-secondary" onclick="toggleSize()">🔍 Full Size</button>
+  </div>
+  
+  <script>
+    let fullSize = false;
+    
+    function toggleSize() {
+      const cover = document.getElementById('cover');
+      fullSize = !fullSize;
+      
+      if (fullSize) {
+        cover.style.width = '8080px';
+        cover.style.maxWidth = 'none';
+        cover.style.transform = 'scale(0.2)';
+        cover.style.transformOrigin = 'top left';
+        document.body.style.overflow = 'auto';
+        document.body.style.width = '8080px';
+        document.body.style.height = '4040px';
+      } else {
+        cover.style.width = '';
+        cover.style.maxWidth = '';
+        cover.style.transform = '';
+        cover.style.transformOrigin = '';
+        document.body.style.overflow = '';
+        document.body.style.width = '';
+        document.body.style.height = '';
+      }
+    }
+    
+    function downloadCover() {
+      alert('To save at full resolution:\n1. Click "🔍 Full Size" to switch to 8080×4040\n2. Use browser screenshot tool (DevTools > Capture screenshot)\n3. Or use GoFullPage extension');
+    }
+  </script>
+</body>
+</html>
