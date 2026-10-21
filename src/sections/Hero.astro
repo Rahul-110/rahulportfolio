@@ -1,9 +1,10 @@
 ---
 import Container from "../components/ui/Container.astro";
 import MouseParallax from "../components/motion/MouseParallax";
+import HeroReveal from "../components/motion/HeroReveal";
 ---
 
-<section class="relative overflow-hidden pb-12 pt-14 sm:pb-16 sm:pt-20">
+<section class="relative overflow-hidden pb-12 pt-14 sm:pb-16 sm:pt-20" data-hero-root>
   <div class="pointer-events-none absolute inset-0 -z-10">
     <div class="absolute inset-0 opacity-70 [mask-image:radial-gradient(60%_60%_at_50%_20%,black,transparent)]">
       <div
@@ -29,22 +30,22 @@ import MouseParallax from "../components/motion/MouseParallax";
   <Container>
     <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
       <div class="mx-auto max-w-xl text-center lg:mx-0 lg:text-left">
-        <div class="inline-flex items-center gap-2 rounded-full bg-[--surface] px-4 py-2 hairline">
+        <div class="inline-flex items-center gap-2 rounded-full bg-[--surface] px-4 py-2 hairline" data-hero-item>
           <span class="relative size-2 rounded-full bg-emerald-400">
             <span class="absolute inset-0 rounded-full bg-emerald-400 opacity-40 blur-[6px]" />
           </span>
           <span class="text-xs font-semibold tracking-wide text-[--muted]">Available for UI UX Design | Product Design</span>
         </div>
 
-        <h1 class="mt-7 font-display text-5xl leading-[1.02] tracking-tight sm:text-6xl">
+        <h1 class="mt-7 font-display text-5xl leading-[1.02] tracking-tight sm:text-6xl" data-hero-item>
           Rahul <span class="grad-text">— UI/UX Designer</span>
         </h1>
-        <p class="mt-6 text-base text-muted sm:text-lg">
+        <p class="mt-6 text-base text-muted sm:text-lg" data-hero-item>
           I design premium product experiences that feel effortless, communicate value fast, and convert—through
           sharp UX hierarchy, clean UI, and polished interactions.
         </p>
 
-        <div class="mt-10 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
+        <div class="mt-10 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center" data-hero-item>
           <a href="#work" class="btn btn-primary w-full sm:w-auto">
             View Work <span aria-hidden="true">→</span>
           </a>
@@ -53,7 +54,7 @@ import MouseParallax from "../components/motion/MouseParallax";
           </a>
         </div>
 
-        <div class="mt-10 grid grid-cols-3 gap-3 sm:gap-4">
+        <div class="mt-10 grid grid-cols-3 gap-3 sm:gap-4" data-hero-item>
           {[
             { k: "2+", v: "Years designing" },
             { k: "20+", v: "Shipped projects" },
@@ -68,7 +69,7 @@ import MouseParallax from "../components/motion/MouseParallax";
       </div>
 
       <!-- Floating UI mockup visual (subtle, does not overpower text) -->
-      <div class="relative mx-auto w-full max-w-xl lg:max-w-none">
+      <div class="relative mx-auto w-full max-w-xl lg:max-w-none" data-hero-visual>
         <div
           class="pointer-events-none absolute -inset-6 -z-10 card opacity-80 blur-2xl"
           style="background: radial-gradient(circle at 30% 30%, rgba(167,139,250,.22), transparent 60%), radial-gradient(circle at 70% 55%, rgba(96,165,250,.16), transparent 55%);"
@@ -219,6 +220,7 @@ import MouseParallax from "../components/motion/MouseParallax";
 
           <!-- Mount the mouse parallax controller inside the visual block -->
           <MouseParallax client:load strength={14} />
+          <HeroReveal client:load />
         </div>
       </div>
     </div>
