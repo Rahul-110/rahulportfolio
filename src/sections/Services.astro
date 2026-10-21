@@ -20,14 +20,17 @@ import Section from "../components/ui/Section.astro";
       "Interactive Prototypes",
       "AI Workflow Integration",
     ].map((service) => (
-      <div class="glass rounded-[--radius-lg] p-6 transition hover:-translate-y-1 hover:shadow-[--shadow-glow]">
-        <div class="flex items-center gap-3">
-          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[--accent] text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <div class="group relative overflow-hidden rounded-lg border border-[--border] bg-[--surface] p-8 transition-all duration-300 hover:border-[--border-strong] hover:bg-[--surface2]" data-tilt>
+        <div class="relative z-10 flex flex-col gap-4">
+          <div class="flex h-10 w-10 items-center justify-center rounded-md bg-[--bg] border border-[--border] text-white transition-transform group-hover:scale-110 group-hover:border-[--border-strong]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
           </div>
-          <h3 class="text-sm font-semibold">{service}</h3>
+          <h3 class="text-sm font-bold tracking-tight text-white">{service}</h3>
+        </div>
+        <div class="absolute -right-4 -bottom-4 text-8xl font-black text-white/[0.02] transition-transform group-hover:scale-110 group-hover:text-white/[0.04]">
+          {service.split(' ')[0]}
         </div>
       </div>
     ))}

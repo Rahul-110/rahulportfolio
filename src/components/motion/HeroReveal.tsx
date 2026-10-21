@@ -21,14 +21,13 @@ export default function HeroReveal() {
     if (items.length) {
       tl.fromTo(
         items,
-        { autoAlpha: 0, y: 24, scale: 0.98 },
+        { autoAlpha: 0, y: 40 },
         {
           autoAlpha: 1,
           y: 0,
-          scale: 1,
-          duration: 0.85,
-          stagger: 0.08,
-          clearProps: "transform,opacity",
+          duration: 1.2,
+          stagger: 0.12,
+          clearProps: "all",
         }
       );
     }
