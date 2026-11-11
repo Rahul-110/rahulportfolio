@@ -106,56 +106,87 @@ export default function SkillsSection() {
     <section
       ref={sectionRef}
       id="toolkit"
-      className="relative overflow-hidden py-32 sm:py-40 bg-[#030305] text-white"
+      className="relative overflow-hidden py-32 sm:py-48 bg-[#030305] text-white"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* Background Ambient Depth */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute left-[-10%] top-1/4 h-[800px] w-[800px] bg-[#6EA8FF]/5 blur-[160px] rounded-full" />
+        <div className="absolute right-[-10%] bottom-1/4 h-[800px] w-[800px] bg-[#A970FF]/5 blur-[160px] rounded-full" />
+      </div>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+        {/* Continuous Process Line */}
+        <div className="absolute left-[31px] md:left-[51px] top-40 bottom-0 w-px bg-gradient-to-b from-white/20 via-white/10 to-transparent hidden md:block" />
+
         {/* Editorial Intro */}
-        <div className="mb-32 flex flex-col md:flex-row gap-12 border-b border-white/10 pb-20">
-          <div className="md:w-1/3">
-            <span className="text-[10px] font-mono font-bold tracking-[0.3em] text-[#6EA8FF] uppercase">
+        <div className="mb-48 flex flex-col md:flex-row gap-12 border-b border-white/10 pb-24">
+          <div className="md:w-5/12">
+            <span className="text-[10px] font-mono font-bold tracking-[0.4em] text-[#6EA8FF] uppercase bg-[#6EA8FF]/10 border border-[#6EA8FF]/20 px-4 py-1.5 rounded-full inline-block mb-8">
               04 / My Toolkit
             </span>
-            <h2 className="mt-6 font-display text-5xl md:text-7xl font-bold tracking-tighter leading-[0.9]">
-              The tools <br />
-              <span className="text-white/40 italic">behind the</span> <br />
-              thinking.
+            <h2 className="font-display text-6xl md:text-8xl font-bold tracking-tighter leading-[0.85]">
+              Tools for <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/30 italic">thinking.</span>
             </h2>
           </div>
-          <div className="md:w-2/3 flex items-end">
-            <p className="text-lg md:text-xl font-light text-[#B3B5C0] max-w-lg leading-relaxed">
+          <div className="md:w-7/12 flex items-end">
+            <p className="text-xl md:text-2xl font-light text-[#B3B5C0] max-w-xl leading-relaxed">
               From the first sketch to the final experience, I use a combination of design, research and AI-powered tools to explore ideas, create intuitive interfaces and bring digital products to life.
             </p>
           </div>
         </div>
 
         {/* Editorial Content */}
-        <div className="space-y-32">
+        <div className="space-y-48">
           {TOOL_CATEGORIES.map((category, catIdx) => (
-            <div key={category.id} className="grid md:grid-cols-12 gap-12 items-start">
-              {/* Category Side-Title */}
-              <div className="md:col-span-4 sticky top-32">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: `${category.accentColor}20`, color: category.accentColor }}>
-                    <category.icon className="w-5 h-5" />
+            <div key={category.id} className="grid md:grid-cols-12 gap-12 md:gap-24 items-start relative">
+              {/* Category Side-Title with Connector Point */}
+              <div className="md:col-span-5 sticky top-40">
+                <div className="flex items-center gap-6 mb-10">
+                  <div className="w-10 h-10 rounded-2xl bg-white text-black flex items-center justify-center font-bold text-xs shadow-[0_0_20px_rgba(255,255,255,0.3)] z-10">
+                    {category.number}
                   </div>
-                  <span className="text-sm font-mono tracking-widest uppercase text-white/60">{category.number}</span>
+                  <div className="h-px flex-grow bg-gradient-to-r from-white/20 to-transparent" />
                 </div>
-                <h3 className="text-3xl font-display font-bold mb-4 tracking-tight">{category.title}</h3>
-                <p className="text-[#B3B5C0] font-light">{category.subtitle}</p>
+
+                <div className="space-y-6">
+                  <h3 className="text-5xl font-display font-bold tracking-tight leading-none">
+                    {category.title.split(' & ')[0]} <br />
+                    <span className="text-white/40 italic">{category.title.split(' & ')[1]}</span>
+                  </h3>
+                  <p className="text-[#B3B5C0] font-light text-lg leading-relaxed max-w-sm">
+                    {category.subtitle}
+                  </p>
+                </div>
               </div>
 
-              {/* Tools List */}
-              <div className="md:col-span-8">
-                <div className="divide-y divide-white/10">
-                  {category.tools.map((tool) => (
-                    <div key={tool.name} className="flex flex-col sm:flex-row sm:items-center py-8 gap-4 sm:gap-8 hover:bg-white/[0.02] transition-colors px-4 -mx-4 rounded-xl">
-                      <div className="sm:w-1/3">
-                        <h4 className="text-lg font-bold text-white">{tool.name}</h4>
-                        <span className="text-[10px] font-mono text-[#6EA8FF] uppercase tracking-widest">{tool.level}</span>
+              {/* Tools Asymmetric Grid */}
+              <div className="md:col-span-7 pt-2">
+                <div className="grid grid-cols-1 gap-6">
+                  {category.tools.map((tool, toolIdx) => (
+                    <div
+                      key={tool.name}
+                      className={`group p-8 rounded-[32px] border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] hover:border-white/20 transition-all duration-500 flex flex-col gap-6 ${toolIdx % 2 === 1 ? 'md:ml-12' : 'md:mr-12'}`}
+                    >
+                      <div className="flex justify-between items-center">
+                        <div className="flex items-center gap-4">
+                          <h4 className="text-2xl font-display font-bold text-white group-hover:text-[#6EA8FF] transition-colors">{tool.name}</h4>
+                          <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
+                          <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest">{tool.level}</span>
+                        </div>
+                        <span className="text-white/20 group-hover:text-[#6EA8FF] group-hover:translate-x-1 transition-all">↗</span>
                       </div>
-                      <p className="sm:w-2/3 text-sm text-[#B3B5C0] font-light leading-relaxed">
+                      <p className="text-base text-[#B3B5C0] font-light leading-relaxed">
                         {tool.desc}
                       </p>
+
+                      <div className="pt-4 border-t border-white/5 flex gap-2">
+                        {["Workflow", "Integrated"].map(tag => (
+                          <span key={tag} className="text-[9px] font-mono uppercase tracking-[0.2em] text-white/30 border border-white/10 px-2.5 py-1 rounded-md">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   ))}
                 </div>
