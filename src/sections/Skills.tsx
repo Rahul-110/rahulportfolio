@@ -130,7 +130,7 @@ export default function SkillsSection() {
             </h2>
           </div>
           <div className="md:w-7/12 flex items-end">
-            <p className="text-xl md:text-2xl font-light text-[#B3B5C0] max-w-xl leading-relaxed">
+            <p className="text-xl md:text-2xl font-normal text-[#E2E4EA] max-w-xl leading-relaxed">
               From the first sketch to the final experience, I use a combination of design, research and AI-powered tools to explore ideas, create intuitive interfaces and bring digital products to life.
             </p>
           </div>
@@ -154,7 +154,7 @@ export default function SkillsSection() {
                     {category.title.split(' & ')[0]} <br />
                     <span className="text-white/40 italic">{category.title.split(' & ')[1]}</span>
                   </h3>
-                  <p className="text-[#B3B5C0] font-light text-lg leading-relaxed max-w-sm">
+                  <p className="text-[#D1D4DC] font-normal text-base leading-relaxed max-w-sm">
                     {category.subtitle}
                   </p>
                 </div>
@@ -171,18 +171,18 @@ export default function SkillsSection() {
                       <div className="flex justify-between items-center">
                         <div className="flex items-center gap-4">
                           <h4 className="text-2xl font-display font-bold text-white group-hover:text-[#6EA8FF] transition-colors">{tool.name}</h4>
-                          <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
-                          <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest">{tool.level}</span>
+                          <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
+                          <span className="text-[10px] font-mono text-white/60 uppercase tracking-widest">{tool.level}</span>
                         </div>
-                        <span className="text-white/20 group-hover:text-[#6EA8FF] group-hover:translate-x-1 transition-all">↗</span>
+                        <span className="text-white/40 group-hover:text-[#6EA8FF] group-hover:translate-x-1 transition-all">↗</span>
                       </div>
-                      <p className="text-base text-[#B3B5C0] font-light leading-relaxed">
+                      <p className="text-base text-[#D1D4DC] font-normal leading-relaxed">
                         {tool.desc}
                       </p>
 
-                      <div className="pt-4 border-t border-white/5 flex gap-2">
+                      <div className="pt-4 border-t border-white/10 flex gap-2">
                         {["Workflow", "Integrated"].map(tag => (
-                          <span key={tag} className="text-[9px] font-mono uppercase tracking-[0.2em] text-white/30 border border-white/10 px-2.5 py-1 rounded-md">
+                          <span key={tag} className="text-[9px] font-mono uppercase tracking-[0.2em] text-white/50 border border-white/20 px-2.5 py-1 rounded-md">
                             {tag}
                           </span>
                         ))}
