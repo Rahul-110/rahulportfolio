@@ -2,8 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav/Nav.astro";
 import Hero from "../sections/Hero.astro";
-import Story from "../sections/Story.astro";
+import AboutMe from "../sections/AboutMe.astro";
 import CaseStudies from "../sections/CaseStudies.astro";
+import DesignProcess from "../sections/DesignProcess.tsx";
 import Skills from "../sections/Skills.astro";
 import Services from "../sections/Services.tsx";
 import Contact from "../sections/Contact.astro";
@@ -13,8 +14,9 @@ import Contact from "../sections/Contact.astro";
   <main class="min-h-dvh">
     <Nav />
     <Hero />
-    <Story />
+    <AboutMe />
     <CaseStudies />
+    <DesignProcess client:load />
     <Skills />
     <Services client:load />
     <Contact />

@@ -1,272 +1,144 @@
 import { motion } from 'framer-motion';
-import ServiceCard from '../components/ServiceCard';
+import {
+  Brain,
+  LayoutGrid,
+  Smartphone,
+  Compass,
+  Database,
+  PenTool,
+} from 'lucide-react';
 
 const services = [
   {
+    icon: Brain,
     title: 'AI Product Design',
     description: 'Design intelligent AI-powered interfaces that simplify complex workflows and improve user productivity.',
     tags: ['AI UX', 'LLM', 'Automation'],
-    icon: 'AI Product Design' as const,
     featured: true,
-    rowSpan: 2,
   },
   {
+    icon: LayoutGrid,
     title: 'SaaS Product Design',
     description: 'Scalable dashboards, CRM systems, admin panels, and enterprise web applications.',
     tags: ['Dashboard', 'CRM', 'Analytics'],
-    icon: 'SaaS Product Design' as const,
     featured: false,
-    rowSpan: 1,
   },
   {
+    icon: Smartphone,
     title: 'Mobile App Design',
     description: 'Create intuitive Android and iOS experiences with user-centered design principles.',
     tags: ['iOS', 'Android', 'Responsive'],
-    icon: 'Mobile App Design' as const,
     featured: false,
-    rowSpan: 1,
   },
   {
+    icon: Compass,
     title: 'UX Strategy',
     description: 'Research, user flows, information architecture, usability testing, and product validation.',
     tags: ['Research', 'Wireframes'],
-    icon: 'UX Strategy' as const,
     featured: false,
-    rowSpan: 1,
   },
   {
+    icon: Database,
     title: 'Design Systems',
     description: 'Build scalable component libraries and consistent design systems for growing products.',
     tags: ['Components', 'Tokens'],
-    icon: 'Design Systems' as const,
-    featured: false,
-    rowSpan: 1,
+    featured: true,
   },
   {
+    icon: PenTool,
     title: 'Interactive Prototypes',
     description: 'High-fidelity prototypes with realistic interactions and motion.',
     tags: ['Figma', 'Prototype'],
-    icon: 'Interactive Prototypes' as const,
     featured: false,
-    rowSpan: 1,
-  },
-  {
-    title: 'AI Workflow Integration',
-    description: 'Use AI tools to accelerate ideation, design exploration, documentation, and developer handoff.',
-    tags: ['Cursor', 'ChatGPT', 'Claude'],
-    icon: 'AI Workflow Integration' as const,
-    featured: false,
-    rowSpan: 1,
-  },
-  {
-    title: 'Developer Handoff',
-    description: 'Production-ready specifications, design documentation, assets, and implementation guidance.',
-    tags: ['Dev Mode', 'Tokens'],
-    icon: 'Developer Handoff' as const,
-    featured: false,
-    rowSpan: 1,
-  },
-  {
-    title: 'Product Optimization',
-    description: 'Improve usability, accessibility, and conversion through continuous UX improvements.',
-    tags: ['WCAG', 'CRO'],
-    icon: 'Product Optimization' as const,
-    featured: false,
-    rowSpan: 1,
   },
 ];
 
-export default function Services() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
-  };
-
-  const particleVariants = {
-    animate: {
-      y: [0, -20, 0],
-      opacity: [0.3, 0.6, 0.3],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut" as const
-      }
-    }
-  };
-
+export default function ServicesSection() {
   return (
-    <section 
-      id="services" 
-      className="relative py-24 md:py-32 overflow-hidden"
-      style={{ background: '#050816' }}
+    <section
+      id="services"
+      className="relative py-32 sm:py-40 bg-[#030305]"
     >
-      {/* Background Effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Radial gradient glow */}
-        <div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full"
-          style={{
-            background: 'radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, rgba(99, 102, 241, 0.08) 40%, transparent 70%)',
-          }}
-        />
-        
-        {/* Blurred orbs */}
-        <motion.div
-          className="absolute top-20 left-20 w-64 h-64 rounded-full blur-3xl"
-          style={{ background: 'rgba(168, 85, 247, 0.2)' }}
-          animate={{
-            x: [0, 30, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        
-        <motion.div
-          className="absolute bottom-20 right-20 w-80 h-80 rounded-full blur-3xl"
-          style={{ background: 'rgba(99, 102, 241, 0.15)' }}
-          animate={{
-            x: [0, -30, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-
-        {/* Grid pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, #ffffff 1px, transparent 1px),
-              linear-gradient(to bottom, #ffffff 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px',
-          }}
-        />
-
-        {/* Floating particles */}
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 rounded-full"
-            style={{
-              background: 'rgba(168, 85, 247, 0.4)',
-              left: `${20 + i * 15}%`,
-              top: `${30 + (i % 3) * 20}%`,
-            }}
-            variants={particleVariants}
-            animate="animate"
-            transition={{ delay: i * 0.5 }}
-          />
-        ))}
+      {/* Dramatic Ambient Lighting */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute left-[-20%] top-[-10%] h-[800px] w-[800px] bg-gradient-to-r from-purple-900/20 to-transparent blur-[120px]" />
+        <div className="absolute right-[-20%] bottom-[-10%] h-[800px] w-[800px] bg-gradient-to-l from-blue-900/20 to-transparent blur-[120px]" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16 md:mb-24"
-        >
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="inline-block px-4 py-2 mb-6 text-sm font-semibold tracking-wider uppercase rounded-full border border-[#A855F7]/30 bg-[#A855F7]/10 text-[#A855F7]"
-          >
-            Services
-          </motion.span>
-          
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#F8FAFC] mb-6 leading-tight"
-          >
-            Build Digital Products That Scale
-          </motion.h2>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="text-lg md:text-xl text-[#94A3B8] max-w-3xl mx-auto leading-relaxed"
-          >
-            From AI-powered interfaces to enterprise SaaS platforms, I design intuitive, scalable experiences that solve real business problems.
-          </motion.p>
-        </motion.div>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        {/* Editorial Header */}
+        <div className="mb-24 flex flex-col md:flex-row justify-between items-end gap-8 border-b border-white/10 pb-12">
+            <div className="max-w-2xl">
+                <motion.span
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-xs font-semibold tracking-[0.3em] uppercase text-[#6EA8FF]"
+                >
+                    Core Capabilities
+                </motion.span>
+                <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 }}
+                    className="mt-6 text-5xl md:text-7xl font-display font-bold text-[#F5F5F7] tracking-tighter"
+                >
+                    Architecting <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A970FF] to-[#6EA8FF]">Digital Experiences</span>
+                </motion.h2>
+            </div>
+            <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="max-w-xs text-sm text-[#B3B5C0] leading-relaxed"
+            >
+                Bridging the gap between complex user needs and sophisticated business goals through systematic design.
+            </motion.p>
+        </div>
 
         {/* Bento Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[minmax(200px,auto)]"
-        >
-          {services.map((service, index) => (
-            <ServiceCard
-              key={service.title}
-              {...service}
-              index={index}
-              className={service.rowSpan === 2 ? 'md:row-span-2' : ''}
-            />
-          ))}
-        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[280px]">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className={`group relative rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-transparent p-8 backdrop-blur-md transition-all duration-700 hover:border-[#6EA8FF]/40 ${service.featured ? 'lg:col-span-2' : ''}`}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#A970FF]/0 to-[#6EA8FF]/0 opacity-0 group-hover:opacity-10 transition-opacity duration-700" />
 
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="mt-20 md:mt-32 text-center"
-        >
-          <h3 className="text-3xl md:text-4xl font-bold text-[#F8FAFC] mb-4">
-            Ready to Build Your Next Product?
-          </h3>
-          <p className="text-lg text-[#94A3B8] mb-8 max-w-2xl mx-auto">
-            Let's transform your idea into a scalable digital experience with thoughtful UX and modern product design.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.a
-              href="#case-studies"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 rounded-full font-semibold text-white transition-all"
-              style={{
-                background: 'linear-gradient(135deg, #A855F7, #6366F1)',
-                boxShadow: '0 4px 20px rgba(168, 85, 247, 0.4)',
-              }}
-            >
-              View My Work
-            </motion.a>
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 rounded-full font-semibold border border-[#A855F7]/30 text-[#F8FAFC] transition-all hover:bg-[#A855F7]/10"
-            >
-              Let's Talk
-            </motion.a>
-          </div>
-        </motion.div>
+                <div className="relative z-10 flex flex-col justify-between h-full">
+                    <div>
+                        <div className="mb-6 inline-flex p-3 rounded-2xl bg-white/5 border border-white/10 text-[#6EA8FF] group-hover:scale-110 transition-transform duration-500">
+                          <Icon className="w-7 h-7" />
+                        </div>
+                        <h3 className="text-2xl font-display font-semibold text-[#F5F5F7] mb-3 group-hover:text-white transition-colors">
+                          {service.title}
+                        </h3>
+                        <p className="text-sm text-[#B3B5C0] leading-relaxed max-w-sm">
+                          {service.description}
+                        </p>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 pt-6">
+                        {service.tags.map(tag => (
+                        <span key={tag} className="text-[10px] px-3 py-1.5 rounded-full bg-white/5 border border-white/5 text-[#B3B5C0]/80 font-mono tracking-wider">
+                            {tag}
+                        </span>
+                        ))}
+                    </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

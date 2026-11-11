@@ -1,0 +1,163 @@
+---
+import Container from "../components/ui/Container.astro";
+import AboutCharacterVideo from "../components/motion/AboutCharacterVideo";
+---
+
+<section id="about" class="relative min-h-[110dvh] flex flex-col justify-center overflow-hidden py-24 md:py-32 bg-[#030305]" data-about-root>
+  {/* Cinematic Background with Entrance Reveal */}
+  <div class="absolute inset-0 pointer-events-none -z-10 overflow-hidden" data-about-bg>
+    <div
+      class="absolute inset-0 w-full h-full bg-cover bg-no-repeat opacity-0 transition-opacity duration-1000 ease-out"
+      style="background-image: url('/images/about-background.png'); background-position: center 60%;"
+      data-about-img
+    ></div>
+    {/* Localized Dark Overlays */}
+    <div class="absolute inset-0 bg-gradient-to-r from-[#030305] via-[#030305]/70 to-transparent pointer-events-none"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#030305] via-transparent to-[#030305]/60 pointer-events-none"></div>
+    <div class="absolute inset-0 lg:hidden bg-[#030305]/40 pointer-events-none"></div>
+  </div>
+
+  <Container class="relative z-10">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+      {/* Left Column: Story */}
+      <div class="lg:col-span-7 space-y-10" data-about-content>
+        <div class="space-y-4 translate-y-8 opacity-0 transition-all duration-700 ease-out" data-reveal>
+          <span class="text-[#6EA8FF] font-semibold tracking-[0.4em] text-[10px] uppercase bg-[#6EA8FF]/10 border border-[#6EA8FF]/20 px-4 py-1.5 rounded-full backdrop-blur-md inline-block">
+            A LITTLE ABOUT ME
+          </span>
+
+          <h2 class="font-display text-4xl sm:text-6xl font-bold tracking-tight text-[#F5F5F7] leading-[1.1]">
+            Curious by nature.<br />
+            <span class="bg-gradient-to-r from-[#FF8A3D] via-[#A970FF] to-[#6EA8FF] bg-clip-text text-transparent drop-shadow-[0_10px_35px_rgba(169,112,255,0.2)]">
+              Creative by design.
+            </span>
+          </h2>
+        </div>
+
+        <div class="space-y-6 text-[#B3B5C0] text-lg font-light leading-relaxed max-w-2xl backdrop-blur-md bg-black/30 p-8 rounded-3xl border border-white/5 shadow-2xl translate-y-8 opacity-0 transition-all duration-700 delay-150 ease-out" data-reveal>
+          <p class="text-white font-normal">
+            I'm a UI/UX Designer at Netpy Technologies with 1+ year of design experience. I currently work on SaaS products, creating user-centered interfaces that make complex workflows easier to understand and use.
+          </p>
+          <p>
+            My approach combines thoughtful research, interaction design, high-fidelity prototyping, and collaboration with developers to turn ideas into clear, accessible digital experiences.
+          </p>
+        </div>
+
+        {/* Proof Points */}
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-2 translate-y-8 opacity-0 transition-all duration-700 delay-300 ease-out" data-reveal>
+          <div class="space-y-1 border-l border-white/10 pl-5">
+            <span class="text-2xl font-bold text-white block">01+</span>
+            <span class="text-[10px] text-[#B3B5C0] uppercase tracking-[0.2em] font-medium">Design Experience</span>
+          </div>
+          <div class="space-y-1 border-l border-white/10 pl-5">
+            <span class="text-2xl font-bold text-[#A970FF] block">SaaS</span>
+            <span class="text-[10px] text-[#B3B5C0] uppercase tracking-[0.2em] font-medium">Product Focus</span>
+          </div>
+          <div class="space-y-1 border-l border-white/10 pl-5">
+            <span class="text-2xl font-bold text-[#FF8A3D] block">Research</span>
+            <span class="text-[10px] text-[#B3B5C0] uppercase tracking-[0.2em] font-medium">To Handoff</span>
+          </div>
+        </div>
+
+        <div class="pt-4 translate-y-8 opacity-0 transition-all duration-700 delay-450 ease-out" data-reveal>
+          <a
+            href="#work"
+            class="inline-flex items-center gap-3 bg-[#101116] border border-[#6EA8FF]/30 px-8 py-4 rounded-full text-white text-xs font-bold tracking-[0.1em] uppercase transition-all duration-500 hover:border-[#A970FF] hover:shadow-[0_0_30px_rgba(169,112,255,0.3)] hover:-translate-y-1 group"
+          >
+            <span>Explore My Journey</span>
+            <span class="text-[#6EA8FF] group-hover:translate-x-1 transition-transform">↗</span>
+          </a>
+        </div>
+      </div>
+
+      {/* Right Column: Character */}
+      <div class="lg:col-span-5 relative flex justify-center items-center scale-95 opacity-0 transition-all duration-1000 delay-500 ease-out" data-about-character>
+        <AboutCharacterVideo client:load />
+      </div>
+
+    </div>
+
+    {/* Professional Experience Teaser at Bottom */}
+    <div class="mt-32 pt-12 border-t border-white/10 flex flex-col items-center text-center space-y-6 opacity-0 translate-y-8 transition-all duration-700 delay-700 ease-out" data-reveal>
+      <p class="text-sm font-mono text-[#B3B5C0]/60 uppercase tracking-[0.3em]">
+        Every project adds a new perspective.
+      </p>
+      <a href="#work" class="group flex flex-col items-center gap-3 text-[#6EA8FF] hover:text-[#A970FF] transition-colors">
+        <span class="text-xs font-bold tracking-widest uppercase">See My Experience</span>
+        <div class="w-6 h-10 border border-white/20 rounded-full flex justify-center p-1">
+           <div class="w-1 h-2 bg-[#6EA8FF] rounded-full animate-bounce"></div>
+        </div>
+      </a>
+    </div>
+  </Container>
+
+  {/* Bottom Accent Hairline */}
+  <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#A970FF]/20 to-transparent"></div>
+</section>
+
+<script>
+  const observeAbout = () => {
+    const section = document.querySelector('[data-about-root]');
+    const bg = section?.querySelector('[data-about-img]');
+    const reveals = section?.querySelectorAll('[data-reveal]');
+    const character = section?.querySelector('[data-about-character]');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Reveal Background
+          if (bg) {
+            (bg as HTMLElement).style.opacity = '0.8';
+          }
+
+          // Staggered Content Reveal
+          reveals?.forEach(el => {
+            el.classList.remove('translate-y-8', 'opacity-0');
+            el.classList.add('translate-y-0', 'opacity-100');
+          });
+
+          // Reveal Character
+          if (character) {
+             character.classList.remove('scale-95', 'opacity-0');
+             character.classList.add('scale-100', 'opacity-100');
+          }
+
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    if (section) observer.observe(section);
+  };
+
+  document.addEventListener('astro:page-load', observeAbout);
+  observeAbout(); // Initial run
+</script>
+
+<style>
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+  }
+  .animate-bounce {
+    animation: bounce 2s infinite ease-in-out;
+  }
+
+  @media (max-width: 1024px) {
+    [data-about-img] {
+      background-position: center bottom !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal], [data-about-img], [data-about-character] {
+      transition: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    .animate-bounce {
+      animation: none !important;
+    }
+  }
+</style>

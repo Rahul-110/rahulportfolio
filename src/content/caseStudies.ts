@@ -15,50 +15,52 @@ export type CaseStudy = {
   finalUI: string[];
   outcomes: { label: string; value: string }[];
   links?: { label: string; href: string }[];
+  reflection: string;
 };
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "quickcart-online-delivery",
-    title: "Quickcart Online Delivery",
-    role: "UI/UX · Mobile · Research",
-    year: "2025",
-    tags: ["Problem", "Process", "Final UI"],
-    accent: "rgba(34, 197, 94, 0.22)",
+    slug: "lumora-ai",
+    title: "Lumora AI",
+    role: "Conversational AI · Product Design",
+    year: "2026",
+    tags: ["Product Design", "AI Interaction", "Design System"],
+    accent: "rgba(169, 112, 255, 0.25)",
     cover: {
-      src: "/quickcart-cover.png",
-      alt: "Quickcart Grocery Delivery App UX Case Study",
+      src: "/images/lumora-cover.webp",
+      alt: "Lumora AI Conversational Interface Case Study",
     },
-    summary: "A comprehensive online delivery app with UX research-driven design for e-commerce and shopping experience.",
+    summary: "Exploring a trust-first conversational AI experience through contextual interactions, transparency, and user control.",
     problem: [
-      "Complex e-commerce flows causing user drop-offs during checkout.",
-      "Need for intuitive navigation across multiple product categories.",
+      "Users often struggle to maintain context across complex multi-turn AI conversations.",
+      "Lack of transparent control over data privacy and state management in conversational tools.",
     ],
     process: [
       {
         title: "Discover",
-        points: ["UX research", "User journey mapping", "Pain point analysis"],
+        points: ["AI interaction patterns", "User mental models", "Trust & transparency research"],
       },
       {
         title: "Define",
-        points: ["Information architecture", "UX strategy", "Wireframing"],
+        points: ["Conversational architecture", "Prompt ergonomics", "Design system primitives"],
       },
       {
         title: "Design",
-        points: ["High-fidelity UI", "Design system", "Usability testing"],
+        points: ["Interactive prototypes", "Multi-modal components", "User testing & refinement"],
       },
     ],
     finalUI: [
-      "Streamlined product discovery and search experience.",
-      "Simplified checkout flow reducing cart abandonment.",
-      "Consistent design patterns across all screens.",
+      "Context-aware assistant interface with clear state indicators.",
+      "Modular components for code, data visualizations, and text output.",
+      "Seamless switching between autonomous agent workflows and direct control.",
     ],
     outcomes: [
-      { label: "Conversion", value: "Improved" },
-      { label: "UX", value: "Researched" },
-      { label: "Experience", value: "Seamless" },
+      { label: "Clarity", value: "High" },
+      { label: "Trust", value: "Verified" },
+      { label: "Adoption", value: "Seamless" },
     ],
-    links: [{ label: "View on Behance", href: "https://www.behance.net/gallery/245190999/Quickcart-Online-Delivery-App" }],
+    links: [{ label: "View on Behance", href: "https://www.behance.net/gallery/257469569/Lumora-AI" }],
+    reflection: "Designing for AI requires a careful balance between autonomous automation and explicit user control. This project taught me the importance of building transparent state indicators so users always understand what the AI is doing and why.",
   },
   {
     slug: "juice-rush-delivery-app",
@@ -68,7 +70,7 @@ export const caseStudies: CaseStudy[] = [
     tags: ["Problem", "Process", "Final UI"],
     accent: "rgba(249, 115, 22, 0.22)",
     cover: {
-      src: "https://images.unsplash.com/photo-1557825835-70d97c4aa567?auto=format&fit=crop&w=1600&q=80&fm=webp",
+      src: "/images/juice-rush-cover.png",
       alt: "Juice Rush mobile app UI mockup",
     },
     summary: "A vibrant juice and smoothie delivery experience with fresh visual identity and seamless ordering flow.",
@@ -100,72 +102,18 @@ export const caseStudies: CaseStudy[] = [
       { label: "Orders", value: "Increased" },
       { label: "Brand", value: "Recognizable" },
     ],
-    links: [{ label: "View on Behance", href: "https://www.behance.net/gallery/232240055/Juice-Rush-Online-Delivery-Mobile-Application" }],
-  },
-  {
-    slug: "indoor-plant-3d-carousel",
-    title: "Indoor Plant 3D Carousel",
-    role: "UI/UX · Web",
-    year: "2026",
-    tags: ["Problem", "System", "Final UI"],
-    accent: "rgba(96, 165, 250, 0.18)",
-    cover: {
-      src: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1600&q=80&fm=webp",
-      alt: "Minimal UI design sketch with premium lighting",
-    },
-    summary: "A minimal interface that supports a high-impact 3D interaction without compromising usability.",
-    problem: [
-      "3D UI easily becomes distracting and heavy if not structured.",
-      "Users need clear control affordances and stable navigation.",
-    ],
-    process: [
-      { title: "Define", points: ["Interaction states", "Control affordances", "Keyboard + focus considerations"] },
-      { title: "Design", points: ["Minimal UI shell", "Depth cues", "Motion with restraint"] },
-    ],
-    finalUI: ["Clean layout that frames the 3D object.", "Controls that feel obvious and responsive."],
-    outcomes: [
-      { label: "Delight", value: "High" },
-      { label: "Noise", value: "Low" },
-      { label: "Focus", value: "Strong" },
-    ],
-  },
-  {
-    slug: "doctor-appointment-booking",
-    title: "Doctor Appointment Booking",
-    role: "UI/UX · Web",
-    year: "2026",
-    tags: ["Problem", "Flow", "Final UI"],
-    accent: "rgba(167, 139, 250, 0.22)",
-    cover: {
-      src: "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80&fm=webp",
-      alt: "Product team reviewing UI on a laptop",
-    },
-    summary: "A trust-driven booking flow designed to reduce uncertainty and improve scheduling confidence.",
-    problem: [
-      "Healthcare booking UX breaks when availability and expectations aren’t clear.",
-      "Users need reassurance: doctor context, slot clarity, confirmation states.",
-    ],
-    process: [
-      { title: "Discover", points: ["User anxiety points", "Booking drop-off drivers", "Information needs"] },
-      { title: "Define", points: ["Flow map + slot rules", "Information hierarchy", "Error prevention states"] },
-      { title: "Design", points: ["Accessible components", "Clear confirmation UX", "Mobile-first layout"] },
-    ],
-    finalUI: ["Transparent slots + doctor info.", "Clear confirmation, reschedule/cancel affordances."],
-    outcomes: [
-      { label: "Trust", value: "Improved" },
-      { label: "Errors", value: "Reduced" },
-      { label: "Speed", value: "Faster booking" },
-    ],
+    links: [{ label: "View on Behance", href: "https://www.behance.net/gallery/232240055/Juice-Rush" }],
+    reflection: "In high-frequency delivery apps, reducing friction in checkout and customization is critical. Focusing on micro-interactions and clear visual hierarchy significantly improved conversion flow.",
   },
   {
     slug: "juice-rush-operator-portal",
     title: "Juice Rush Operator Portal",
     role: "Product Design · Dashboard",
     year: "2024",
-    tags: ["Problem", "Process", "Final UI"],
+    tags: ["Dashboard", "SaaS", "Operations"],
     accent: "rgba(249, 115, 22, 0.25)",
     cover: {
-      src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80&fm=webp",
+      src: "/images/juice-rush-operator-cover.png",
       alt: "Juice Rush operator dashboard interface",
     },
     summary: "A comprehensive operator portal for managing juice delivery operations, orders, and inventory with real-time analytics.",
@@ -199,178 +147,6 @@ export const caseStudies: CaseStudy[] = [
       { label: "Visibility", value: "Real-time" },
     ],
     links: [{ label: "View on Behance", href: "https://www.behance.net/gallery/251855431/Juice-Rush-Operator-Portal-Product-Design-Case-Study" }],
-  },
-  {
-    slug: "be-my-eye-email-marketing",
-    title: "Be My Eye Email Marketing",
-    role: "UI/UX · Marketing",
-    year: "2024",
-    tags: ["Problem", "Design", "Final UI"],
-    accent: "rgba(59, 130, 246, 0.2)",
-    cover: {
-      src: "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80&fm=webp",
-      alt: "Email marketing design template",
-    },
-    summary: "A modern email marketing campaign design focused on engagement and conversion with responsive templates.",
-    problem: [
-      "Existing email templates had low engagement rates.",
-      "Need for mobile-responsive designs that work across all devices.",
-      "Brand consistency across different email clients.",
-    ],
-    process: [
-      {
-        title: "Discover",
-        points: ["Email audit", "Client analysis", "Competitor research"],
-      },
-      {
-        title: "Design",
-        points: ["Template system", "Visual hierarchy", "CTA optimization"],
-      },
-      {
-        title: "Test",
-        points: ["A/B testing", "Cross-client testing", "Performance optimization"],
-      },
-    ],
-    finalUI: [
-      "Clean, scannable email layouts with clear CTAs.",
-      "Responsive designs that work on all devices.",
-      "Brand-consistent visual system across templates.",
-    ],
-    outcomes: [
-      { label: "Open Rate", value: "Improved" },
-      { label: "Click Rate", value: "Higher" },
-      { label: "Mobile", value: "Optimized" },
-    ],
-    links: [{ label: "View on Behance", href: "https://www.behance.net/gallery/223730661/Be-my-eye-Email-Marketing-Design" }],
-  },
-  {
-    slug: "parallax-webpage-design",
-    title: "Webpage Design in Parallax Effect",
-    role: "UI/UX · Web · Motion",
-    year: "2024",
-    tags: ["Story", "Depth", "Performance"],
-    accent: "rgba(167, 139, 250, 0.16)",
-    cover: {
-      src: "https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=1600&q=80&fm=webp",
-      alt: "Parallax scrolling webpage design",
-    },
-    summary: "An immersive webpage using parallax scrolling effects to create depth and engage users with storytelling.",
-    problem: [
-      "Need to create a memorable first impression for brand storytelling.",
-      "Balance visual impact with performance and usability.",
-      "Ensure smooth scrolling experience across devices.",
-    ],
-    process: [
-      {
-        title: "Define",
-        points: ["Motion budget", "Layer planning", "Performance targets"],
-      },
-      {
-        title: "Design",
-        points: ["Visual layers", "Scroll triggers", "Animation timing"],
-      },
-      {
-        title: "Develop",
-        points: ["Parallax implementation", "Performance optimization", "Cross-browser testing"],
-      },
-    ],
-    finalUI: [
-      "Smooth parallax scrolling with multiple depth layers.",
-      "Engaging visual storytelling through scroll-based animations.",
-      "Optimized performance with 60fps scrolling.",
-    ],
-    outcomes: [
-      { label: "Engagement", value: "High" },
-      { label: "Performance", value: "Optimized" },
-      { label: "Experience", value: "Immersive" },
-    ],
-    links: [{ label: "View on Behance", href: "https://www.behance.net/gallery/203548819/Webpage-design-in-Parallex-Effect" }],
-  },
-  {
-    slug: "architecture-webpage-design",
-    title: "Webpage Design for Architecture",
-    role: "UI/UX · Web",
-    year: "2024",
-    tags: ["Problem", "Design", "Final UI"],
-    accent: "rgba(139, 92, 246, 0.18)",
-    cover: {
-      src: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1600&q=80&fm=webp",
-      alt: "Architecture firm website design",
-    },
-    summary: "A modern architecture firm website showcasing projects with elegant typography and stunning imagery.",
-    problem: [
-      "Need to showcase architectural portfolio with visual impact.",
-      "Balance large imagery with fast loading times.",
-      "Create intuitive navigation for project exploration.",
-    ],
-    process: [
-      {
-        title: "Discover",
-        points: ["Brand analysis", "Portfolio audit", "User journey mapping"],
-      },
-      {
-        title: "Design",
-        points: ["Visual system", "Gallery layout", "Typography hierarchy"],
-      },
-      {
-        title: "Develop",
-        points: ["Responsive implementation", "Image optimization", "Performance tuning"],
-      },
-    ],
-    finalUI: [
-      "Elegant gallery layout with large, high-quality project images.",
-      "Clean typography that complements architectural aesthetics.",
-      "Smooth transitions and intuitive project navigation.",
-    ],
-    outcomes: [
-      { label: "Portfolio", value: "Showcased" },
-      { label: "Performance", value: "Fast" },
-      { label: "Aesthetics", value: "Premium" },
-    ],
-    links: [{ label: "View on Behance", href: "https://www.behance.net/gallery/201780691/Webpage-design-for-Architecture" }],
-  },
-  {
-    slug: "eco-friendly-mobile-app",
-    title: "Eco-Friendly Product Buying App",
-    role: "UI/UX · Mobile",
-    year: "2024",
-    tags: ["Problem", "Process", "Final UI"],
-    accent: "rgba(34, 197, 94, 0.22)",
-    cover: {
-      src: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1600&q=80&fm=webp",
-      alt: "Eco-friendly mobile app interface",
-    },
-    summary: "A mobile app for discovering and purchasing eco-friendly products with sustainability metrics and ethical sourcing information.",
-    problem: [
-      "Consumers struggle to find verified eco-friendly products.",
-      "Lack of transparency in sustainability claims and sourcing.",
-      "Need for easy comparison of environmental impact across products.",
-    ],
-    process: [
-      {
-        title: "Discover",
-        points: ["User research", "Market analysis", "Sustainability standards"],
-      },
-      {
-        title: "Define",
-        points: ["Product taxonomy", "Trust indicators", "Comparison features"],
-      },
-      {
-        title: "Design",
-        points: ["Mobile UI", "Sustainability badges", "Comparison cards"],
-      },
-    ],
-    finalUI: [
-      "Clean product cards with clear sustainability badges.",
-      "Easy comparison of environmental impact metrics.",
-      "Trust indicators for verified eco-friendly claims.",
-    ],
-    outcomes: [
-      { label: "Trust", value: "Built" },
-      { label: "Discovery", value: "Easy" },
-      { label: "Impact", value: "Transparent" },
-    ],
-    links: [{ label: "View on Behance", href: "https://www.behance.net/gallery/189683889/Mobile-app-Eco-Friendly-product-buying-app" }],
+    reflection: "Designing B2B SaaS operational tools taught me that information density must be balanced with visual clarity. Prioritizing actionable alerts and keyboard shortcuts drastically improved operator task completion speed.",
   },
 ];
-

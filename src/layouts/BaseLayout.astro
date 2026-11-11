@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import MotionRoot from "../components/motion/MotionRoot";
+import InteractiveBackground from "../components/ui/InteractiveBackground";
 
 type Props = {
   title?: string;
@@ -22,7 +23,8 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-[--bg] text-[--text] antialiased">
+  <body class="bg-[--bg] text-[--text] antialiased relative">
+    <InteractiveBackground client:load />
     <MotionRoot client:load />
     <slot />
   </body>
