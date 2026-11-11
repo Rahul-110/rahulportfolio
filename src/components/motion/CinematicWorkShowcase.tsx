@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 type Project = {
   id: string;
@@ -67,6 +68,15 @@ const PROJECTS: Project[] = [
 export default function CinematicWorkShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeProject = PROJECTS[activeIndex];
+
+  // Auto-play functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % PROJECTS.length);
+    }, 6000); // Rotates every 6 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="relative w-full min-h-dvh flex flex-col justify-center py-24 md:py-32 overflow-hidden bg-[#030305]">
@@ -220,7 +230,9 @@ export default function CinematicWorkShowcase() {
                     <img
                       src={proj.cover}
                       alt={proj.title}
-                      className="w-full h-full object-cover transition-transform duration-1000 group-hover/panel:scale-105"
+                      loading={idx === activeIndex ? "eager" : "lazy"}
+                      decoding="async"
+                      className="w-full h-full object-contain transition-transform duration-1000 group-hover/panel:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
 
@@ -279,7 +291,7 @@ export default function CinematicWorkShowcase() {
                     <div className={`relative w-16 md:w-20 aspect-[16/10] rounded-xl overflow-hidden bg-white/5 shrink-0 border transition-all duration-500 ${
                       isActive ? 'border-[#6EA8FF]/50 scale-105' : 'border-white/10 opacity-60 grayscale-[50%]'
                     }`}>
-                      <img src={proj.cover} alt={proj.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                      <img src={proj.cover} alt={proj.title} loading="lazy" decoding="async" className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" />
                     </div>
                     <div className="min-w-0 pr-4">
                       <span className={`text-[9px] font-mono font-bold block mb-0.5 transition-colors ${isActive ? 'text-[#6EA8FF]' : 'text-white/40'}`}>
