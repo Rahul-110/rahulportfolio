@@ -106,165 +106,63 @@ export default function SkillsSection() {
     <section
       ref={sectionRef}
       id="toolkit"
-      className="relative overflow-hidden py-32 sm:py-40 bg-[#030305]"
+      className="relative overflow-hidden py-32 sm:py-40 bg-[#030305] text-white"
     >
-      {/* Cinematic Ambient Lighting */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/4 top-1/3 h-[600px] w-[600px] rounded-full bg-gradient-to-tr from-purple-900/10 via-blue-900/10 to-transparent blur-[160px]" />
-        <div className="absolute right-1/4 bottom-1/4 h-[600px] w-[600px] rounded-full bg-gradient-to-bl from-orange-900/10 via-purple-900/10 to-transparent blur-[160px]" />
-        <div
-          class="absolute inset-0 opacity-[0.025]"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)`,
-            backgroundSize: "80px 80px",
-          }}
-        />
-      </div>
-
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center max-w-3xl mx-auto mb-24 space-y-4"
-        >
-          <div className="inline-block">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#6EA8FF] bg-[#6EA8FF]/10 border border-[#6EA8FF]/20 px-4 py-2 rounded-full backdrop-blur-md">
-              04 / MY TOOLKIT
+        {/* Editorial Intro */}
+        <div className="mb-32 flex flex-col md:flex-row gap-12 border-b border-white/10 pb-20">
+          <div className="md:w-1/3">
+            <span className="text-[10px] font-mono font-bold tracking-[0.3em] text-[#6EA8FF] uppercase">
+              04 / My Toolkit
             </span>
+            <h2 className="mt-6 font-display text-5xl md:text-7xl font-bold tracking-tighter leading-[0.9]">
+              The tools <br />
+              <span className="text-white/40 italic">behind the</span> <br />
+              thinking.
+            </h2>
           </div>
+          <div className="md:w-2/3 flex items-end">
+            <p className="text-lg md:text-xl font-light text-[#B3B5C0] max-w-lg leading-relaxed">
+              From the first sketch to the final experience, I use a combination of design, research and AI-powered tools to explore ideas, create intuitive interfaces and bring digital products to life.
+            </p>
+          </div>
+        </div>
 
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F5F5F7]">
-            The tools behind the thinking.
-          </h2>
-
-          <p className="text-base sm:text-lg text-[#B3B5C0] font-light leading-relaxed">
-            From the first sketch to the final experience, I use a combination of design, research and AI-powered tools to explore ideas, create intuitive interfaces and bring digital products to life.
-          </p>
-        </motion.div>
-
-        {/* Categories Editorial Layout */}
-        <div className="space-y-16">
-          {TOOL_CATEGORIES.map((category, catIdx) => {
-            const Icon = category.icon;
-            return (
-              <motion.div
-                key={category.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.7, delay: catIdx * 0.1 }}
-                className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-8 sm:p-12 backdrop-blur-2xl relative overflow-hidden group"
-              >
-                {/* Subtle top glow accent */}
-                <div
-                  className="absolute inset-x-0 top-0 h-px opacity-30 group-hover:opacity-100 transition-opacity duration-700"
-                  style={{ background: `linear-gradient(90deg, transparent, ${category.accentColor}, transparent)` }}
-                />
-
-                {/* Category Header */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 mb-8 border-b border-white/10">
-                  <div className="flex items-center gap-4">
-                    <div
-                      className="w-14 h-14 rounded-2xl flex items-center justify-center border transition-transform duration-500 group-hover:scale-110"
-                      style={{
-                        backgroundColor: `${category.accentColor}15`,
-                        borderColor: `${category.accentColor}40`,
-                        color: category.accentColor
-                      }}
-                    >
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-3 mb-1">
-                        <span className="text-xs font-mono font-bold tracking-widest text-[#B3B5C0]/60">
-                          {category.number}
-                        </span>
-                        <span className="h-3 w-px bg-white/20" />
-                        <span className="text-[10px] font-mono uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-white/80">
-                          Workflow Domain
-                        </span>
-                      </div>
-                      <h3 className="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
-                        {category.title}
-                      </h3>
-                    </div>
+        {/* Editorial Content */}
+        <div className="space-y-32">
+          {TOOL_CATEGORIES.map((category, catIdx) => (
+            <div key={category.id} className="grid md:grid-cols-12 gap-12 items-start">
+              {/* Category Side-Title */}
+              <div className="md:col-span-4 sticky top-32">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: `${category.accentColor}20`, color: category.accentColor }}>
+                    <category.icon className="w-5 h-5" />
                   </div>
-
-                  <p className="text-sm text-[#B3B5C0] font-light max-w-md leading-relaxed md:text-right">
-                    {category.subtitle}
-                  </p>
+                  <span className="text-sm font-mono tracking-widest uppercase text-white/60">{category.number}</span>
                 </div>
+                <h3 className="text-3xl font-display font-bold mb-4 tracking-tight">{category.title}</h3>
+                <p className="text-[#B3B5C0] font-light">{category.subtitle}</p>
+              </div>
 
-                {/* Tools Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Tools List */}
+              <div className="md:col-span-8">
+                <div className="divide-y divide-white/10">
                   {category.tools.map((tool) => (
-                    <div
-                      key={tool.name}
-                      className="p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/15 transition-all duration-300 flex flex-col justify-between group/tool"
-                    >
-                      <div className="space-y-3">
-                        <div className="flex items-center justify-between">
-                          <h4 className="text-lg font-display font-bold text-white group-hover/tool:text-[#6EA8FF] transition-colors">
-                            {tool.name}
-                          </h4>
-                          <span className={`text-[10px] font-mono tracking-wider px-2.5 py-1 rounded-full border ${
-                            tool.level === "Primary"
-                              ? "bg-[#6EA8FF]/10 text-[#6EA8FF] border-[#6EA8FF]/30"
-                              : tool.level === "Core"
-                              ? "bg-[#A970FF]/10 text-[#A970FF] border-[#A970FF]/30"
-                              : "bg-white/5 text-white/60 border-white/10"
-                          }`}>
-                            {tool.level}
-                          </span>
-                        </div>
-
-                        <p className="text-xs sm:text-sm text-[#B3B5C0] font-light leading-relaxed">
-                          {tool.desc}
-                        </p>
+                    <div key={tool.name} className="flex flex-col sm:flex-row sm:items-center py-8 gap-4 sm:gap-8 hover:bg-white/[0.02] transition-colors px-4 -mx-4 rounded-xl">
+                      <div className="sm:w-1/3">
+                        <h4 className="text-lg font-bold text-white">{tool.name}</h4>
+                        <span className="text-[10px] font-mono text-[#6EA8FF] uppercase tracking-widest">{tool.level}</span>
                       </div>
-
-                      <div className="pt-4 mt-4 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-white/40">
-                        <span>Workflow Integrated</span>
-                        <span className="text-[#6EA8FF] opacity-0 group-hover/tool:opacity-100 transition-opacity">Active ✦</span>
-                      </div>
+                      <p className="sm:w-2/3 text-sm text-[#B3B5C0] font-light leading-relaxed">
+                        {tool.desc}
+                      </p>
                     </div>
                   ))}
                 </div>
-
-              </motion.div>
-            );
-          })}
+              </div>
+            </div>
+          ))}
         </div>
-
-        {/* Bottom Recruiter Value Summary */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-20 p-8 sm:p-10 rounded-3xl border border-[#6EA8FF]/30 bg-gradient-to-r from-[#6EA8FF]/10 via-[#A970FF]/10 to-transparent backdrop-blur-2xl flex flex-col md:flex-row items-center justify-between gap-8"
-        >
-          <div className="space-y-2 text-center md:text-left">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#6EA8FF]">From Concept to Shipped Code</span>
-            <h3 class="text-2xl font-display font-bold text-white tracking-tight">
-              Looking for a designer who speaks engineering?
-            </h3>
-            <p class="text-sm text-[#B3B5C0] max-w-xl font-light">
-              By combining Figma design systems with Astro, React, and AI-assisted engineering tools like Cursor and Claude Code, I bridge the gap between design vision and production reality.
-            </p>
-          </div>
-
-          <a
-            href="#contact"
-            className="shrink-0 inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-black font-bold text-xs tracking-widest uppercase hover:bg-[#6EA8FF] hover:text-white transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(110,168,255,0.4)]"
-          >
-            <span>Let's Build Together</span>
-            <span>→</span>
-          </a>
-        </motion.div>
-
       </div>
     </section>
   );
