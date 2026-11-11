@@ -1,117 +1,119 @@
-import { useState, useRef } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import {
-  Layers,
-  Palette,
-  Target,
+  PenTool,
+  Users,
   Sparkles,
-  Cpu,
-  Code2
+  Code,
+  Terminal,
+  Layers,
+  Compass,
+  Cpu
 } from "lucide-react";
 
-const capabilities = [
-  {
-    id: "ux",
-    category: "Strategy & Systems",
-    icon: Layers,
-    title: "UX Systems & Architecture",
-    description: "User flows, complex information architecture, cognitive load reduction, and rigorous usability validation.",
-    level: "Expert",
-    metrics: "40% faster user workflows",
-    gradient: "from-purple-500/20 via-indigo-500/10 to-transparent",
-    borderGlow: "group-hover:border-purple-500/50",
-    tags: ["User Flows", "IA", "Wireframing", "User Research"]
-  },
-  {
-    id: "ui",
-    category: "Visual Design",
-    icon: Palette,
-    title: "UI Design Systems",
-    description: "Scalable component libraries, meticulous visual hierarchy, responsive layouts, and token-driven design systems.",
-    level: "Production-ready",
-    metrics: "100+ reusable primitives",
-    gradient: "from-blue-500/20 via-cyan-500/10 to-transparent",
-    borderGlow: "group-hover:border-blue-500/50",
-    tags: ["Figma", "Design Tokens", "Accessibility", "Dark Mode"]
-  },
-  {
-    id: "motion",
-    category: "Interaction & Motion",
-    icon: Sparkles,
-    title: "Cinematic Motion & Micro-UX",
-    description: "Purposeful state transitions, spring physics, easing curves, and delightful feedback loops that make interfaces feel alive.",
-    level: "Advanced",
-    metrics: "60fps fluid transitions",
-    gradient: "from-pink-500/20 via-rose-500/10 to-transparent",
-    borderGlow: "group-hover:border-pink-500/50",
-    tags: ["Framer Motion", "CSS Animation", "State Feedback", "Transitions"]
-  },
-  {
-    id: "product",
-    category: "Product & Business",
-    icon: Target,
-    title: "Product Thinking & Strategy",
-    description: "Metrics-driven decision making, roadmap alignment, balancing business constraints with uncompromising user empathy.",
-    level: "Strategic",
-    metrics: "High Conversion Impact",
-    gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
-    borderGlow: "group-hover:border-emerald-500/50",
-    tags: ["Roadmaps", "KPIs", "User Journey", "Prioritization"]
-  },
-  {
-    id: "ai",
-    category: "Emerging Tech",
-    icon: Cpu,
-    title: "AI & LLM Interfaces",
-    description: "Designing trust-first conversational UIs, prompt ergonomics, multi-turn context management, and agentic workflows.",
-    level: "Specialized",
-    metrics: "Cutting-edge UX",
-    gradient: "from-amber-500/20 via-orange-500/10 to-transparent",
-    borderGlow: "group-hover:border-amber-500/50",
-    tags: ["Conversational UI", "Prompt Design", "AI Co-pilots", "Trust Architecture"]
-  },
-  {
-    id: "dev",
-    category: "Frontend Execution",
-    icon: Code2,
-    title: "Frontend Engineering & Handoff",
-    description: "Bridging design and code with Astro, React, Tailwind CSS, and precise component architecture that developers love.",
-    level: "Full-stack UI",
-    metrics: "Zero-friction handoff",
-    gradient: "from-violet-500/20 via-purple-500/10 to-transparent",
-    borderGlow: "group-hover:border-violet-500/50",
-    tags: ["React", "Astro", "Tailwind CSS", "TypeScript"]
-  },
-];
+type Tool = {
+  name: string;
+  level: "Primary" | "Exploring" | "Core";
+  desc: string;
+  icon?: string;
+};
 
-const tools = [
-  "Figma", "Framer", "Cursor", "Claude", "React", "Astro", "Tailwind CSS",
-  "Linear", "Jira", "Notion", "Git", "Miro", "Adobe CC", "Principle"
+type Category = {
+  id: string;
+  number: string;
+  title: string;
+  subtitle: string;
+  icon: any;
+  accentColor: string;
+  tools: Tool[];
+};
+
+const TOOL_CATEGORIES: Category[] = [
+  {
+    id: "ui-ux",
+    number: "01",
+    title: "UI/UX Design & Prototyping",
+    subtitle: "The core canvas for wireframing, high-fidelity systems, and interactive motion prototypes.",
+    icon: PenTool,
+    accentColor: "#6EA8FF",
+    tools: [
+      { name: "Figma", level: "Primary", desc: "My central environment for design systems, component tokens, wireframes, and high-fidelity production layouts." },
+      { name: "Adobe XD", level: "Core", desc: "Used for vector layouts, rapid vector editing, and legacy client design handoffs." },
+      { name: "Framer", level: "Exploring", desc: "Leveraged for advanced interactive web prototyping and publishing high-fidelity micro-interactions." }
+    ]
+  },
+  {
+    id: "research",
+    number: "02",
+    title: "Research & Collaboration",
+    subtitle: "Structuring insights, aligning stakeholders, and organizing product roadmaps.",
+    icon: Users,
+    accentColor: "#A970FF",
+    tools: [
+      { name: "Miro", level: "Primary", desc: "Virtual whiteboard for affinity mapping, user journey synthesis, and collaborative brainstorming." },
+      { name: "Notion", level: "Primary", desc: "Knowledge repository for design specs, meeting notes, research findings, and project documentation." }
+    ]
+  },
+  {
+    id: "ai-design",
+    number: "03",
+    title: "AI-Assisted Design & Ideation",
+    subtitle: "Accelerating problem framing, copywriting generation, and early UX brainstorming.",
+    icon: Sparkles,
+    accentColor: "#FF8A3D",
+    tools: [
+      { name: "ChatGPT", level: "Primary", desc: "Used for conversational user persona exploration, copy variations, and structuring UX briefs." },
+      { name: "Claude", level: "Primary", desc: "Advanced reasoning partner for architectural problem-solving, UX writing critique, and technical research." },
+      { name: "Stitch AI", level: "Exploring", desc: "Exploring generative layout variations and smart component composition." },
+      { name: "Figma Make", level: "Exploring", desc: "Experimenting with AI-driven component generation and automated token mapping." }
+    ]
+  },
+  {
+    id: "frontend",
+    number: "04",
+    title: "Website & Frontend Development",
+    subtitle: "Bridging the gap between static screens and production-ready code with modern web primitives.",
+    icon: Code,
+    accentColor: "#00E5FF",
+    tools: [
+      { name: "VS Code", level: "Primary", desc: "My primary code editor for crafting component architectures, styling, and markdown documentation." },
+      { name: "Astro", level: "Primary", desc: "High-performance static site architecture powering lightning-fast portfolio experiences." },
+      { name: "GitHub", level: "Primary", desc: "Version control, branching workflows, pull requests, and deployment pipelines." },
+      { name: "HTML / CSS / JS", level: "Primary", desc: "Solid foundational web primitives ensuring uncompromised styling and accessible markup." }
+    ]
+  },
+  {
+    id: "ai-dev",
+    number: "05",
+    title: "AI-Assisted Development",
+    subtitle: "Augmenting coding velocity, debugging layout anomalies, and building production React/Astro islands.",
+    icon: Terminal,
+    accentColor: "#4ADE80",
+    tools: [
+      { name: "Cursor", level: "Primary", desc: "AI-first code editor enabling seamless refactoring, multi-file edits, and instant debugging." },
+      { name: "Windsurf", level: "Exploring", desc: "Collaborative agentic workspace for full-stack feature exploration." },
+      { name: "Devin", level: "Exploring", desc: "Autonomous software agent evaluated for end-to-end task execution." },
+      { name: "Claude Code", level: "Primary", desc: "Command-line AI companion for building, testing, and shipping production code safely." }
+    ]
+  }
 ];
 
 export default function SkillsSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
-  const [activeTab, setActiveTab] = useState<string>("all");
-
-  const filteredCapabilities = activeTab === "all"
-    ? capabilities
-    : capabilities.filter(c => c.category.toLowerCase().includes(activeTab.toLowerCase()) || c.id === activeTab);
 
   return (
     <section
       ref={sectionRef}
-      id="skills"
-      className="relative overflow-hidden py-28 sm:py-36 bg-[#030305]"
+      id="toolkit"
+      className="relative overflow-hidden py-32 sm:py-40 bg-[#030305]"
     >
       {/* Cinematic Ambient Lighting */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-1/4 h-[700px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-b from-purple-600/15 via-blue-600/10 to-transparent blur-[160px]" />
-        <div className="absolute right-10 bottom-1/3 h-[500px] w-[500px] rounded-full bg-indigo-600/10 blur-[130px]" />
-
-        {/* Subtle Grid overlay */}
+        <div className="absolute left-1/4 top-1/3 h-[600px] w-[600px] rounded-full bg-gradient-to-tr from-purple-900/10 via-blue-900/10 to-transparent blur-[160px]" />
+        <div className="absolute right-1/4 bottom-1/4 h-[600px] w-[600px] rounded-full bg-gradient-to-bl from-orange-900/10 via-purple-900/10 to-transparent blur-[160px]" />
         <div
-          className="absolute inset-0 opacity-[0.025]"
+          class="absolute inset-0 opacity-[0.025]"
           style={{
             backgroundImage: `linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)`,
             backgroundSize: "80px 80px",
@@ -126,140 +128,142 @@ export default function SkillsSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-24 space-y-4"
         >
-          <div className="inline-block mb-4">
+          <div className="inline-block">
             <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#6EA8FF] bg-[#6EA8FF]/10 border border-[#6EA8FF]/20 px-4 py-2 rounded-full backdrop-blur-md">
-              Capabilities & Craft
+              04 / MY TOOLKIT
             </span>
           </div>
 
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F5F5F7] mb-6">
-            End-to-end product design & systems thinking
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F5F5F7]">
+            The tools behind the thinking.
           </h2>
 
           <p className="text-base sm:text-lg text-[#B3B5C0] font-light leading-relaxed">
-            A meticulous balance of foundational research, systematic UI engineering, and polished motion that bridges the gap between vision and shipped reality.
+            From the first sketch to the final experience, I use a combination of design, research and AI-powered tools to explore ideas, create intuitive interfaces and bring digital products to life.
           </p>
-
-          {/* Interactive Filter Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
-            {[
-              { id: "all", label: "All Capabilities" },
-              { id: "strategy", label: "Strategy & Systems" },
-              { id: "visual", label: "Visual Design" },
-              { id: "interaction", label: "Motion & UX" },
-              { id: "ai", label: "AI & Emerging" },
-              { id: "frontend", label: "Frontend" }
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 ${
-                  activeTab === tab.id
-                    ? "bg-gradient-to-r from-[#FF8A3D] via-[#A970FF] to-[#6EA8FF] text-white shadow-[0_0_20px_rgba(169,112,255,0.3)]"
-                    : "bg-white/5 text-[#B3B5C0] hover:bg-white/10 hover:text-white border border-white/5"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
         </motion.div>
 
-        {/* Capabilities Grid */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          <AnimatePresence>
-            {filteredCapabilities.map((capability, index) => {
-              const Icon = capability.icon;
-              return (
-                <motion.div
-                  layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  key={capability.id}
-                  className="group relative rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-8 backdrop-blur-xl transition-all duration-500 hover:border-[#A970FF]/50 hover:shadow-[0_0_40px_rgba(169,112,255,0.15)] hover:-translate-y-1 overflow-hidden"
-                >
-                  {/* Subtle Top Glowing Line */}
-                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#A970FF]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                  {/* Background Glow */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${capability.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
-
-                  <div className="relative z-10 flex flex-col h-full">
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#6EA8FF] group-hover:text-white group-hover:bg-[#A970FF]/20 group-hover:border-[#A970FF]/30 transition-all duration-300">
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <span className="text-[10px] font-mono tracking-widest uppercase px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#B3B5C0]">
-                        {capability.level}
-                      </span>
-                    </div>
-
-                    <span className="text-xs font-semibold uppercase tracking-widest text-[#A970FF] mb-2">
-                      {capability.category}
-                    </span>
-
-                    <h3 className="text-xl font-display font-bold text-[#F5F5F7] mb-3 group-hover:text-white transition-colors">
-                      {capability.title}
-                    </h3>
-
-                    <p className="text-sm text-[#B3B5C0] leading-relaxed mb-6 flex-grow">
-                      {capability.description}
-                    </p>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/5">
-                      {capability.tags.map((tag) => (
-                        <span key={tag} className="text-[11px] px-2.5 py-1 rounded-md bg-white/5 text-[#B3B5C0]/80 font-mono">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </AnimatePresence>
-        </motion.div>
-
-        {/* Trusted Toolkit Marquee */}
-        <div className="mt-24 pt-16 border-t border-white/10">
-          <div className="text-center mb-10">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#B3B5C0]/60">
-              Trusted Professional Toolkit & Workflow
-            </span>
-          </div>
-
-          <div className="relative overflow-hidden w-full">
-            {/* Edge Gradients */}
-            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#030305] to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#030305] to-transparent z-10 pointer-events-none" />
-
-            <div className="flex gap-6 overflow-x-auto no-scrollbar py-2">
+        {/* Categories Editorial Layout */}
+        <div className="space-y-16">
+          {TOOL_CATEGORIES.map((category, catIdx) => {
+            const Icon = category.icon;
+            return (
               <motion.div
-                animate={{ x: ["0%", "-50%"] }}
-                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="flex gap-6 shrink-0 items-center"
+                key={category.id}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, delay: catIdx * 0.1 }}
+                className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-8 sm:p-12 backdrop-blur-2xl relative overflow-hidden group"
               >
-                {[...tools, ...tools].map((tool, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center gap-3 px-6 py-3 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-md text-[#F5F5F7] font-medium text-sm hover:border-[#6EA8FF]/40 hover:bg-white/[0.05] transition-all cursor-default"
-                  >
-                    <div className="w-2 h-2 rounded-full bg-[#6EA8FF]" />
-                    <span>{tool}</span>
+                {/* Subtle top glow accent */}
+                <div
+                  className="absolute inset-x-0 top-0 h-px opacity-30 group-hover:opacity-100 transition-opacity duration-700"
+                  style={{ background: `linear-gradient(90deg, transparent, ${category.accentColor}, transparent)` }}
+                />
+
+                {/* Category Header */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 mb-8 border-b border-white/10">
+                  <div className="flex items-center gap-4">
+                    <div
+                      className="w-14 h-14 rounded-2xl flex items-center justify-center border transition-transform duration-500 group-hover:scale-110"
+                      style={{
+                        backgroundColor: `${category.accentColor}15`,
+                        borderColor: `${category.accentColor}40`,
+                        color: category.accentColor
+                      }}
+                    >
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-3 mb-1">
+                        <span className="text-xs font-mono font-bold tracking-widest text-[#B3B5C0]/60">
+                          {category.number}
+                        </span>
+                        <span className="h-3 w-px bg-white/20" />
+                        <span className="text-[10px] font-mono uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-white/80">
+                          Workflow Domain
+                        </span>
+                      </div>
+                      <h3 className="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
+                        {category.title}
+                      </h3>
+                    </div>
                   </div>
-                ))}
+
+                  <p className="text-sm text-[#B3B5C0] font-light max-w-md leading-relaxed md:text-right">
+                    {category.subtitle}
+                  </p>
+                </div>
+
+                {/* Tools Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {category.tools.map((tool) => (
+                    <div
+                      key={tool.name}
+                      className="p-6 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/15 transition-all duration-300 flex flex-col justify-between group/tool"
+                    >
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <h4 className="text-lg font-display font-bold text-white group-hover/tool:text-[#6EA8FF] transition-colors">
+                            {tool.name}
+                          </h4>
+                          <span className={`text-[10px] font-mono tracking-wider px-2.5 py-1 rounded-full border ${
+                            tool.level === "Primary"
+                              ? "bg-[#6EA8FF]/10 text-[#6EA8FF] border-[#6EA8FF]/30"
+                              : tool.level === "Core"
+                              ? "bg-[#A970FF]/10 text-[#A970FF] border-[#A970FF]/30"
+                              : "bg-white/5 text-white/60 border-white/10"
+                          }`}>
+                            {tool.level}
+                          </span>
+                        </div>
+
+                        <p className="text-xs sm:text-sm text-[#B3B5C0] font-light leading-relaxed">
+                          {tool.desc}
+                        </p>
+                      </div>
+
+                      <div className="pt-4 mt-4 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-white/40">
+                        <span>Workflow Integrated</span>
+                        <span className="text-[#6EA8FF] opacity-0 group-hover/tool:opacity-100 transition-opacity">Active ✦</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
               </motion.div>
-            </div>
-          </div>
+            );
+          })}
         </div>
+
+        {/* Bottom Recruiter Value Summary */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-20 p-8 sm:p-10 rounded-3xl border border-[#6EA8FF]/30 bg-gradient-to-r from-[#6EA8FF]/10 via-[#A970FF]/10 to-transparent backdrop-blur-2xl flex flex-col md:flex-row items-center justify-between gap-8"
+        >
+          <div className="space-y-2 text-center md:text-left">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#6EA8FF]">From Concept to Shipped Code</span>
+            <h3 class="text-2xl font-display font-bold text-white tracking-tight">
+              Looking for a designer who speaks engineering?
+            </h3>
+            <p class="text-sm text-[#B3B5C0] max-w-xl font-light">
+              By combining Figma design systems with Astro, React, and AI-assisted engineering tools like Cursor and Claude Code, I bridge the gap between design vision and production reality.
+            </p>
+          </div>
+
+          <a
+            href="#contact"
+            className="shrink-0 inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-black font-bold text-xs tracking-widest uppercase hover:bg-[#6EA8FF] hover:text-white transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(110,168,255,0.4)]"
+          >
+            <span>Let's Build Together</span>
+            <span>→</span>
+          </a>
+        </motion.div>
 
       </div>
     </section>
