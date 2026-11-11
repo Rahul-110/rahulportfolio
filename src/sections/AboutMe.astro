@@ -1,163 +1,253 @@
 ---
 import Container from "../components/ui/Container.astro";
 import AboutCharacterVideo from "../components/motion/AboutCharacterVideo";
+
+const experiences = [
+  {
+    company: "Netpy Technologies",
+    role: "UI/UX Designer",
+    period: "June 2025 – Present",
+    current: true,
+    description: "Currently contributing to SaaS product design, translating requirements into user flows, wireframes, high-fidelity interfaces and interactive prototypes.",
+    capabilities: [
+      "SaaS interface design",
+      "User flows and wireframing",
+      "High-fidelity UI design",
+      "Interactive prototyping",
+      "Design consistency and accessibility",
+      "Developer handoff",
+      "Collaboration with senior designers and developers"
+    ]
+  },
+  {
+    company: "Duhzine IT Solution",
+    role: "UI/UX Design Intern",
+    period: "July 2024 – September 2024",
+    current: false,
+    description: "Developed practical foundations in UI/UX design through user research, user behavior analysis and experience design activities.",
+    capabilities: [
+      "User research & behavior analysis",
+      "Wireframe exploration",
+      "Collaborative feedback loops"
+    ]
+  },
+  {
+    company: "Kartexa",
+    role: "UI/UX Design Intern",
+    period: "July 2023 – September 2023",
+    current: false,
+    description: "Built early experience in UI/UX design, collaborative design work and understanding design requirements.",
+    capabilities: [
+      "Design foundations",
+      "Grid & typography discipline",
+      "Requirements gathering"
+    ]
+  }
+];
+
+const principles = [
+  { num: "01", title: "Understand before designing.", desc: "Rooting every decision in clear user research, behavior analysis, and problem framing." },
+  { num: "02", title: "Make complex workflows feel simple.", desc: "Distilling intricate SaaS operations and data into intuitive, frictionless user journeys." },
+  { num: "03", title: "Design with consistency and purpose.", desc: "Leveraging scalable tokens, typography hierarchy, and accessible component libraries." },
+  { num: "04", title: "Collaborate to bring ideas to life.", desc: "Partnering closely with developers, PMs, and stakeholders to ensure seamless code handoff." }
+];
+
+const skillsList = [
+  "User Research", "UX Design", "Information Architecture", "Wireframing",
+  "UI Design", "Interaction Design", "Prototyping", "Design Systems",
+  "Accessibility", "Developer Handoff", "AI-Assisted Workflow Tools"
+];
 ---
 
-<section id="about" class="relative min-h-[110dvh] flex flex-col justify-center overflow-hidden py-24 md:py-32 bg-[#030305]" data-about-root>
-  {/* Cinematic Background with Entrance Reveal */}
-  <div class="absolute inset-0 pointer-events-none -z-10 overflow-hidden" data-about-bg>
+<section id="about" class="relative py-32 sm:py-40 bg-[#030305] overflow-hidden" data-about-root>
+  {/* Cinematic Ambient Background Lighting */}
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute left-[-10%] top-1/4 h-[700px] w-[700px] bg-gradient-to-r from-purple-900/15 via-blue-900/10 to-transparent blur-[160px]" />
+    <div class="absolute right-[-10%] bottom-1/3 h-[700px] w-[700px] bg-gradient-to-l from-orange-900/10 via-purple-900/10 to-transparent blur-[160px]" />
     <div
-      class="absolute inset-0 w-full h-full bg-cover bg-no-repeat opacity-0 transition-opacity duration-1000 ease-out"
-      style="background-image: url('/images/about-background.png'); background-position: center 60%;"
-      data-about-img
-    ></div>
-    {/* Localized Dark Overlays */}
-    <div class="absolute inset-0 bg-gradient-to-r from-[#030305] via-[#030305]/70 to-transparent pointer-events-none"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-[#030305] via-transparent to-[#030305]/60 pointer-events-none"></div>
-    <div class="absolute inset-0 lg:hidden bg-[#030305]/40 pointer-events-none"></div>
+      class="absolute inset-0 opacity-[0.025]"
+      style={{
+        backgroundImage: `linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)`,
+        backgroundSize: "80px 80px",
+      }}
+    />
   </div>
 
   <Container class="relative z-10">
-    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-      {/* Left Column: Story */}
-      <div class="lg:col-span-7 space-y-10" data-about-content>
-        <div class="space-y-4 translate-y-8 opacity-0 transition-all duration-700 ease-out" data-reveal>
-          <span class="text-[#6EA8FF] font-semibold tracking-[0.4em] text-[10px] uppercase bg-[#6EA8FF]/10 border border-[#6EA8FF]/20 px-4 py-1.5 rounded-full backdrop-blur-md inline-block">
-            A LITTLE ABOUT ME
-          </span>
+    {/* Section Header */}
+    <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+      <span class="inline-block px-4 py-2 text-[11px] font-semibold tracking-[0.3em] uppercase rounded-full border border-[#6EA8FF]/20 bg-[#6EA8FF]/10 text-[#6EA8FF]">
+        ABOUT ME / MY JOURNEY
+      </span>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-[#F5F5F7] tracking-tight leading-tight">
+        Curious by nature.<br />
+        <span class="bg-gradient-to-r from-[#FF8A3D] via-[#A970FF] to-[#6EA8FF] bg-clip-text text-transparent">
+          Creative by design.
+        </span>
+      </h2>
+      <p class="text-lg text-[#B3B5C0] font-light leading-relaxed max-w-2xl mx-auto pt-2">
+        Hey, I'm Rahul — a UI/UX Designer who enjoys turning complex requirements into intuitive digital experiences.
+      </p>
+    </div>
 
-          <h2 class="font-display text-4xl sm:text-6xl font-bold tracking-tight text-[#F5F5F7] leading-[1.1]">
-            Curious by nature.<br />
-            <span class="bg-gradient-to-r from-[#FF8A3D] via-[#A970FF] to-[#6EA8FF] bg-clip-text text-transparent drop-shadow-[0_10px_35px_rgba(169,112,255,0.2)]">
-              Creative by design.
-            </span>
-          </h2>
-        </div>
+    {/* Top Grid: Bio Story + 3D Character */}
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-28">
+      {/* Left: Bio Narrative */}
+      <div class="lg:col-span-7 space-y-8 p-8 sm:p-10 rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.01] backdrop-blur-2xl relative">
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#6EA8FF]/40 to-transparent" />
 
-        <div class="space-y-6 text-[#B3B5C0] text-lg font-light leading-relaxed max-w-2xl backdrop-blur-md bg-black/30 p-8 rounded-3xl border border-white/5 shadow-2xl translate-y-8 opacity-0 transition-all duration-700 delay-150 ease-out" data-reveal>
+        <span class="text-xs font-mono uppercase tracking-widest text-[#6EA8FF] block">The Person Behind The Pixels</span>
+
+        <div class="space-y-6 text-[#B3B5C0] text-base sm:text-lg font-light leading-relaxed">
           <p class="text-white font-normal">
-            I'm a UI/UX Designer at Netpy Technologies with 1+ year of design experience. I currently work on SaaS products, creating user-centered interfaces that make complex workflows easier to understand and use.
+            I have 1+ year of professional UI/UX experience at Netpy Technologies, where I currently work on SaaS products. My work involves understanding requirements, shaping user flows, creating wireframes and high-fidelity interfaces, prototyping interactions, and preparing designs for developer handoff.
           </p>
           <p>
-            My approach combines thoughtful research, interaction design, high-fidelity prototyping, and collaboration with developers to turn ideas into clear, accessible digital experiences.
+            Before Netpy, I built my design foundation through internships at Duhzine IT Solution and Kartexa, where I developed my understanding of user research, user behavior and collaborative design.
+          </p>
+          <p>
+            I bring together user-centered thinking, visual design, interaction design and a practical understanding of frontend development. I also explore AI-assisted tools to make ideation and prototyping more effective.
           </p>
         </div>
 
-        {/* Proof Points */}
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-2 translate-y-8 opacity-0 transition-all duration-700 delay-300 ease-out" data-reveal>
-          <div class="space-y-1 border-l border-white/10 pl-5">
-            <span class="text-2xl font-bold text-white block">01+</span>
-            <span class="text-[10px] text-[#B3B5C0] uppercase tracking-[0.2em] font-medium">Design Experience</span>
+        <div class="pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#B3B5C0]">
+          <div>
+            <span class="text-white font-bold block mb-1">Education</span>
+            <span>B.E. — Electronics and Communication Engineering</span>
           </div>
-          <div class="space-y-1 border-l border-white/10 pl-5">
-            <span class="text-2xl font-bold text-[#A970FF] block">SaaS</span>
-            <span class="text-[10px] text-[#B3B5C0] uppercase tracking-[0.2em] font-medium">Product Focus</span>
+          <div class="text-right">
+            <span class="text-white font-bold block mb-1">Institution</span>
+            <span class="text-[#6EA8FF]">SRM Valliammai Engineering College</span>
           </div>
-          <div class="space-y-1 border-l border-white/10 pl-5">
-            <span class="text-2xl font-bold text-[#FF8A3D] block">Research</span>
-            <span class="text-[10px] text-[#B3B5C0] uppercase tracking-[0.2em] font-medium">To Handoff</span>
-          </div>
-        </div>
-
-        <div class="pt-4 translate-y-8 opacity-0 transition-all duration-700 delay-450 ease-out" data-reveal>
-          <a
-            href="#work"
-            class="inline-flex items-center gap-3 bg-[#101116] border border-[#6EA8FF]/30 px-8 py-4 rounded-full text-white text-xs font-bold tracking-[0.1em] uppercase transition-all duration-500 hover:border-[#A970FF] hover:shadow-[0_0_30px_rgba(169,112,255,0.3)] hover:-translate-y-1 group"
-          >
-            <span>Explore My Journey</span>
-            <span class="text-[#6EA8FF] group-hover:translate-x-1 transition-transform">↗</span>
-          </a>
         </div>
       </div>
 
-      {/* Right Column: Character */}
-      <div class="lg:col-span-5 relative flex justify-center items-center scale-95 opacity-0 transition-all duration-1000 delay-500 ease-out" data-about-character>
+      {/* Right: 3D Character Presentation */}
+      <div class="lg:col-span-5 relative flex justify-center items-center">
         <AboutCharacterVideo client:load />
       </div>
-
     </div>
 
-    {/* Professional Experience Teaser at Bottom */}
-    <div class="mt-32 pt-12 border-t border-white/10 flex flex-col items-center text-center space-y-6 opacity-0 translate-y-8 transition-all duration-700 delay-700 ease-out" data-reveal>
-      <p class="text-sm font-mono text-[#B3B5C0]/60 uppercase tracking-[0.3em]">
-        Every project adds a new perspective.
-      </p>
-      <a href="#work" class="group flex flex-col items-center gap-3 text-[#6EA8FF] hover:text-[#A970FF] transition-colors">
-        <span class="text-xs font-bold tracking-widest uppercase">See My Experience</span>
-        <div class="w-6 h-10 border border-white/20 rounded-full flex justify-center p-1">
-           <div class="w-1 h-2 bg-[#6EA8FF] rounded-full animate-bounce"></div>
+    {/* Professional Experience Timeline Section */}
+    <div class="mb-28">
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <span class="text-xs font-mono uppercase tracking-widest text-[#A970FF]">Career Progression</span>
+        <h3 class="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight">
+          Professional Experience
+        </h3>
+        <p class="text-sm text-[#B3B5C0] font-light">
+          A track record of growth from foundational craft to SaaS product ownership.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {experiences.map((exp, index) => (
+          <div
+            class={`relative p-8 rounded-3xl border transition-all duration-500 flex flex-col justify-between group ${
+              exp.current
+                ? "bg-gradient-to-b from-white/[0.07] to-white/[0.02] border-[#A970FF]/50 shadow-[0_0_50px_rgba(169,112,255,0.15)]"
+                : "bg-gradient-to-b from-white/[0.03] to-white/[0.01] border-white/10 hover:border-white/25"
+            }`}
+          >
+            {exp.current && (
+              <div class="absolute -top-3 right-8 px-4 py-1 rounded-full bg-gradient-to-r from-[#A970FF] to-[#6EA8FF] text-black font-bold text-[10px] tracking-widest uppercase shadow-lg">
+                Current Role
+              </div>
+            )}
+
+            <div class="space-y-4">
+              <div class="flex items-center justify-between text-xs font-mono text-[#B3B5C0]">
+                <span>0{index + 1}</span>
+                <span class={exp.current ? "text-[#6EA8FF] font-bold" : ""}>{exp.period}</span>
+              </div>
+
+              <div>
+                <h4 class="text-2xl font-display font-bold text-white group-hover:text-[#6EA8FF] transition-colors">
+                  {exp.company}
+                </h4>
+                <p class="text-sm font-semibold uppercase tracking-wider text-[#FF8A3D] mt-1">
+                  {exp.role}
+                </p>
+              </div>
+
+              <p class="text-sm text-[#B3B5C0] font-light leading-relaxed">
+                {exp.description}
+              </p>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-white/10 space-y-2">
+              <span class="text-[10px] font-mono tracking-widest uppercase text-white/40 block">
+                Key Responsibilities & Focus:
+              </span>
+              <ul class="space-y-1.5">
+                {exp.capabilities.map((cap) => (
+                  <li class="text-xs text-[#B3B5C0] flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#A970FF]" />
+                    <span>{cap}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* How I Think About Design & Skills Summary */}
+    <div class="grid lg:grid-cols-12 gap-12 p-8 sm:p-12 rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.01] backdrop-blur-2xl relative">
+      <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FF8A3D]/40 to-transparent" />
+
+      {/* Left: Design Principles (7 cols) */}
+      <div class="lg:col-span-7 space-y-8">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-[#FF8A3D] block mb-2">Design Philosophy</span>
+          <h3 class="text-3xl font-display font-bold text-white tracking-tight">
+            How I Think About Design
+          </h3>
+          <p class="text-sm text-[#B3B5C0] mt-2">
+            Core principles that guide every interaction, wireframe, and shipped product.
+          </p>
         </div>
-      </a>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          {principles.map((p) => (
+            <div class="p-5 rounded-2xl border border-white/5 bg-white/[0.02] space-y-2 hover:border-white/20 transition-all">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-[#6EA8FF]">{p.num}</span>
+              </div>
+              <h4 class="text-base font-bold text-white tracking-tight">{p.title}</h4>
+              <p class="text-xs text-[#B3B5C0] font-light leading-relaxed">{p.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Right: Skills Summary (5 cols) */}
+      <div class="lg:col-span-5 flex flex-col justify-between space-y-6 lg:border-l lg:border-white/10 lg:pl-12">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-[#A970FF] block mb-2">Core Competencies</span>
+          <h3 class="text-2xl font-display font-bold text-white tracking-tight">
+            Skills & Craft
+          </h3>
+          <p class="text-sm text-[#B3B5C0] mt-2">
+            A comprehensive overview of tools, research frameworks, and execution skills.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-2.5 py-4">
+          {skillsList.map((skill) => (
+            <span class="text-xs px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 text-white/90 font-mono tracking-wide hover:border-[#6EA8FF]/50 transition-colors">
+              {skill}
+            </span>
+          ))}
+        </div>
+
+        <div class="p-4 rounded-2xl border border-[#6EA8FF]/20 bg-[#6EA8FF]/5 text-xs text-[#6EA8FF] font-mono leading-relaxed">
+          ✦ AI-assisted tools are integrated into my workflow for accelerated ideation, exploration, and prototyping—always guided by human design judgment.
+        </div>
+      </div>
     </div>
+
   </Container>
-
-  {/* Bottom Accent Hairline */}
-  <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#A970FF]/20 to-transparent"></div>
 </section>
-
-<script>
-  const observeAbout = () => {
-    const section = document.querySelector('[data-about-root]');
-    const bg = section?.querySelector('[data-about-img]');
-    const reveals = section?.querySelectorAll('[data-reveal]');
-    const character = section?.querySelector('[data-about-character]');
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Reveal Background
-          if (bg) {
-            (bg as HTMLElement).style.opacity = '0.8';
-          }
-
-          // Staggered Content Reveal
-          reveals?.forEach(el => {
-            el.classList.remove('translate-y-8', 'opacity-0');
-            el.classList.add('translate-y-0', 'opacity-100');
-          });
-
-          // Reveal Character
-          if (character) {
-             character.classList.remove('scale-95', 'opacity-0');
-             character.classList.add('scale-100', 'opacity-100');
-          }
-
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    if (section) observer.observe(section);
-  };
-
-  document.addEventListener('astro:page-load', observeAbout);
-  observeAbout(); // Initial run
-</script>
-
-<style>
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(4px); }
-  }
-  .animate-bounce {
-    animation: bounce 2s infinite ease-in-out;
-  }
-
-  @media (max-width: 1024px) {
-    [data-about-img] {
-      background-position: center bottom !important;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    [data-reveal], [data-about-img], [data-about-character] {
-      transition: none !important;
-      opacity: 1 !important;
-      transform: none !important;
-    }
-    .animate-bounce {
-      animation: none !important;
-    }
-  }
-</style>
