@@ -12,7 +12,6 @@ import {
   Cpu,
   Sparkles,
   Layout,
-  Sliders,
   Terminal,
 } from "lucide-react";
 

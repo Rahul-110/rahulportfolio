@@ -1,4 +1,6 @@
-# build output
+# Claude local files
+.claude/
+
 dist/
 # generated types
 .astro/

@@ -4,14 +4,15 @@ import Container from "../ui/Container.astro";
 type Link = { href: string; label: string };
 
 const links: Link[] = [
-  { href: "#story", label: "ABOUT" },
+  { href: "#about", label: "ABOUT" },
   { href: "#work", label: "PROJECTS" },
+  { href: "#services", label: "SERVICES" },
   { href: "#contact", label: "CONTACT" },
 ];
 ---
 
-<header class="fixed inset-x-0 top-0 z-50">
-  <Container class="py-8">
+<header class="fixed inset-x-0 top-0 z-50 transition-all duration-300" data-header>
+  <Container class="py-6 transition-all duration-300" data-header-container>
     <nav class="pointer-events-auto flex items-center justify-between">
       <!-- Logo -->
       <a href="#" class="group">
@@ -25,20 +26,39 @@ const links: Link[] = [
         {links.map((l) => (
           <a
             href={l.href}
-            class="text-[10px] font-bold tracking-[0.25em] text-[--muted2] transition hover:text-white"
+            class="text-[10px] font-bold tracking-[0.25em] text-[#B3B5C0] transition hover:text-white"
           >
             {l.label}
           </a>
         ))}
       </div>
 
-      <!-- Action & Language -->
-      <div class="flex items-center gap-10">
-        <span class="hidden text-[10px] font-bold tracking-widest text-[--muted2] lg:inline">ENG / PYC</span>
-        <a href="#contact" class="rounded-full border border-white/20 px-6 py-2.5 text-[10px] font-bold tracking-widest text-white transition hover:bg-white hover:text-black">
+      <!-- Action -->
+      <div class="flex items-center gap-6">
+        <a href="#contact" class="rounded-full border border-white/20 bg-white/5 px-6 py-2.5 text-[10px] font-bold tracking-widest text-white transition hover:bg-white hover:text-black backdrop-blur-md">
           LET'S TALK
         </a>
       </div>
     </nav>
   </Container>
 </header>
+
+<script>
+  const header = document.querySelector('[data-header]');
+  const container = document.querySelector('[data-header-container]');
+
+  const handleScroll = () => {
+    if (window.scrollY > 20) {
+      header?.classList.add('bg-[#030305]/80', 'backdrop-blur-xl', 'border-b', 'border-white/10');
+      container?.classList.remove('py-8');
+      container?.classList.add('py-4');
+    } else {
+      header?.classList.remove('bg-[#030305]/80', 'backdrop-blur-xl', 'border-b', 'border-white/10');
+      container?.classList.remove('py-4');
+      container?.classList.add('py-8');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  handleScroll(); // Initial check
+</script>
