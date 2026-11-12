@@ -24,7 +24,7 @@ const PROJECTS: Project[] = [
     year: "2025",
     tags: ["Problem", "Process", "Final UI"],
     summary: "Designing a clearer shopping and delivery experience with research-driven e-commerce flows and streamlined checkout.",
-    cover: "/quickcart-cover.png",
+    cover: "/images/quickcart-cover.webp",
     behanceUrl: "https://www.behance.net/gallery/245190999/QuickCart",
   },
   {
