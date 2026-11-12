@@ -48,7 +48,7 @@ const PROJECTS: Project[] = [
     year: "2024",
     tags: ["Dashboard", "SaaS", "Operations"],
     summary: "A comprehensive operator portal for managing juice delivery operations, orders, and inventory with real-time analytics.",
-    cover: "/images/juice-rush-operator-cover.png",
+    cover: "/images/juice-rush-operator-cover.webp",
     behanceUrl: "https://www.behance.net/gallery/251855431/Juice-Rush-Operator-Portal-Product-Design-Case-Study",
   },
   {
