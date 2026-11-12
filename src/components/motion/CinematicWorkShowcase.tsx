@@ -36,7 +36,7 @@ const PROJECTS: Project[] = [
     year: "2024",
     tags: ["Branding", "Mobile UI", "Ordering Flow"],
     summary: "A vibrant juice and smoothie delivery experience with fresh visual identity, quick customization, and seamless ordering.",
-    cover: "/images/juice-rush-cover.png",
+    cover: "/images/juice-rush-cover.webp",
     behanceUrl: "https://www.behance.net/gallery/232240055/Juice-Rush",
   },
   {

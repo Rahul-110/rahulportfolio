@@ -70,7 +70,7 @@ export const caseStudies: CaseStudy[] = [
     tags: ["Problem", "Process", "Final UI"],
     accent: "rgba(249, 115, 22, 0.22)",
     cover: {
-      src: "/images/juice-rush-cover.png",
+      src: "/images/juice-rush-cover.webp",
       alt: "Juice Rush mobile app UI mockup",
     },
     summary: "A vibrant juice and smoothie delivery experience with fresh visual identity and seamless ordering flow.",
