@@ -4,9 +4,9 @@ import Container from "../ui/Container.astro";
 type Link = { href: string; label: string };
 
 const links: Link[] = [
-  { href: "#about", label: "ABOUT" },
-  { href: "#work", label: "PROJECTS" },
-  { href: "#services", label: "SERVICES" },
+  { href: "#work", label: "WORK" },
+  { href: "#journey", label: "JOURNEY" },
+  { href: "#toolkit", label: "TOOLKIT" },
   { href: "#contact", label: "CONTACT" },
 ];
 ---
@@ -16,7 +16,7 @@ const links: Link[] = [
     <nav class="pointer-events-auto flex items-center justify-between">
       <!-- Logo -->
       <a href="#" class="group">
-        <span class="font-display text-xl font-bold tracking-tighter text-white">
+        <span class="font-display text-xl font-bold tracking-tighter text-[#141413] group-hover:text-[#cc785c] transition-colors" data-nav-logo>
           RAHUL K
         </span>
       </a>
@@ -26,7 +26,8 @@ const links: Link[] = [
         {links.map((l) => (
           <a
             href={l.href}
-            class="text-[10px] font-bold tracking-[0.25em] text-[#B3B5C0] transition hover:text-white"
+            class="text-[10px] font-bold tracking-[0.25em] text-[#6c6a64] transition hover:text-[#141413]"
+            data-nav-link
           >
             {l.label}
           </a>
@@ -35,7 +36,7 @@ const links: Link[] = [
 
       <!-- Action -->
       <div class="flex items-center gap-6">
-        <a href="#contact" class="rounded-full border border-white/20 bg-white/5 px-6 py-2.5 text-[10px] font-bold tracking-widest text-white transition hover:bg-white hover:text-black backdrop-blur-md">
+        <a href="#contact" class="rounded-full border border-[#141413]/20 bg-[#141413] px-6 py-2.5 text-[10px] font-bold tracking-widest text-[#faf9f5] transition hover:bg-[#cc785c] hover:border-[#cc785c]" data-nav-button>
           LET'S TALK
         </a>
       </div>
@@ -49,16 +50,16 @@ const links: Link[] = [
 
   const handleScroll = () => {
     if (window.scrollY > 20) {
-      header?.classList.add('bg-[#030305]/80', 'backdrop-blur-xl', 'border-b', 'border-white/10');
-      container?.classList.remove('py-8');
+      header?.classList.add('bg-[#faf9f5]/80', 'backdrop-blur-xl', 'border-b', 'border-[#e6dfd8]');
+      container?.classList.remove('py-6');
       container?.classList.add('py-4');
     } else {
-      header?.classList.remove('bg-[#030305]/80', 'backdrop-blur-xl', 'border-b', 'border-white/10');
+      header?.classList.remove('bg-[#faf9f5]/80', 'backdrop-blur-xl', 'border-b', 'border-[#e6dfd8]');
       container?.classList.remove('py-4');
-      container?.classList.add('py-8');
+      container?.classList.add('py-6');
     }
   };
 
   window.addEventListener('scroll', handleScroll);
-  handleScroll(); // Initial check
+  handleScroll();
 </script>

@@ -1,104 +1,57 @@
 ---
 import Container from "../components/ui/Container.astro";
 import HeroReveal from "../components/motion/HeroReveal";
-import Hero3DScene from "../components/motion/Hero3DScene";
+import AboutCharacterVideo from "../components/motion/AboutCharacterVideo";
 ---
 
-<section id="hero" class="relative min-h-[95dvh] flex flex-col justify-center overflow-hidden pb-16 pt-28 bg-[#030305]" data-hero-root>
-  <!-- Deep Space Cinematic Background Lighting -->
+<section id="hero" class="relative min-h-[90dvh] flex flex-col justify-center overflow-hidden pb-16 pt-28 bg-[#faf9f5] border-b border-[#e6dfd8]" data-hero-root>
+  {/* Atmospheric Background Detail - subtle editorial feel */}
   <div class="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
-    <!-- Cosmic Glow / Planet Atmosphere Rim -->
-    <div class="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-gradient-to-b from-[#A970FF]/20 via-[#6EA8FF]/10 to-transparent blur-[140px] rounded-full"></div>
-    <div class="absolute bottom-0 right-[-10%] w-[800px] h-[500px] bg-gradient-to-t from-[#FF8A3D]/15 via-[#A970FF]/10 to-transparent blur-[150px] rounded-full"></div>
+    <div class="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#cc785c]/5 blur-[120px] rounded-full"></div>
+    <div class="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-[#5db8a6]/5 blur-[100px] rounded-full"></div>
 
-    <!-- Horizon Light Line -->
-    <div class="absolute top-[60%] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#6EA8FF]/30 to-transparent"></div>
-  </div>
-
-  <!-- Background 3D Scene Layer -->
-  <div class="absolute inset-0 z-0 opacity-80 pointer-events-auto">
-    <Hero3DScene client:load />
+    {/* Refined Grid */}
+    <div class="absolute inset-0 opacity-[0.05]" style="background-image: linear-gradient(#141413 1px, transparent 1px), linear-gradient(90deg, #141413 1px, transparent 1px); background-size: 80px 80px;"></div>
   </div>
 
   <Container class="relative z-10 pointer-events-none">
-    <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-      <!-- Left Column: Copy & Actions -->
-      <div class="lg:col-span-7 space-y-8 pointer-events-auto">
+      <!-- Left Column: Editorial Copy -->
+      <div class="lg:col-span-7 space-y-12 pointer-events-auto">
 
-        <!-- Eyebrow -->
-        <div class="inline-block" data-hero-item>
-          <span class="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#6EA8FF] bg-[#6EA8FF]/10 border border-[#6EA8FF]/20 px-4 py-2 rounded-full backdrop-blur-md">
-            UI/UX DESIGNER · PRODUCT DESIGN · AI-ASSISTED DESIGN
+        <div class="space-y-4" data-hero-item>
+          <span class="text-[10px] font-mono font-bold tracking-[0.4em] text-[#cc785c] uppercase bg-[#cc785c]/10 border border-[#cc785c]/20 px-4 py-1.5 rounded-full inline-block">
+            CHAPTER 01 / MEET THE DESIGNER
           </span>
         </div>
 
-        <!-- Headline -->
-        <h1 class="font-display text-4xl sm:text-6xl lg:text-[72px] font-bold tracking-tight text-[#F5F5F7] leading-[1.05]" data-hero-item>
-          I turn complex <br />
-          <span class="bg-gradient-to-r from-[#FF8A3D] via-[#A970FF] to-[#6EA8FF] bg-clip-text text-transparent drop-shadow-[0_10px_35px_rgba(169,112,255,0.25)]">
-            workflows into intuitive
-          </span> <br />
-          digital experiences.
+        <h1 class="font-display text-5xl sm:text-7xl lg:text-[96px] font-medium tracking-tight text-[#141413] leading-[0.95]" data-hero-item>
+          I make complex <br />
+          <span class="italic text-[#8e8b82]">things feel</span> <br />
+          beautifully simple.
         </h1>
 
-        <!-- Supporting Text -->
-        <p class="text-base sm:text-lg text-[#B3B5C0] font-light leading-relaxed max-w-xl backdrop-blur-sm bg-black/20 p-5 rounded-2xl border border-white/5" data-hero-item>
-          I'm a UI/UX Designer at Netpy Technologies, designing thoughtful SaaS, AI, and digital product experiences through research, interaction design, and visual storytelling.
+        <p class="text-xl text-[#6c6a64] font-normal leading-relaxed max-w-xl" data-hero-item>
+          I'm a UI/UX Designer focused on SaaS, AI, and digital products — turning user needs and complex workflows into intuitive, thoughtful experiences.
         </p>
 
-        <!-- CTAs & Social Links -->
-        <div class="pt-2 space-y-8" data-hero-item>
-          <div class="flex flex-wrap items-center gap-4">
-            <a href="#work" class="group flex items-center gap-3 bg-[#101116] border border-[#6EA8FF]/30 px-7.5 py-4 rounded-full text-white text-xs font-bold tracking-[0.1em] uppercase transition-all duration-300 hover:border-[#A970FF] hover:shadow-[0_0_30px_rgba(169,112,255,0.3)] hover:-translate-y-0.5">
-              <span>Explore My Work</span>
-              <span class="text-[#6EA8FF] group-hover:translate-x-1 transition-transform">↗</span>
-            </a>
-            <a href="/resume-page-1.png" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 bg-white/5 border border-white/10 px-7.5 py-4 rounded-full text-white text-xs font-bold tracking-[0.1em] uppercase transition-all duration-300 hover:border-white/30 hover:bg-white/10 hover:-translate-y-0.5">
-              <span>Download Résumé</span>
-              <span class="text-[#B3B5C0] group-hover:translate-y-0.5 transition-transform">↓</span>
-            </a>
-          </div>
-
-          <!-- Scroll Indicator -->
-          <div class="flex items-center gap-4 pt-4 text-xs font-mono text-[#B3B5C0]/60">
-            <div class="w-5 h-8 border border-white/20 rounded-full flex items-start justify-center p-1">
-              <div class="w-1 h-2 bg-[#6EA8FF] rounded-full animate-bounce"></div>
-            </div>
-            <span class="uppercase tracking-widest text-[10px]">Scroll to explore</span>
-          </div>
+        <div class="pt-4 flex flex-wrap items-center gap-6" data-hero-item>
+          <a href="#work" class="group flex items-center gap-4 bg-[#141413] text-[#faf9f5] px-8 py-4 rounded-none text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:bg-[#cc785c] hover:-translate-y-0.5">
+            <span>Explore Work</span>
+            <span class="group-hover:translate-x-1 transition-transform">↗</span>
+          </a>
+          <a href="/resume-page-1.png" target="_blank" rel="noopener noreferrer" class="text-xs font-bold tracking-[0.2em] uppercase text-[#141413] hover:text-[#cc785c] transition-colors">
+            Download Résumé ↓
+          </a>
         </div>
-
       </div>
 
-      <!-- Right Column: Visual Floating Product Cards Overlay Frame -->
-      <div class="lg:col-span-5 relative pointer-events-auto hidden lg:block" data-hero-visual>
-        <!-- Floating Glassmorphic UI Card (Mocking the Lumora Dashboard from image) -->
-        <div class="relative w-full aspect-[4/3] rounded-2xl border border-white/10 bg-gradient-to-b from-white/10 to-white/[0.02] p-6 backdrop-blur-xl shadow-2xl transform rotate-[-2deg] hover:rotate-0 transition-transform duration-500">
-          <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
-            <div class="flex items-center gap-2">
-              <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-              <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-              <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-            </div>
-            <span class="text-xs font-mono text-[#B3B5C0]/60">✦ Lumora AI</span>
-          </div>
-
-          <div class="space-y-4">
-            <p class="text-xs text-[#A970FF] font-semibold tracking-widest uppercase">Your AI co-pilot for smarter decisions.</p>
-            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5 space-y-2">
-              <div class="flex items-center justify-between text-xs text-white font-medium">
-                <span>Good morning, Rahul</span>
-                <span class="text-[10px] text-[#6EA8FF] bg-[#6EA8FF]/10 px-2 py-0.5 rounded">Active</span>
-              </div>
-              <p class="text-xs text-[#B3B5C0]/80">Conversational AI platform with trust, transparency and control.</p>
-            </div>
-
-            <div class="flex items-center gap-3 text-xs pt-2">
-              <span class="px-3 py-1.5 rounded-lg bg-[#6EA8FF]/20 text-[#6EA8FF] font-medium border border-[#6EA8FF]/30">Research</span>
-              <span class="px-3 py-1.5 rounded-lg bg-white/5 text-[#B3B5C0]">Prototypes</span>
-              <span class="px-3 py-1.5 rounded-lg bg-white/5 text-[#B3B5C0]">Design Systems</span>
-            </div>
+      <!-- Right Column: Integrated 3D Identity -->
+      <div class="lg:col-span-5 relative pointer-events-auto" data-hero-visual>
+        <div class="relative w-full aspect-square flex items-center justify-center">
+          <div class="w-full h-full scale-[1.2] translate-y-4">
+            <AboutCharacterVideo client:load />
           </div>
         </div>
       </div>
@@ -106,8 +59,11 @@ import Hero3DScene from "../components/motion/Hero3DScene";
     </div>
   </Container>
 
-  <!-- Bottom Accent Hairline -->
-  <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#A970FF]/20 to-transparent"></div>
+  {/* Scroll Indicator */}
+  <div class="absolute bottom-10 left-10 flex items-center gap-4 text-[9px] font-mono text-[#8e8b82] uppercase tracking-[0.3em]">
+    <div class="w-12 h-px bg-[#141413]/20"></div>
+    <span>Scroll</span>
+  </div>
 
   <HeroReveal client:load />
 </section>
@@ -115,9 +71,6 @@ import Hero3DScene from "../components/motion/Hero3DScene";
 <style>
   @keyframes bounce {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(6px); }
-  }
-  .animate-bounce {
-    animation: bounce 2s infinite ease-in-out;
+    50% { transform: translateY(4px); }
   }
 </style>

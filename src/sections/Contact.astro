@@ -2,47 +2,39 @@
 import Container from "../components/ui/Container.astro";
 ---
 
-<section id="contact" class="relative py-32 sm:py-40 bg-[#030305] overflow-hidden">
+<section id="contact" class="relative py-32 md:py-48 bg-[#181715] text-[#faf9f5] overflow-hidden border-t border-white/10">
   <!-- Cinematic Ambient Lighting -->
   <div class="pointer-events-none absolute inset-0 -z-10">
-    <div class="absolute left-1/2 bottom-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-gradient-to-t from-purple-900/15 via-blue-900/10 to-transparent blur-[160px]" />
-    <div
-      class="absolute inset-0 opacity-[0.025]"
-      style={{
-        backgroundImage: `linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)`,
-        backgroundSize: "80px 80px",
-      }}
-    />
+    <div class="absolute left-1/2 bottom-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-gradient-to-t from-[#cc785c]/10 via-[#5db8a6]/10 to-transparent blur-[160px]" />
   </div>
 
   <Container class="relative z-10">
     <!-- Section Header -->
-    <div class="text-center max-w-3xl mx-auto mb-20">
-      <span class="inline-block px-4 py-2 mb-6 text-[11px] font-semibold tracking-[0.3em] uppercase rounded-full border border-[#6EA8FF]/20 bg-[#6EA8FF]/10 text-[#6EA8FF]">
-        Get in Touch
+    <div class="max-w-3xl mb-24 space-y-4">
+      <span class="text-[10px] font-mono font-bold tracking-[0.4em] text-[#cc785c] uppercase bg-[#cc785c]/10 border border-[#cc785c]/20 px-4 py-1.5 rounded-full inline-block">
+        CHAPTER 05 / THE NEXT CHAPTER
       </span>
-      <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-[#F5F5F7] mb-6 tracking-tight leading-tight">
-        Let's build something <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#6EA8FF] via-[#A970FF] to-[#FF8A3D]">extraordinary</span> together.
+      <h2 class="font-display text-4xl sm:text-6xl md:text-7xl font-medium tracking-tight leading-[1.05]">
+        Let's create something <br />
+        <span class="italic text-[#8e8b82]">meaningful together.</span>
       </h2>
-      <p class="text-lg text-[#B3B5C0] font-light leading-relaxed">
-        Whether you're hiring a Product Designer, looking for SaaS UX expertise, or want to discuss a project — my inbox is open.
+      <p class="text-base sm:text-lg text-[#8e8b82] font-normal leading-relaxed max-w-xl">
+        I'm interested in thoughtful product challenges, creative collaboration, and opportunities to build better digital experiences. My inbox is open.
       </p>
     </div>
 
     <!-- Asymmetric Bento Contact Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
 
       {/* Left Column: Professional Links & Bio (5 Cols) */}
-      <div class="lg:col-span-5 flex flex-col justify-between p-8 sm:p-10 rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.01] backdrop-blur-2xl relative overflow-hidden group">
-        <div class="absolute inset-0 bg-gradient-to-br from-[#6EA8FF]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-
+      <div class="lg:col-span-5 flex flex-col justify-between p-8 sm:p-10 rounded-2xl border border-white/10 bg-[#252320] relative overflow-hidden group">
         <div class="relative z-10 space-y-8">
           <div>
-            <span class="text-xs font-mono uppercase tracking-widest text-[#A970FF] block mb-2">Professional Profiles</span>
-            <h3 class="text-2xl sm:text-3xl font-display font-bold text-[#F5F5F7] tracking-tight">
+            <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-[#5db8a6] block mb-2">Professional Profiles</span>
+            <h3 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
               Connect & Explore
             </h3>
-            <p class="text-sm text-[#B3B5C0] mt-3 leading-relaxed">
+            <p class="text-sm text-[#a09d96] mt-3 leading-relaxed">
               Explore my complete professional background, recommendations, and case studies across verified professional networks.
             </p>
           </div>
@@ -53,20 +45,20 @@ import Container from "../components/ui/Container.astro";
               href="https://www.linkedin.com/in/rahul-k-54b92b1aa"
               target="_blank"
               rel="noopener noreferrer"
-              class="group/link flex items-center justify-between p-5 rounded-2xl border border-white/10 bg-white/[0.02] hover:border-[#6EA8FF]/50 hover:bg-white/[0.05] transition-all duration-300"
+              class="group/link flex items-center justify-between p-5 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#cc785c]/50 hover:bg-white/[0.05] transition-all duration-300"
             >
               <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-[#6EA8FF]/10 border border-[#6EA8FF]/20 flex items-center justify-center text-[#6EA8FF] group-hover/link:scale-110 transition-transform">
+                <div class="w-12 h-12 rounded-lg bg-[#cc785c]/10 border border-[#cc785c]/20 flex items-center justify-center text-[#cc785c] group-hover/link:scale-110 transition-transform">
                   <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                   </svg>
                 </div>
                 <div>
-                  <h4 class="text-base font-bold text-white group-hover/link:text-[#6EA8FF] transition-colors">LinkedIn Profile</h4>
-                  <p class="text-xs text-[#B3B5C0]">Professional experience & recommendations</p>
+                  <h4 class="text-base font-bold text-white group-hover/link:text-[#cc785c] transition-colors">LinkedIn Profile</h4>
+                  <p class="text-xs text-[#8e8b82]">Professional experience & recommendations</p>
                 </div>
               </div>
-              <span class="text-[#6EA8FF] group-hover/link:translate-x-1 transition-transform">↗</span>
+              <span class="text-[#cc785c] group-hover/link:translate-x-1 transition-transform">↗</span>
             </a>
 
             <!-- Behance Card -->
@@ -74,60 +66,58 @@ import Container from "../components/ui/Container.astro";
               href="https://www.behance.net/rahulk111"
               target="_blank"
               rel="noopener noreferrer"
-              class="group/link flex items-center justify-between p-5 rounded-2xl border border-white/10 bg-white/[0.02] hover:border-[#A970FF]/50 hover:bg-white/[0.05] transition-all duration-300"
+              class="group/link flex items-center justify-between p-5 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#5db8a6]/50 hover:bg-white/[0.05] transition-all duration-300"
             >
               <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-[#A970FF]/10 border border-[#A970FF]/20 flex items-center justify-center text-[#A970FF] font-display font-bold text-lg group-hover/link:scale-110 transition-transform">
+                <div class="w-12 h-12 rounded-lg bg-[#5db8a6]/10 border border-[#5db8a6]/20 flex items-center justify-center text-[#5db8a6] font-display font-bold text-lg group-hover/link:scale-110 transition-transform">
                   Be
                 </div>
                 <div>
-                  <h4 class="text-base font-bold text-white group-hover/link:text-[#A970FF] transition-colors">Behance Portfolio</h4>
-                  <p class="text-xs text-[#B3B5C0]">Case studies & design explorations</p>
+                  <h4 class="text-base font-bold text-white group-hover/link:text-[#5db8a6] transition-colors">Behance Portfolio</h4>
+                  <p class="text-xs text-[#8e8b82]">Case studies & design explorations</p>
                 </div>
               </div>
-              <span class="text-[#A970FF] group-hover/link:translate-x-1 transition-transform">↗</span>
+              <span class="text-[#5db8a6] group-hover/link:translate-x-1 transition-transform">↗</span>
             </a>
           </div>
         </div>
 
-        <div class="relative z-10 pt-8 mt-8 border-t border-white/10 flex items-center justify-between text-xs text-[#B3B5C0]">
+        <div class="relative z-10 pt-8 mt-8 border-t border-white/10 flex items-center justify-between text-xs text-[#8e8b82]">
           <span>Direct Email:</span>
-          <a href="mailto:rahul17106111@gmail.com" class="text-white hover:text-[#6EA8FF] underline underline-offset-4 transition-colors font-mono">
+          <a href="mailto:rahul17106111@gmail.com" class="text-white hover:text-[#cc785c] underline underline-offset-4 transition-colors font-mono">
             rahul17106111@gmail.com
           </a>
         </div>
       </div>
 
       {/* Right Column: Premium Contact Form (7 Cols) */}
-      <div class="lg:col-span-7 p-8 sm:p-12 rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.01] backdrop-blur-2xl relative">
-        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#A970FF]/40 to-transparent" />
-
+      <div class="lg:col-span-7 p-8 sm:p-12 rounded-2xl border border-white/10 bg-[#252320] relative">
         <form id="contact-form" class="space-y-6">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label class="mb-2 block text-xs font-mono tracking-widest text-[#B3B5C0] uppercase" for="name">
-                Your Name <span class="text-[#A970FF]">*</span>
+              <label class="mb-2 block text-xs font-mono tracking-widest text-[#8e8b82] uppercase" for="name">
+                Your Name <span class="text-[#cc785c]">*</span>
               </label>
               <input
                 id="name"
                 name="name"
                 type="text"
-                class="w-full rounded-xl border border-white/10 bg-white/[0.02] px-5 py-4 text-sm text-white placeholder:text-white/30 focus:border-[#A970FF] focus:bg-white/[0.04] focus:outline-none transition-all"
-                placeholder="Sarah Jenkins"
+                class="w-full rounded-xl border border-white/10 bg-white/[0.02] px-5 py-4 text-sm text-white placeholder:text-white/30 focus:border-[#cc785c] focus:bg-white/[0.04] focus:outline-none transition-all"
+                placeholder="Your name"
                 autocomplete="name"
                 required
               />
             </div>
             <div>
-              <label class="mb-2 block text-xs font-mono tracking-widest text-[#B3B5C0] uppercase" for="email">
-                Email Address <span class="text-[#A970FF]">*</span>
+              <label class="mb-2 block text-xs font-mono tracking-widest text-[#8e8b82] uppercase" for="email">
+                Email Address <span class="text-[#cc785c]">*</span>
               </label>
               <input
                 id="email"
                 name="email"
                 type="email"
-                class="w-full rounded-xl border border-white/10 bg-white/[0.02] px-5 py-4 text-sm text-white placeholder:text-white/30 focus:border-[#A970FF] focus:bg-white/[0.04] focus:outline-none transition-all"
-                placeholder="sarah@company.com"
+                class="w-full rounded-xl border border-white/10 bg-white/[0.02] px-5 py-4 text-sm text-white placeholder:text-white/30 focus:border-[#cc785c] focus:bg-white/[0.04] focus:outline-none transition-all"
+                placeholder="you@example.com"
                 autocomplete="email"
                 required
               />
@@ -135,22 +125,22 @@ import Container from "../components/ui/Container.astro";
           </div>
 
           <div>
-            <label class="mb-2 block text-xs font-mono tracking-widest text-[#B3B5C0] uppercase" for="message">
-              Message <span class="text-[#A970FF]">*</span>
+            <label class="mb-2 block text-xs font-mono tracking-widest text-[#8e8b82] uppercase" for="message">
+              Message <span class="text-[#cc785c]">*</span>
             </label>
             <textarea
               id="message"
               name="message"
               rows={5}
-              class="w-full resize-none rounded-xl border border-white/10 bg-white/[0.02] px-5 py-4 text-sm text-white placeholder:text-white/30 focus:border-[#A970FF] focus:bg-white/[0.04] focus:outline-none transition-all"
-              placeholder="Tell me about the role, project, or collaboration opportunity..."
+              class="w-full resize-none rounded-xl border border-white/10 bg-white/[0.02] px-5 py-4 text-sm text-white placeholder:text-white/30 focus:border-[#cc785c] focus:bg-white/[0.04] focus:outline-none transition-all"
+              placeholder="Tell me about the opportunity..."
               required
             ></textarea>
           </div>
 
           <button
             type="submit"
-            class="w-full group relative inline-flex items-center justify-center gap-3 py-4 px-8 rounded-full font-bold text-white bg-gradient-to-r from-[#FF8A3D] via-[#A970FF] to-[#6EA8FF] shadow-[0_0_30px_rgba(169,112,255,0.3)] hover:shadow-[0_0_40px_rgba(169,112,255,0.5)] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+            class="w-full group relative inline-flex items-center justify-center gap-3 py-4 px-8 rounded-sm bg-[#cc785c] text-white text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 hover:bg-[#a9583e] hover:-translate-y-0.5 cursor-pointer"
           >
             <span>Send Message</span>
             <span class="group-hover:translate-x-1 transition-transform">→</span>
@@ -208,3 +198,4 @@ import Container from "../components/ui/Container.astro";
     });
   }
 </script>
+
