@@ -1,76 +1,184 @@
 ---
 import Container from "../components/ui/Container.astro";
-import HeroReveal from "../components/motion/HeroReveal";
 import AboutCharacterVideo from "../components/motion/AboutCharacterVideo";
 ---
 
-<section id="hero" class="relative min-h-[90dvh] flex flex-col justify-center overflow-hidden pb-16 pt-28 bg-[#faf9f5] border-b border-[#e6dfd8]" data-hero-root>
-  {/* Atmospheric Background Detail - subtle editorial feel */}
+<section id="hero" class="relative min-h-[96dvh] flex flex-col justify-center overflow-hidden pt-28 pb-20 bg-[#faf7f2]" data-hero-root>
+  {/* Atmospheric Background & Subtle Grid */}
   <div class="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
-    <div class="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#cc785c]/5 blur-[120px] rounded-full"></div>
-    <div class="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-[#5db8a6]/5 blur-[100px] rounded-full"></div>
-
-    {/* Refined Grid */}
-    <div class="absolute inset-0 opacity-[0.05]" style="background-image: linear-gradient(#141413 1px, transparent 1px), linear-gradient(90deg, #141413 1px, transparent 1px); background-size: 80px 80px;"></div>
+    <div class="absolute top-[-5%] right-[-5%] w-[650px] h-[650px] bg-[#cc785c]/8 blur-[140px] rounded-full"></div>
+    <div class="absolute bottom-[5%] left-[-5%] w-[500px] h-[500px] bg-[#5db8a6]/6 blur-[120px] rounded-full"></div>
+    <div class="absolute inset-0 opacity-[0.035]" style="background-image: linear-gradient(#141413 1px, transparent 1px), linear-gradient(90deg, #141413 1px, transparent 1px); background-size: 80px 80px;"></div>
   </div>
 
-  <Container class="relative z-10 pointer-events-none">
-    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+  <Container class="relative z-10">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
-      <!-- Left Column: Editorial Copy -->
-      <div class="lg:col-span-7 space-y-12 pointer-events-auto">
+      <!-- Left Column: Editorial Copy & Branding -->
+      <div class="lg:col-span-7 space-y-8" data-hero-item>
 
-        <div class="space-y-4" data-hero-item>
-          <span class="text-[10px] font-mono font-bold tracking-[0.4em] text-[#cc785c] uppercase bg-[#cc785c]/10 border border-[#cc785c]/20 px-4 py-1.5 rounded-full inline-block">
-            CHAPTER 01 / MEET THE DESIGNER
+        {/* Professional Role Pill */}
+        <div class="inline-flex items-center gap-2.5 bg-white/80 border border-[#141413]/10 px-4 py-1.5 rounded-full shadow-sm backdrop-blur">
+          <span class="w-2 h-2 rounded-full bg-[#10b981] animate-pulse"></span>
+          <span class="text-[10px] sm:text-[11px] font-mono tracking-widest uppercase text-[#141413] font-semibold">
+            UI/UX & Product Designer
           </span>
         </div>
 
-        <h1 class="font-display text-5xl sm:text-7xl lg:text-[96px] font-medium tracking-tight text-[#141413] leading-[0.95]" data-hero-item>
+        {/* Expressive Editorial Headline */}
+        <h1 class="font-display text-5xl sm:text-7xl lg:text-[84px] font-medium tracking-tight text-[#141413] leading-[1.02]">
           I make complex <br />
-          <span class="italic text-[#8e8b82]">things feel</span> <br />
-          beautifully simple.
+          things feel <br />
+          <span class="relative inline-block font-serif-italic text-[#141413]">
+            beautifully simple.
+            {/* Subtle Artistic Warm Brush Underline */}
+            <svg class="absolute -bottom-3 left-0 w-full h-3.5 text-[#cc785c] overflow-visible" viewBox="0 0 320 14" fill="none" preserveAspectRatio="none">
+              <path d="M3 9C70 3 210 4 317 10" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+            </svg>
+          </span>
         </h1>
 
-        <p class="text-xl text-[#6c6a64] font-normal leading-relaxed max-w-xl" data-hero-item>
-          I'm a UI/UX Designer focused on SaaS, AI, and digital products — turning user needs and complex workflows into intuitive, thoughtful experiences.
-        </p>
+        {/* Narrative Description */}
+        <div class="space-y-3 max-w-xl text-[#55524c]">
+          <p class="text-lg sm:text-xl font-normal leading-relaxed text-[#141413]/90">
+            Designing thoughtful digital experiences that make complex workflows easier to understand and use.
+          </p>
+          <p class="text-sm sm:text-base leading-relaxed text-[#6c6a64]">
+            I'm a UI/UX Designer with 1+ year of professional experience, currently working on SaaS products at Netpy Technologies. I enjoy transforming user needs and complex requirements into intuitive digital experiences.
+          </p>
+        </div>
 
-        <div class="pt-4 flex flex-wrap items-center gap-6" data-hero-item>
-          <a href="#work" class="group flex items-center gap-4 bg-[#141413] text-[#faf9f5] px-8 py-4 rounded-none text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:bg-[#cc785c] hover:-translate-y-0.5">
-            <span>Explore Work</span>
-            <span class="group-hover:translate-x-1 transition-transform">↗</span>
+        {/* Call to Actions */}
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a
+            href="#work"
+            class="group inline-flex items-center gap-3 bg-[#141413] text-[#faf9f5] px-8 py-4 rounded-full text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 hover:bg-[#cc785c] hover:shadow-xl hover:-translate-y-0.5"
+          >
+            <span>Explore My Work</span>
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
           </a>
-          <a href="/resume-page-1.png" target="_blank" rel="noopener noreferrer" class="text-xs font-bold tracking-[0.2em] uppercase text-[#141413] hover:text-[#cc785c] transition-colors">
-            Download Résumé ↓
+          <a
+            href="/resume-page-1.png"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group inline-flex items-center gap-3 bg-white/70 border border-[#141413]/15 px-7 py-4 rounded-full text-[#141413] text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 hover:border-[#141413] hover:bg-white hover:-translate-y-0.5"
+          >
+            <span class="text-[#cc785c] group-hover:translate-y-0.5 transition-transform">↓</span>
+            <span>Download Résumé</span>
           </a>
         </div>
-      </div>
 
-      <!-- Right Column: Integrated 3D Identity -->
-      <div class="lg:col-span-5 relative pointer-events-auto" data-hero-visual>
-        <div class="relative w-full aspect-square flex items-center justify-center">
-          <div class="w-full h-full scale-[1.2] translate-y-4">
-            <AboutCharacterVideo client:load />
+        {/* Professional Details Strip */}
+        <div class="grid grid-cols-3 gap-6 pt-6 border-t border-[#141413]/10 max-w-lg">
+          <div>
+            <span class="block text-2xl sm:text-3xl font-bold font-display text-[#141413]">4+</span>
+            <span class="text-[10px] font-mono tracking-wider uppercase text-[#8e8b82]">Projects</span>
+          </div>
+          <div class="border-l border-[#141413]/10 pl-6">
+            <span class="block text-2xl sm:text-3xl font-bold font-display text-[#141413]">1+ Year</span>
+            <span class="text-[10px] font-mono tracking-wider uppercase text-[#8e8b82]">Experience</span>
+          </div>
+          <div class="border-l border-[#141413]/10 pl-6 flex flex-col justify-center">
+            <span class="block text-xs font-bold text-[#141413] leading-tight">Designing for</span>
+            <span class="text-[10px] text-[#6c6a64] leading-tight block">a better tomorrow</span>
           </div>
         </div>
+
+      </div>
+
+      <!-- Right Column: Interactive Character & Design Studio Motifs -->
+      <div class="lg:col-span-5 relative flex items-center justify-center min-h-[480px] lg:min-h-[580px]" data-hero-visual>
+
+        {/* Soft Background Radial Light */}
+        <div class="absolute inset-0 bg-gradient-to-tr from-[#cc785c]/10 via-transparent to-white/60 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+        {/* The 3D Interactive Character with WebGL Transparency */}
+        <div class="relative w-full z-10">
+          <AboutCharacterVideo client:load />
+        </div>
+
+        {/* Floating Element 1: 3D Figma Tile (Top Left) */}
+        <div class="absolute -top-4 -left-4 sm:left-2 z-20 animate-float-slow pointer-events-none">
+          <div class="w-14 sm:w-16 h-14 sm:h-16 rounded-2xl bg-white/90 border border-white/80 shadow-[0_16px_36px_rgba(20,20,19,0.08)] backdrop-blur-md flex items-center justify-center p-3.5">
+            <svg class="w-full h-full drop-shadow-sm" viewBox="0 0 38 57" fill="none">
+              <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
+              <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/>
+              <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/>
+              <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"/>
+              <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"/>
+            </svg>
+          </div>
+        </div>
+
+        {/* Floating Element 2: Design Philosophy Card + Pointer Arrow (Top Right) */}
+        <div class="absolute -top-2 right-2 sm:right-6 z-20 animate-float pointer-events-none">
+          <div class="bg-white/95 border border-[#141413]/10 px-4 py-3 rounded-2xl shadow-[0_16px_36px_rgba(20,20,19,0.08)] backdrop-blur-md relative">
+            <div class="flex items-center justify-between gap-3 mb-1">
+              <span class="text-[9px] font-mono font-bold tracking-widest uppercase text-[#cc785c]">FOCUS</span>
+              <span class="text-xs text-[#cc785c]">✦</span>
+            </div>
+            <p class="font-display font-bold text-xs text-[#141413] leading-snug">
+              Design<br/>Simplify<br/>Innovate
+            </p>
+            {/* Pointer cursor arrow */}
+            <div class="absolute -bottom-2 -left-2 transform -rotate-12">
+              <svg class="w-5 h-5 drop-shadow text-[#141413]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3 3l7 18 3-7 7-3L3 3z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        {/* Floating Element 3: Mini UI Wireframe Card (Bottom Right) */}
+        <div class="absolute -bottom-4 right-4 z-20 hidden sm:block animate-float-delayed pointer-events-none">
+          <div class="w-36 bg-white/90 border border-[#141413]/10 p-3 rounded-xl shadow-[0_16px_32px_rgba(20,20,19,0.06)] backdrop-blur space-y-2">
+            <div class="flex items-center justify-between">
+              <div class="flex gap-1">
+                <div class="w-1.5 h-1.5 rounded-full bg-[#cc785c]"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-[#141413]/20"></div>
+              </div>
+              <span class="text-[8px] font-mono text-[#8e8b82]">UI FLOW</span>
+            </div>
+            <div class="h-8 bg-[#faf7f2] rounded border border-[#141413]/5 flex items-center justify-center">
+              <span class="text-[9px] font-mono text-[#55524c]">SaaS Interface</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Decorative Delicate Curved Orbital Line */}
+        <svg class="absolute -top-8 right-16 w-48 h-32 text-[#141413]/10 pointer-events-none -z-5" fill="none" viewBox="0 0 180 120">
+          <path d="M10,80 Q90,-20 170,40" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" />
+        </svg>
+
       </div>
 
     </div>
   </Container>
 
-  {/* Scroll Indicator */}
-  <div class="absolute bottom-10 left-10 flex items-center gap-4 text-[9px] font-mono text-[#8e8b82] uppercase tracking-[0.3em]">
-    <div class="w-12 h-px bg-[#141413]/20"></div>
-    <span>Scroll</span>
+  {/* Smooth Curving Transition to Next Section (Dark Theme) */}
+  <div class="absolute -bottom-1 left-0 right-0 pointer-events-none z-10">
+    <svg class="w-full h-12 md:h-20 text-[#181715] fill-current" viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,45 C360,90 900,10 1440,55 L1440,80 L0,80 Z" />
+    </svg>
   </div>
-
-  <HeroReveal client:load />
 </section>
 
 <style>
-  @keyframes bounce {
+  @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(4px); }
+    50% { transform: translateY(-8px); }
   }
+  .animate-float { animation: float 4.5s infinite ease-in-out; }
+
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(2deg); }
+  }
+  .animate-float-slow { animation: float-slow 6s infinite ease-in-out; }
+
+  @keyframes float-delayed {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .animate-float-delayed { animation: float-delayed 5.5s infinite ease-in-out; animation-delay: 1.5s; }
 </style>
