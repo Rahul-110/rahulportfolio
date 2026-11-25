@@ -27,7 +27,7 @@ export const caseStudies: CaseStudy[] = [
     tags: ["Product Design", "AI Interaction", "Design System"],
     accent: "rgba(169, 112, 255, 0.25)",
     cover: {
-      src: "/images/lumora-cover.webp",
+      src: "/images/lumora-cover-v4.webp",
       alt: "Lumora AI Conversational Interface Case Study",
     },
     summary: "Exploring a trust-first conversational AI experience through contextual interactions, transparency, and user control.",
@@ -113,7 +113,7 @@ export const caseStudies: CaseStudy[] = [
     tags: ["Dashboard", "SaaS", "Operations"],
     accent: "rgba(249, 115, 22, 0.25)",
     cover: {
-      src: "/images/juice-rush-operator-cover.png",
+      src: "/images/juice-rush-operator-cover.webp",
       alt: "Juice Rush operator dashboard interface",
     },
     summary: "A comprehensive operator portal for managing juice delivery operations, orders, and inventory with real-time analytics.",

@@ -1,201 +1,41 @@
 ---
 import Container from "../components/ui/Container.astro";
+import ContactStudio from "../components/motion/ContactStudio";
 ---
 
-<section id="contact" class="relative py-32 md:py-48 bg-[#181715] text-[#faf9f5] overflow-hidden border-t border-white/10">
-  <!-- Cinematic Ambient Lighting -->
-  <div class="pointer-events-none absolute inset-0 -z-10">
-    <div class="absolute left-1/2 bottom-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-gradient-to-t from-[#cc785c]/10 via-[#5db8a6]/10 to-transparent blur-[160px]" />
-  </div>
-
-  <Container class="relative z-10">
-    <!-- Section Header -->
-    <div class="max-w-3xl mb-24 space-y-4">
-      <span class="text-[10px] font-mono font-bold tracking-[0.4em] text-[#cc785c] uppercase bg-[#cc785c]/10 border border-[#cc785c]/20 px-4 py-1.5 rounded-full inline-block">
-        CHAPTER 05 / THE NEXT CHAPTER
-      </span>
-      <h2 class="font-display text-4xl sm:text-6xl md:text-7xl font-medium tracking-tight leading-[1.05]">
-        Let's create something <br />
-        <span class="italic text-[#8e8b82]">meaningful together.</span>
-      </h2>
-      <p class="text-base sm:text-lg text-[#8e8b82] font-normal leading-relaxed max-w-xl">
-        I'm interested in thoughtful product challenges, creative collaboration, and opportunities to build better digital experiences. My inbox is open.
-      </p>
+<section id="contact" class="relative py-28 md:py-40 bg-[--color-background] text-[--color-text] overflow-hidden border-t border-[--color-border]">
+  <Container class="relative z-10 space-y-24">
+    {/* Chapter Label */}
+    <div>
+      <div class="inline-flex items-center gap-2.5 bg-[--color-surface] border border-[--color-border] px-4 py-1.5 rounded-full backdrop-blur-md">
+        <span class="w-2 h-2 rounded-full bg-[--color-accent] animate-pulse"></span>
+        <span class="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.25em] text-[--color-text] uppercase">
+          06 / LET'S CONNECT
+        </span>
+      </div>
     </div>
 
-    <!-- Asymmetric Bento Contact Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+    {/* Interactive Creative Contact Studio Component */}
+    <ContactStudio client:load />
 
-      {/* Left Column: Professional Links & Bio (5 Cols) */}
-      <div class="lg:col-span-5 flex flex-col justify-between p-8 sm:p-10 rounded-2xl border border-white/10 bg-[#252320] relative overflow-hidden group">
-        <div class="relative z-10 space-y-8">
-          <div>
-            <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-[#5db8a6] block mb-2">Professional Profiles</span>
-            <h3 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
-              Connect & Explore
-            </h3>
-            <p class="text-sm text-[#a09d96] mt-3 leading-relaxed">
-              Explore my complete professional background, recommendations, and case studies across verified professional networks.
-            </p>
-          </div>
-
-          <div class="space-y-4 pt-2">
-            <!-- LinkedIn Card -->
-            <a
-              href="https://www.linkedin.com/in/rahul-k-54b92b1aa"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group/link flex items-center justify-between p-5 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#cc785c]/50 hover:bg-white/[0.05] transition-all duration-300"
-            >
-              <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-lg bg-[#cc785c]/10 border border-[#cc785c]/20 flex items-center justify-center text-[#cc785c] group-hover/link:scale-110 transition-transform">
-                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="text-base font-bold text-white group-hover/link:text-[#cc785c] transition-colors">LinkedIn Profile</h4>
-                  <p class="text-xs text-[#8e8b82]">Professional experience & recommendations</p>
-                </div>
-              </div>
-              <span class="text-[#cc785c] group-hover/link:translate-x-1 transition-transform">↗</span>
-            </a>
-
-            <!-- Behance Card -->
-            <a
-              href="https://www.behance.net/rahulk111"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group/link flex items-center justify-between p-5 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#5db8a6]/50 hover:bg-white/[0.05] transition-all duration-300"
-            >
-              <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-lg bg-[#5db8a6]/10 border border-[#5db8a6]/20 flex items-center justify-center text-[#5db8a6] font-display font-bold text-lg group-hover/link:scale-110 transition-transform">
-                  Be
-                </div>
-                <div>
-                  <h4 class="text-base font-bold text-white group-hover/link:text-[#5db8a6] transition-colors">Behance Portfolio</h4>
-                  <p class="text-xs text-[#8e8b82]">Case studies & design explorations</p>
-                </div>
-              </div>
-              <span class="text-[#5db8a6] group-hover/link:translate-x-1 transition-transform">↗</span>
-            </a>
-          </div>
+    {/* Minimal Premium Footer */}
+    <footer class="pt-12 border-t border-[--color-border] space-y-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <span class="font-display font-bold text-[--color-text] text-lg tracking-tight">Rahul.</span>
+          <span class="text-[--color-text-secondary]/30">•</span>
+          <span class="text-xs font-mono text-[--color-text-secondary] uppercase tracking-widest">UI/UX Designer / Product Designer</span>
         </div>
 
-        <div class="relative z-10 pt-8 mt-8 border-t border-white/10 flex items-center justify-between text-xs text-[#8e8b82]">
-          <span>Direct Email:</span>
-          <a href="mailto:rahul17106111@gmail.com" class="text-white hover:text-[#cc785c] underline underline-offset-4 transition-colors font-mono">
-            rahul17106111@gmail.com
-          </a>
-        </div>
+        {/* Navigation Links */}
+        <nav class="flex flex-wrap items-center justify-center gap-5 sm:gap-8 text-xs font-mono uppercase tracking-widest text-[--color-text-secondary]" aria-label="Footer navigation">
+          <a href="#work" class="hover:text-[--color-text] transition-colors focus-visible:outline-none focus-visible:underline">Work</a>
+          <a href="#journey" class="hover:text-[--color-text] transition-colors focus-visible:outline-none focus-visible:underline">Journey</a>
+          <a href="#toolkit" class="hover:text-[--color-text] transition-colors focus-visible:outline-none focus-visible:underline">Toolkit</a>
+          <a href="#process" class="hover:text-[--color-text] transition-colors focus-visible:outline-none focus-visible:underline">Design Process</a>
+          <a href="#contact" class="hover:text-[--color-text] transition-colors focus-visible:outline-none focus-visible:underline">Contact</a>
+        </nav>
       </div>
-
-      {/* Right Column: Premium Contact Form (7 Cols) */}
-      <div class="lg:col-span-7 p-8 sm:p-12 rounded-2xl border border-white/10 bg-[#252320] relative">
-        <form id="contact-form" class="space-y-6">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <label class="mb-2 block text-xs font-mono tracking-widest text-[#8e8b82] uppercase" for="name">
-                Your Name <span class="text-[#cc785c]">*</span>
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                class="w-full rounded-xl border border-white/10 bg-white/[0.02] px-5 py-4 text-sm text-white placeholder:text-white/30 focus:border-[#cc785c] focus:bg-white/[0.04] focus:outline-none transition-all"
-                placeholder="Your name"
-                autocomplete="name"
-                required
-              />
-            </div>
-            <div>
-              <label class="mb-2 block text-xs font-mono tracking-widest text-[#8e8b82] uppercase" for="email">
-                Email Address <span class="text-[#cc785c]">*</span>
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                class="w-full rounded-xl border border-white/10 bg-white/[0.02] px-5 py-4 text-sm text-white placeholder:text-white/30 focus:border-[#cc785c] focus:bg-white/[0.04] focus:outline-none transition-all"
-                placeholder="you@example.com"
-                autocomplete="email"
-                required
-              />
-            </div>
-          </div>
-
-          <div>
-            <label class="mb-2 block text-xs font-mono tracking-widest text-[#8e8b82] uppercase" for="message">
-              Message <span class="text-[#cc785c]">*</span>
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={5}
-              class="w-full resize-none rounded-xl border border-white/10 bg-white/[0.02] px-5 py-4 text-sm text-white placeholder:text-white/30 focus:border-[#cc785c] focus:bg-white/[0.04] focus:outline-none transition-all"
-              placeholder="Tell me about the opportunity..."
-              required
-            ></textarea>
-          </div>
-
-          <button
-            type="submit"
-            class="w-full group relative inline-flex items-center justify-center gap-3 py-4 px-8 rounded-sm bg-[#cc785c] text-white text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 hover:bg-[#a9583e] hover:-translate-y-0.5 cursor-pointer"
-          >
-            <span>Send Message</span>
-            <span class="group-hover:translate-x-1 transition-transform">→</span>
-          </button>
-
-          <div id="form-status" class="hidden rounded-xl bg-green-500/10 border border-green-500/30 px-5 py-4 text-sm text-green-400"></div>
-        </form>
-      </div>
-
-    </div>
+    </footer>
   </Container>
 </section>
-
-<script>
-  const form = document.getElementById('contact-form') as HTMLFormElement;
-  const status = document.getElementById('form-status') as HTMLDivElement;
-
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const button = form.querySelector('button[type="submit"]') as HTMLButtonElement;
-      const originalText = button.innerHTML;
-
-      button.disabled = true;
-      button.innerHTML = 'Sending...';
-
-      const formData = new FormData(form);
-
-      try {
-        const response = await fetch('https://formspree.io/f/mwvgpkyr', {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
-
-        if (response.ok) {
-          status.textContent = 'Message sent successfully! I\'ll get back to you soon.';
-          status.classList.remove('hidden');
-          form.reset();
-        } else {
-          status.textContent = 'Oops! Something went wrong. Please try again.';
-          status.classList.remove('hidden');
-          status.classList.add('bg-red-500/10', 'border-red-500/30', 'text-red-400');
-        }
-      } catch (error) {
-        status.textContent = 'Oops! Something went wrong. Please try again.';
-        status.classList.remove('hidden');
-        status.classList.add('bg-red-500/10', 'border-red-500/30', 'text-red-400');
-      }
-
-      button.disabled = false;
-      button.innerHTML = originalText;
-    });
-  }
-</script>
-

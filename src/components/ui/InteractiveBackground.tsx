@@ -51,9 +51,9 @@ export default function InteractiveBackground() {
     }
 
     const colors = [
-      'rgba(110, 168, 255, ', // Blue
-      'rgba(169, 112, 255, ', // Purple
-      'rgba(255, 138, 61, ',  // Orange
+      'rgba(204, 120, 92, ', // Coral (Anthropic Warm Coral)
+      'rgba(93, 184, 166, ', // Teal (Accent Teal)
+      'rgba(232, 165, 90, ',  // Amber (Accent Amber)
     ];
 
     const particles: Particle[] = Array.from({ length: PARTICLE_COUNT }, () => {
@@ -90,9 +90,9 @@ export default function InteractiveBackground() {
         mouseY,
         Math.max(width, height) * 0.35
       );
-      primaryGlow.addColorStop(0, 'rgba(169, 112, 255, 0.07)');
-      primaryGlow.addColorStop(0.5, 'rgba(110, 168, 255, 0.035)');
-      primaryGlow.addColorStop(1, 'rgba(3, 3, 5, 0)');
+      primaryGlow.addColorStop(0, 'rgba(204, 120, 92, 0.07)'); // Coral
+      primaryGlow.addColorStop(0.5, 'rgba(93, 184, 166, 0.035)'); // Teal
+      primaryGlow.addColorStop(1, 'rgba(250, 249, 245, 0)'); // Canvas tint
 
       ctx.fillStyle = primaryGlow;
       ctx.fillRect(0, 0, width, height);
@@ -101,11 +101,8 @@ export default function InteractiveBackground() {
       const secX = width * 0.7 + Math.sin(time * 0.5) * 120;
       const secY = height * 0.3 + Math.cos(time * 0.3) * 100;
       const secGlow = ctx.createRadialGradient(secX, secY, 0, secX, secY, 450);
-      secGlow.addColorStop(0, 'rgba(255, 138, 61, 0.04)');
-      secGlow.addColorStop(1, 'rgba(3, 3, 5, 0)');
-
-      ctx.fillStyle = secGlow;
-      ctx.fillRect(0, 0, width, height);
+      secGlow.addColorStop(0, 'rgba(232, 165, 90, 0.04)'); // Amber
+      secGlow.addColorStop(1, 'rgba(250, 249, 245, 0)'); // Canvas tint
 
       // 3. Update & Draw Particles with Interactive Cursor Reaction
       for (let i = 0; i < particles.length; i++) {
@@ -156,7 +153,7 @@ export default function InteractiveBackground() {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(169, 112, 255, ${lineAlpha})`;
+            ctx.strokeStyle = `rgba(204, 120, 92, ${lineAlpha})`; // Coral lines
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }

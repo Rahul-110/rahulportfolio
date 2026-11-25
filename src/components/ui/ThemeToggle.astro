@@ -1,0 +1,30 @@
+<button
+  id="theme-toggle"
+  class="p-2 rounded-full border border-[--color-border] bg-[--color-surface] text-[--color-text] transition-all hover:border-[--color-accent]"
+  aria-label="Toggle theme"
+>
+  <span class="sun-icon">☀️</span>
+  <span class="moon-icon hidden">🌙</span>
+</button>
+
+<script>
+  const button = document.getElementById('theme-toggle');
+  const sunIcon = button?.querySelector('.sun-icon');
+  const moonIcon = button?.querySelector('.moon-icon');
+
+  const updateIcons = () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    sunIcon?.classList.toggle('hidden', isDark);
+    moonIcon?.classList.toggle('hidden', !isDark);
+  };
+
+  updateIcons();
+
+  button?.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('portfolio-theme', newTheme);
+    updateIcons();
+  });
+</script>

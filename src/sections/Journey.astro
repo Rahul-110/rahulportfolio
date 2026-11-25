@@ -1,149 +1,61 @@
 ---
 import Container from "../components/ui/Container.astro";
-
-const timelineEvents = [
-  {
-    phase: "01",
-    title: "Engineering Foundation",
-    subtitle: "SRM Valliammai Engineering College",
-    period: "Education",
-    role: "B.E. — Electronics and Communication",
-    description: "An engineering background provided me with structured problem-solving skills and an appreciation for technical constraints — a natural bridge toward designing digital systems.",
-    capabilities: ["Systems thinking", "Technical logic", "Analytical problem solving"],
-    accent: "#cc785c"
-  },
-  {
-    phase: "02",
-    title: "The Transition",
-    subtitle: "Early Design Internships",
-    period: "2023 – 2024",
-    roles: [
-      { company: "Kartexa", role: "UI/UX Design Intern", time: "July 2023 – Sept 2023" },
-      { company: "Duhzine IT Solution", role: "UI/UX Design Intern", time: "July 2024 – Sept 2024" }
-    ],
-    description: "Developed fundamental UI/UX practices through hands-on user research, behavior analysis, wireframe exploration, and collaborative design feedback loops.",
-    capabilities: ["User research", "Wireframing", "Collaborative feedback"],
-    accent: "#5db8a6"
-  },
-  {
-    phase: "03",
-    title: "Professional Growth",
-    subtitle: "SaaS Product Design",
-    period: "June 2025 – Present",
-    company: "Netpy Technologies",
-    role: "UI/UX Designer",
-    current: true,
-    description: "Currently designing SaaS product experiences. Translating complex business requirements into intuitive user flows, information architecture, and high-fidelity interfaces.",
-    capabilities: [
-      "SaaS interface design",
-      "User flows",
-      "Design system tokenization"
-    ],
-    accent: "#cc785c"
-  }
-];
+import JourneyCharacter from "../components/motion/JourneyCharacter";
+import JourneyMap from "../components/motion/JourneyMap";
 ---
 
-<section id="journey" class="relative py-32 md:py-48 bg-[#faf9f5] text-[#141413] border-t border-[#e6dfd8]">
+<section id="journey" class="relative py-28 md:py-40 bg-[--color-background] text-[--color-text] overflow-hidden scroll-mt-28">
   <Container>
-    <div class="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-      <!-- Left Column: Sticky Title & Context -->
-      <div class="lg:col-span-5 lg:sticky lg:top-32 space-y-12">
+      {/* LEFT COLUMN: STORY & CONTEXT (35%) */}
+      <div class="lg:col-span-4 space-y-10 lg:sticky lg:top-32">
         <div class="space-y-6">
-          <span class="text-[10px] font-mono font-bold tracking-[0.4em] text-[#cc785c] uppercase bg-[#cc785c]/10 border border-[#cc785c]/20 px-4 py-1.5 rounded-full inline-block">
-            CHAPTER 03 / THE JOURNEY
-          </span>
-          <h2 class="font-display text-5xl md:text-7xl font-medium tracking-tight leading-[0.95]">
-            Engineering <br />
-            <span class="italic text-[#8e8b82]">meets Design.</span>
+          <div class="inline-flex items-center gap-3">
+            <span class="w-8 h-px bg-[--color-accent]"></span>
+            <span class="text-[10px] font-mono font-bold tracking-[0.3em] uppercase text-[--color-text-secondary]">
+              MY JOURNEY / 03
+            </span>
+          </div>
+
+          <h2 class="font-display text-4xl md:text-5xl font-medium tracking-tight leading-[1.05] text-[--color-text]">
+            Every experience shaped <br />
+            <span class="italic font-serif text-[--color-text-secondary] block mt-2">the designer I am becoming.</span>
           </h2>
-          <p class="text-xl text-[#6c6a64] font-normal leading-relaxed max-w-sm">
-            A timeline of professional growth — from a technical foundation to designing meaningful product experiences.
+
+          <p class="text-base text-[--color-text-secondary] leading-relaxed font-normal">
+            From an engineering foundation to designing SaaS product experiences, each stage has helped me develop a deeper understanding of people, systems, and product design.
           </p>
+
+          <div class="pt-2">
+            <p class="font-serif italic text-lg md:text-xl text-[--color-text] leading-snug">
+              Curiosity keeps me exploring.<br />
+              <span class="relative inline-block mt-1">
+                Experience continues to shape how I think.
+                <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-[--color-accent]/60"></span>
+              </span>
+            </p>
+          </div>
         </div>
 
-        <div class="p-8 rounded-2xl border border-[#e6dfd8] bg-[#efe9de] space-y-4">
-          <h3 class="text-xs font-mono font-bold uppercase tracking-widest text-[#141413]">
-            The Core Narrative
-          </h3>
-          <p class="text-sm text-[#3d3d3a] leading-relaxed">
-            Transitioning from Engineering into UI/UX Design was driven by a passion for human-computer interaction. Engineering taught me systems; design allowed me to shape how people experience them.
-          </p>
+        {/* Character Illustration */}
+        <div class="relative max-w-[220px] opacity-90 hidden sm:block">
+          <JourneyCharacter client:load />
         </div>
       </div>
 
-      <!-- Right Column: Minimalist Timeline -->
-      <div class="lg:col-span-7 relative">
-        <div class="absolute left-[11px] top-4 bottom-4 w-px bg-[#141413]/10"></div>
-
-        <div class="space-y-24 relative">
-          {timelineEvents.map((event) => (
-            <div class="relative pl-12 group">
-              {/* Timeline Dot */}
-              <div class="absolute left-0 top-1.5 w-[23px] h-[23px] -translate-x-[11px] rounded-full bg-[#faf9f5] border border-[#141413]/20 flex items-center justify-center transition-all duration-500 group-hover:border-[#cc785c]">
-                <div class="w-1.5 h-1.5 rounded-full bg-[#141413] transition-all duration-500 group-hover:bg-[#cc785c] group-hover:scale-150"></div>
-              </div>
-
-              <div class="space-y-8">
-                <div class="flex items-center justify-between">
-                  <div class="space-y-1">
-                    <span class="text-[10px] font-mono font-bold text-[#cc785c] tracking-widest uppercase">
-                      PART {event.phase} / {event.period}
-                    </span>
-                    <h3 class="font-display text-3xl font-bold tracking-tight">
-                      {event.title}
-                    </h3>
-                  </div>
-                  {event.current && (
-                    <span class="text-[9px] font-mono font-bold text-[#5db8a6] border border-[#5db8a6]/30 px-3 py-1 rounded-full uppercase tracking-widest animate-pulse">
-                      Currently Here
-                    </span>
-                  )}
-                </div>
-
-                <div class="p-8 rounded-2xl border border-[#e6dfd8] bg-[#efe9de]/40 transition-all duration-500 group-hover:bg-[#efe9de] group-hover:border-[#cc785c]/20">
-                  <div class="space-y-6">
-                    <div class="space-y-1">
-                      <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-[#8e8b82]">
-                        {event.subtitle}
-                      </span>
-                      <p class="text-sm font-bold text-[#141413]">
-                        {event.role} {event.company && `at ${event.company}`}
-                      </p>
-                    </div>
-
-                    {event.roles && (
-                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {event.roles.map((r) => (
-                          <div class="p-4 rounded-xl border border-[#e6dfd8] bg-[#faf9f5]/50">
-                            <span class="text-[11px] font-bold block mb-1">{r.company}</span>
-                            <span class="text-[10px] text-[#6c6a64] block">{r.role}</span>
-                            <span class="text-[9px] font-mono text-[#8e8b82] mt-2 block">{r.time}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
-                    <p class="text-sm text-[#3d3d3a] leading-relaxed">
-                      {event.description}
-                    </p>
-
-                    <div class="pt-6 border-t border-[#e6dfd8] flex flex-wrap gap-2">
-                      {event.capabilities.map((cap) => (
-                        <span class="text-[9px] font-mono uppercase tracking-widest px-3 py-1.5 rounded-sm bg-[#faf9f5] border border-[#e6dfd8] text-[#141413]">
-                          {cap}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+      {/* RIGHT COLUMN: INTERACTIVE UX JOURNEY MAP (65%) */}
+      <div class="lg:col-span-8">
+        <JourneyMap client:load />
       </div>
 
+    </div>
+
+    {/* BOTTOM CLOSING REFLECTION */}
+    <div class="mt-24 pt-16 border-t border-[--color-border]/60 text-center">
+      <p class="font-serif italic text-xl md:text-2xl text-[--color-text] leading-relaxed max-w-3xl mx-auto">
+        "Every stage has added a new perspective to the way I approach design. Today, I focus on understanding problems, simplifying complex workflows, and creating digital experiences that make sense to people."
+      </p>
     </div>
   </Container>
 </section>

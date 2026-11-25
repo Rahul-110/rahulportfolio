@@ -1,13 +1,14 @@
 ---
 import Container from "../ui/Container.astro";
+import ThemeToggle from "../ui/ThemeToggle";
 
 type Link = { href: string; label: string };
 
 const links: Link[] = [
-  { href: "#work", label: "WORK" },
-  { href: "#journey", label: "JOURNEY" },
-  { href: "#toolkit", label: "TOOLKIT" },
-  { href: "#contact", label: "CONTACT" },
+  { href: "#work", label: "Work" },
+  { href: "#journey", label: "Journey" },
+  { href: "#toolkit", label: "Toolkit" },
+  { href: "#contact", label: "Contact" },
 ];
 ---
 
@@ -16,17 +17,17 @@ const links: Link[] = [
     <nav class="pointer-events-auto flex items-center justify-between">
       <!-- Logo -->
       <a href="#" class="group">
-        <span class="font-display text-xl font-bold tracking-tighter text-[#141413] group-hover:text-[#cc785c] transition-colors" data-nav-logo>
+        <span class="font-display text-xl font-bold tracking-tighter text-[--color-text] group-hover:text-[--color-accent] transition-colors" data-nav-logo>
           RAHUL K
         </span>
       </a>
 
       <!-- Navigation -->
-      <div class="hidden items-center gap-12 md:flex">
+      <div class="hidden items-center gap-10 lg:gap-12 md:flex">
         {links.map((l) => (
           <a
             href={l.href}
-            class="text-[10px] font-bold tracking-[0.25em] text-[#6c6a64] transition hover:text-[#141413]"
+            class="text-xs font-medium text-[--color-text-secondary] transition hover:text-[--color-text]"
             data-nav-link
           >
             {l.label}
@@ -34,9 +35,10 @@ const links: Link[] = [
         ))}
       </div>
 
-      <!-- Action -->
-      <div class="flex items-center gap-6">
-        <a href="#contact" class="rounded-full border border-[#141413]/20 bg-[#141413] px-6 py-2.5 text-[10px] font-bold tracking-widest text-[#faf9f5] transition hover:bg-[#cc785c] hover:border-[#cc785c]" data-nav-button>
+      <!-- Action & Toggle -->
+      <div class="flex items-center gap-4 sm:gap-6">
+        <ThemeToggle client:load />
+        <a href="#contact" class="hidden sm:inline-flex rounded-full bg-[--color-text] px-6 py-2.5 text-xs font-bold tracking-widest text-[--color-background] transition hover:bg-[--color-accent]" data-nav-button>
           LET'S TALK
         </a>
       </div>
@@ -50,11 +52,11 @@ const links: Link[] = [
 
   const handleScroll = () => {
     if (window.scrollY > 20) {
-      header?.classList.add('bg-[#faf9f5]/80', 'backdrop-blur-xl', 'border-b', 'border-[#e6dfd8]');
+      header?.classList.add('bg-[--color-background]/80', 'backdrop-blur-xl', 'border-b', 'border-[--color-border]');
       container?.classList.remove('py-6');
       container?.classList.add('py-4');
     } else {
-      header?.classList.remove('bg-[#faf9f5]/80', 'backdrop-blur-xl', 'border-b', 'border-[#e6dfd8]');
+      header?.classList.remove('bg-[--color-background]/80', 'backdrop-blur-xl', 'border-b', 'border-[--color-border]');
       container?.classList.remove('py-4');
       container?.classList.add('py-6');
     }
