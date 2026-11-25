@@ -6,6 +6,7 @@ import CaseStudies from "../sections/CaseStudies.astro";
 import Journey from "../sections/Journey.astro";
 import Toolkit from "../sections/Toolkit.astro";
 import DesignProcess from "../sections/DesignProcess.astro";
+import Certifications from "../components/motion/Certifications";
 import Contact from "../sections/Contact.astro";
 ---
 
@@ -17,6 +18,7 @@ import Contact from "../sections/Contact.astro";
     <Journey />
     <Toolkit />
     <DesignProcess />
+    <Certifications client:load />
     <Contact />
   </main>
 </BaseLayout>
