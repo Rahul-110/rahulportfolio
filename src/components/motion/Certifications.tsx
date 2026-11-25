@@ -1,20 +1,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ArrowUpRight, Certificate } from "@phosphor-icons/react";
 
 const certs = [
   {
     title: 'Google UX Design Professional Certificate',
-    issuer: 'Coursera',
+    issuer: 'Coursera / Google',
     date: 'January 2025',
-    image: '/images/google-ux-cert.png', // User needs to ensure this asset exists
-    link: '#',
+    credentialId: 'Google UX Design Professional',
+    description: 'Comprehensive program covering foundations of UX design, empathizing with users, wireframing, low and high-fidelity prototypes, and usability studies.',
+    link: 'https://www.coursera.org',
   },
   {
     title: 'Elements of Agile',
     issuer: 'Miro',
     date: '2025',
-    image: '/images/miro-agile-badge.png', // User needs to ensure this asset exists
-    link: '#',
+    credentialId: 'Miro Agile Certification',
+    description: 'Mastery of agile methodologies, collaborative product discovery, workshop facilitation, and cross-functional design workflows.',
+    link: 'https://miro.com',
   },
 ];
 
@@ -41,12 +44,31 @@ export default function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="group p-8 rounded-[2rem] border border-[--color-border] bg-[--color-surface] hover:border-[--color-accent] transition-all"
+              className="group p-8 md:p-10 rounded-[2.5rem] border border-[--color-border] bg-[--color-surface] hover:border-[--color-accent] transition-all flex flex-col justify-between shadow-sm"
             >
-              <img src={cert.image} alt={cert.title} className="w-16 h-16 mb-6 object-contain" />
-              <h3 className="text-xl font-bold font-display tracking-tight text-[--color-text] mb-2">{cert.title}</h3>
-              <p className="text-sm text-[--color-text-secondary] mb-1">{cert.issuer}</p>
-              <p className="text-xs font-mono text-[--color-text-secondary]/60">{cert.date}</p>
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-[--color-background] border border-[--color-border] flex items-center justify-center text-[--color-accent] mb-6 group-hover:scale-110 transition-transform">
+                  <Certificate size={24} weight="bold" />
+                </div>
+                <div className="flex justify-between items-start mb-3">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-[--color-accent]">{cert.issuer}</span>
+                  <span className="text-[10px] font-mono text-[--color-text-secondary]/60">{cert.date}</span>
+                </div>
+                <h3 className="text-2xl font-bold font-display tracking-tight text-[--color-text] mb-4">{cert.title}</h3>
+                <p className="text-sm text-[--color-text-secondary] font-light leading-relaxed mb-6">{cert.description}</p>
+              </div>
+
+              <div className="pt-6 border-t border-[--color-border] flex items-center justify-between">
+                <span className="text-xs font-mono text-[--color-text-secondary] uppercase tracking-wider">{cert.credentialId}</span>
+                <a
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-widest text-[--color-text] group-hover:text-[--color-accent] transition-colors"
+                >
+                  Verify Credential <ArrowUpRight size={14} weight="bold" />
+                </a>
+              </div>
             </motion.div>
           ))}
         </div>
