@@ -1,0 +1,42 @@
+/// <reference path="..\masterPage\masterPage.d.ts" />
+type PageElementsMap = MasterPageElementsMap & {
+	"#section1": $w.Section;
+	"#group1": $w.Box;
+	"#text31": $w.Text;
+	"#text30": $w.Text;
+	"#columnStrip1": $w.ColumnStrip;
+	"#column1": $w.Column;
+	"#repeater1": $w.Repeater;
+	"#container1": $w.Container;
+	"#image1": $w.Image;
+	"#text29": $w.Text;
+	"#text28": $w.Text;
+	"#box1": $w.Box;
+	"#text18": $w.Text;
+	"#button8": $w.Button;
+	"#repeater4": $w.Repeater;
+	"#container4": $w.Container;
+	"#image4": $w.Image;
+	"#text27": $w.Text;
+	"#text26": $w.Text;
+	"#box4": $w.Box;
+	"#text25": $w.Text;
+	"#button11": $w.Button;
+	"#repeater3": $w.Repeater;
+	"#container3": $w.Container;
+	"#image3": $w.Image;
+	"#text24": $w.Text;
+	"#text23": $w.Text;
+	"#box3": $w.Box;
+	"#text22": $w.Text;
+	"#button10": $w.Button;
+	"#repeater2": $w.Repeater;
+	"#container2": $w.Container;
+	"#image2": $w.Image;
+	"#text21": $w.Text;
+	"#text20": $w.Text;
+	"#box2": $w.Box;
+	"#text19": $w.Text;
+	"#button9": $w.Button;
+	"#page1": $w.Page;
+}

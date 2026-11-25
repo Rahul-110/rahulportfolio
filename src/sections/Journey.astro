@@ -1,0 +1,61 @@
+---
+import Container from "../components/ui/Container.astro";
+import JourneyCharacter from "../components/motion/JourneyCharacter";
+import JourneyMap from "../components/motion/JourneyMap";
+---
+
+<section id="journey" class="relative py-28 md:py-40 bg-[--color-background] text-[--color-text] overflow-hidden scroll-mt-28">
+  <Container>
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+
+      {/* LEFT COLUMN: STORY & CONTEXT (35%) */}
+      <div class="lg:col-span-4 space-y-10 lg:sticky lg:top-32">
+        <div class="space-y-6">
+          <div class="inline-flex items-center gap-3">
+            <span class="w-8 h-px bg-[--color-accent]"></span>
+            <span class="text-[10px] font-mono font-bold tracking-[0.3em] uppercase text-[--color-text-secondary]">
+              MY JOURNEY / 03
+            </span>
+          </div>
+
+          <h2 class="font-display text-4xl md:text-5xl font-medium tracking-tight leading-[1.05] text-[--color-text]">
+            Every experience shaped <br />
+            <span class="italic font-serif text-[--color-text-secondary] block mt-2">the designer I am becoming.</span>
+          </h2>
+
+          <p class="text-base text-[--color-text-secondary] leading-relaxed font-normal">
+            From an engineering foundation to designing SaaS product experiences, each stage has helped me develop a deeper understanding of people, systems, and product design.
+          </p>
+
+          <div class="pt-2">
+            <p class="font-serif italic text-lg md:text-xl text-[--color-text] leading-snug">
+              Curiosity keeps me exploring.<br />
+              <span class="relative inline-block mt-1">
+                Experience continues to shape how I think.
+                <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-[--color-accent]/60"></span>
+              </span>
+            </p>
+          </div>
+        </div>
+
+        {/* Character Illustration */}
+        <div class="relative max-w-[220px] opacity-90 hidden sm:block">
+          <JourneyCharacter client:load />
+        </div>
+      </div>
+
+      {/* RIGHT COLUMN: INTERACTIVE UX JOURNEY MAP (65%) */}
+      <div class="lg:col-span-8">
+        <JourneyMap client:load />
+      </div>
+
+    </div>
+
+    {/* BOTTOM CLOSING REFLECTION */}
+    <div class="mt-24 pt-16 border-t border-[--color-border]/60 text-center">
+      <p class="font-serif italic text-xl md:text-2xl text-[--color-text] leading-relaxed max-w-3xl mx-auto">
+        "Every stage has added a new perspective to the way I approach design. Today, I focus on understanding problems, simplifying complex workflows, and creating digital experiences that make sense to people."
+      </p>
+    </div>
+  </Container>
+</section>

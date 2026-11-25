@@ -2,21 +2,23 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav/Nav.astro";
 import Hero from "../sections/Hero.astro";
-import Story from "../sections/Story.astro";
 import CaseStudies from "../sections/CaseStudies.astro";
-import Skills from "../sections/Skills.astro";
-import Services from "../sections/Services.tsx";
+import Journey from "../sections/Journey.astro";
+import Toolkit from "../sections/Toolkit.astro";
+import DesignProcess from "../sections/DesignProcess.astro";
+import Certifications from "../components/motion/Certifications";
 import Contact from "../sections/Contact.astro";
 ---
 
-<BaseLayout title="Rahul Portfolio">
+<BaseLayout title="Rahul K — UI/UX & Product Designer">
   <main class="min-h-dvh">
     <Nav />
     <Hero />
-    <Story />
     <CaseStudies />
-    <Skills />
-    <Services client:load />
+    <Journey />
+    <Toolkit />
+    <DesignProcess />
+    <Certifications client:load />
     <Contact />
   </main>
 </BaseLayout>

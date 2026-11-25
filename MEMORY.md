@@ -1,0 +1,1 @@
+- [Certifications Section](memory/certifications_section.md) — Implementation of Certifications & Continuous Learning section

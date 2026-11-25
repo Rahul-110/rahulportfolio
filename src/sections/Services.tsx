@@ -1,272 +1,117 @@
-import { motion } from 'framer-motion';
-import ServiceCard from '../components/ServiceCard';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const services = [
   {
     title: 'AI Product Design',
-    description: 'Design intelligent AI-powered interfaces that simplify complex workflows and improve user productivity.',
-    tags: ['AI UX', 'LLM', 'Automation'],
-    icon: 'AI Product Design' as const,
-    featured: true,
-    rowSpan: 2,
+    description: 'Design intelligent AI-powered interfaces that simplify complex workflows.',
+    details: 'I create context-aware assistant interfaces, multi-modal components, and seamless workflows between autonomous agents and direct user control.',
+    tags: ['AI UX', 'LLM', 'Interaction Design'],
   },
   {
     title: 'SaaS Product Design',
-    description: 'Scalable dashboards, CRM systems, admin panels, and enterprise web applications.',
+    description: 'Scalable dashboards, CRM systems, and enterprise web applications.',
+    details: 'Crafting information-dense interfaces with clear visual hierarchy, role-based access, and real-time data visualization to optimize operational clarity.',
     tags: ['Dashboard', 'CRM', 'Analytics'],
-    icon: 'SaaS Product Design' as const,
-    featured: false,
-    rowSpan: 1,
   },
   {
     title: 'Mobile App Design',
-    description: 'Create intuitive Android and iOS experiences with user-centered design principles.',
-    tags: ['iOS', 'Android', 'Responsive'],
-    icon: 'Mobile App Design' as const,
-    featured: false,
-    rowSpan: 1,
+    description: 'Intuitive iOS and Android experiences with user-centered principles.',
+    details: 'Building mobile-first ordering flows, intuitive navigation, and engagement-focused user journeys optimized for on-the-go interaction.',
+    tags: ['iOS', 'Android', 'Mobile UI'],
   },
   {
     title: 'UX Strategy',
-    description: 'Research, user flows, information architecture, usability testing, and product validation.',
-    tags: ['Research', 'Wireframes'],
-    icon: 'UX Strategy' as const,
-    featured: false,
-    rowSpan: 1,
+    description: 'Research, information architecture, and product validation.',
+    details: 'Data-driven insights from user interviews and competitor audits, synthesized into clear information architecture and actionable journey maps.',
+    tags: ['Research', 'IA', 'Strategy'],
   },
   {
     title: 'Design Systems',
-    description: 'Build scalable component libraries and consistent design systems for growing products.',
-    tags: ['Components', 'Tokens'],
-    icon: 'Design Systems' as const,
-    featured: false,
-    rowSpan: 1,
-  },
-  {
-    title: 'Interactive Prototypes',
-    description: 'High-fidelity prototypes with realistic interactions and motion.',
-    tags: ['Figma', 'Prototype'],
-    icon: 'Interactive Prototypes' as const,
-    featured: false,
-    rowSpan: 1,
-  },
-  {
-    title: 'AI Workflow Integration',
-    description: 'Use AI tools to accelerate ideation, design exploration, documentation, and developer handoff.',
-    tags: ['Cursor', 'ChatGPT', 'Claude'],
-    icon: 'AI Workflow Integration' as const,
-    featured: false,
-    rowSpan: 1,
-  },
-  {
-    title: 'Developer Handoff',
-    description: 'Production-ready specifications, design documentation, assets, and implementation guidance.',
-    tags: ['Dev Mode', 'Tokens'],
-    icon: 'Developer Handoff' as const,
-    featured: false,
-    rowSpan: 1,
-  },
-  {
-    title: 'Product Optimization',
-    description: 'Improve usability, accessibility, and conversion through continuous UX improvements.',
-    tags: ['WCAG', 'CRO'],
-    icon: 'Product Optimization' as const,
-    featured: false,
-    rowSpan: 1,
+    description: 'Scalable component libraries and consistent design language.',
+    details: 'Constructing robust design tokens, reusable UI primitives, and comprehensive documentation to ensure consistent product evolution.',
+    tags: ['Systems', 'Tokens', 'UI'],
   },
 ];
 
-export default function Services() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
-  };
-
-  const particleVariants = {
-    animate: {
-      y: [0, -20, 0],
-      opacity: [0.3, 0.6, 0.3],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut" as const
-      }
-    }
-  };
+export default function ServicesSection() {
+  const [activeService, setActiveService] = useState(services[0]);
 
   return (
-    <section 
-      id="services" 
-      className="relative py-24 md:py-32 overflow-hidden"
-      style={{ background: '#050816' }}
-    >
-      {/* Background Effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Radial gradient glow */}
-        <div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full"
-          style={{
-            background: 'radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, rgba(99, 102, 241, 0.08) 40%, transparent 70%)',
-          }}
-        />
-        
-        {/* Blurred orbs */}
-        <motion.div
-          className="absolute top-20 left-20 w-64 h-64 rounded-full blur-3xl"
-          style={{ background: 'rgba(168, 85, 247, 0.2)' }}
-          animate={{
-            x: [0, 30, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        
-        <motion.div
-          className="absolute bottom-20 right-20 w-80 h-80 rounded-full blur-3xl"
-          style={{ background: 'rgba(99, 102, 241, 0.15)' }}
-          animate={{
-            x: [0, -30, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-
-        {/* Grid pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, #ffffff 1px, transparent 1px),
-              linear-gradient(to bottom, #ffffff 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px',
-          }}
-        />
-
-        {/* Floating particles */}
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 rounded-full"
-            style={{
-              background: 'rgba(168, 85, 247, 0.4)',
-              left: `${20 + i * 15}%`,
-              top: `${30 + (i % 3) * 20}%`,
-            }}
-            variants={particleVariants}
-            animate="animate"
-            transition={{ delay: i * 0.5 }}
-          />
-        ))}
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="relative py-28 md:py-40 bg-[--color-background] text-[--color-text]">
+      <div className="container mx-auto px-6 max-w-7xl">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16 md:mb-24"
-        >
-          <motion.span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="inline-block px-4 py-2 mb-6 text-sm font-semibold tracking-wider uppercase rounded-full border border-[#A855F7]/30 bg-[#A855F7]/10 text-[#A855F7]"
-          >
-            Services
-          </motion.span>
-          
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#F8FAFC] mb-6 leading-tight"
-          >
-            Build Digital Products That Scale
-          </motion.h2>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="text-lg md:text-xl text-[#94A3B8] max-w-3xl mx-auto leading-relaxed"
-          >
-            From AI-powered interfaces to enterprise SaaS platforms, I design intuitive, scalable experiences that solve real business problems.
-          </motion.p>
-        </motion.div>
-
-        {/* Bento Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[minmax(200px,auto)]"
-        >
-          {services.map((service, index) => (
-            <ServiceCard
-              key={service.title}
-              {...service}
-              index={index}
-              className={service.rowSpan === 2 ? 'md:row-span-2' : ''}
-            />
-          ))}
-        </motion.div>
-
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="mt-20 md:mt-32 text-center"
-        >
-          <h3 className="text-3xl md:text-4xl font-bold text-[#F8FAFC] mb-4">
-            Ready to Build Your Next Product?
-          </h3>
-          <p className="text-lg text-[#94A3B8] mb-8 max-w-2xl mx-auto">
-            Let's transform your idea into a scalable digital experience with thoughtful UX and modern product design.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.a
-              href="#case-studies"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 rounded-full font-semibold text-white transition-all"
-              style={{
-                background: 'linear-gradient(135deg, #A855F7, #6366F1)',
-                boxShadow: '0 4px 20px rgba(168, 85, 247, 0.4)',
-              }}
-            >
-              View My Work
-            </motion.a>
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 rounded-full font-semibold border border-[#A855F7]/30 text-[#F8FAFC] transition-all hover:bg-[#A855F7]/10"
-            >
-              Let's Talk
-            </motion.a>
+        <header className="mb-20 md:mb-28">
+          <div className="inline-flex items-center gap-3 mb-6">
+            <span className="w-8 h-px bg-[--color-accent]"></span>
+            <span className="text-[10px] font-mono font-bold tracking-[0.4em] uppercase text-[--color-accent]">05 / PRODUCT DESIGN SERVICES</span>
           </div>
-        </motion.div>
+          <h2 className="font-display text-5xl md:text-8xl font-medium tracking-tighter text-[--color-text] leading-[0.9]">
+            Product Design <br/>
+            <span className="italic font-serif text-[--color-text-secondary]">Capabilities.</span>
+          </h2>
+        </header>
+
+        {/* Interactive Showcase */}
+        <div className="grid lg:grid-cols-12 gap-16 items-start">
+            {/* Sidebar List */}
+            <div className="lg:col-span-5 space-y-4">
+                {services.map((service, idx) => {
+                    const isActive = activeService.title === service.title;
+                    return (
+                        <button
+                            key={service.title}
+                            onClick={() => setActiveService(service)}
+                            className={`w-full text-left transition-all duration-500 group p-6 rounded-2xl border ${
+                                isActive
+                                    ? 'bg-[--color-surface] border-[--color-border] shadow-lg'
+                                    : 'bg-transparent border-transparent hover:bg-[--color-surface]/50'
+                            }`}
+                        >
+                            <div className="flex items-center gap-6">
+                                <span className={`font-mono text-xs transition-colors ${isActive ? 'text-[--color-accent]' : 'text-[--color-text-secondary]/40'}`}>
+                                    {String(idx + 1).padStart(2, '0')}
+                                </span>
+                                <h3 className={`font-display text-2xl tracking-tight transition-colors ${isActive ? 'text-[--color-text]' : 'text-[--color-text-secondary] group-hover:text-[--color-text]'}`}>
+                                    {service.title}
+                                </h3>
+                            </div>
+                        </button>
+                    )
+                })}
+            </div>
+
+            {/* Active Service Detail Card */}
+            <div className="lg:col-span-7 bg-[--color-surface] p-10 md:p-12 rounded-[2rem] border border-[--color-border]">
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={activeService.title}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                        className="space-y-8"
+                    >
+                        <h4 className="font-display text-xl text-[--color-text]">{activeService.description}</h4>
+                        <p className="text-base text-[--color-text-secondary] font-light leading-relaxed max-w-lg">{activeService.details}</p>
+
+                        <div className="flex flex-wrap gap-3">
+                            {activeService.tags.map(tag => (
+                                <span key={tag} className="text-[10px] px-4 py-1.5 rounded-full border border-[--color-border] text-[--color-text-secondary] font-mono tracking-widest uppercase">
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+
+                        <div className="pt-4">
+                            <a href="#contact" className="inline-flex items-center gap-3 text-[--color-text] font-bold font-mono text-xs uppercase tracking-widest hover:text-[--color-accent] transition-colors border-b border-[--color-text] pb-1">
+                                Let's collaborate ↗
+                            </a>
+                        </div>
+                    </motion.div>
+                </AnimatePresence>
+            </div>
+        </div>
       </div>
     </section>
   );

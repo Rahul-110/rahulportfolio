@@ -1,0 +1,67 @@
+---
+import Container from "../components/ui/Container.astro";
+import ProcessNavigator from "../components/motion/ProcessNavigator";
+---
+
+<section id="process" class="relative py-24 sm:py-32 bg-[--color-background] text-[--color-text] overflow-hidden border-t border-[--color-border]">
+  <Container>
+    {/* Section Header */}
+    <div class="max-w-3xl mb-16 space-y-6">
+      <div class="inline-flex items-center gap-2.5 bg-[--color-surface] border border-[--color-border] px-4 py-1.5 rounded-full shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-[--color-accent]"></span>
+        <span class="text-[10px] font-mono font-bold tracking-widest uppercase text-[--color-text]">
+          05 / MY DESIGN PROCESS
+        </span>
+      </div>
+
+      <h2 class="font-display text-4xl sm:text-6xl md:text-7xl font-medium tracking-tight leading-[0.95] text-[--color-text]">
+        Great experiences don't <br />
+        happen by accident. <br />
+        <span class="italic font-serif text-[--color-text-secondary]">They're thoughtfully designed.</span>
+      </h2>
+
+      <p class="text-base sm:text-lg text-[--color-text-secondary] font-normal leading-relaxed max-w-2xl">
+        Every project starts with understanding the problem. I break complex requirements into clear user journeys, translate ideas into meaningful interfaces and refine the experience through iteration and collaboration.
+      </p>
+
+      {/* Visual Process Indicator Pill Flow */}
+      <div class="pt-4 flex flex-wrap items-center gap-2 text-xs font-mono text-[--color-text-secondary]">
+        <span class="text-[--color-accent] font-bold">01 Discover</span>
+        <span>→</span>
+        <span>02 Define</span>
+        <span>→</span>
+        <span>03 Structure</span>
+        <span>→</span>
+        <span>04 Design</span>
+        <span>→</span>
+        <span>05 Validate</span>
+        <span>→</span>
+        <span>06 Deliver</span>
+      </div>
+    </div>
+
+    {/* Interactive 6-Stage Process Experience */}
+    <ProcessNavigator client:load />
+
+    {/* Closing Statement Box */}
+    <div class="mt-24 p-8 sm:p-12 rounded-[2rem] bg-[--color-surface] border border-[--color-border] shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-8">
+      <div class="space-y-2 max-w-xl">
+        <h3 class="font-display text-2xl sm:text-3xl font-bold tracking-tight text-[--color-text]">
+          Design is not just about how it looks. <br />
+          <span class="italic font-serif text-[--color-accent]">It's about how it works for people.</span>
+        </h3>
+        <p class="text-sm text-[--color-text-secondary] leading-relaxed pt-2">
+          From the first question to the final handoff, I aim to make every design decision intentional.
+        </p>
+      </div>
+
+      <a
+        href="#contact"
+        class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[--color-text] text-[--color-background] text-xs font-bold font-mono uppercase tracking-widest hover:bg-[--color-accent] transition-colors shrink-0"
+      >
+        <span>Let's Work Together</span>
+        <span>↓</span>
+      </a>
+    </div>
+  </Container>
+</section>

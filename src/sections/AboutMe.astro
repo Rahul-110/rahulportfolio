@@ -1,0 +1,253 @@
+---
+import Container from "../components/ui/Container.astro";
+import AboutCharacterVideo from "../components/motion/AboutCharacterVideo";
+
+const experiences = [
+  {
+    company: "Netpy Technologies",
+    role: "UI/UX Designer",
+    period: "June 2025 – Present",
+    current: true,
+    description: "Currently contributing to SaaS product design, translating requirements into user flows, wireframes, high-fidelity interfaces and interactive prototypes.",
+    capabilities: [
+      "SaaS interface design",
+      "User flows and wireframing",
+      "High-fidelity UI design",
+      "Interactive prototyping",
+      "Design consistency and accessibility",
+      "Developer handoff",
+      "Collaboration with senior designers and developers"
+    ]
+  },
+  {
+    company: "Duhzine IT Solution",
+    role: "UI/UX Design Intern",
+    period: "July 2024 – September 2024",
+    current: false,
+    description: "Developed practical foundations in UI/UX design through user research, user behavior analysis and experience design activities.",
+    capabilities: [
+      "User research & behavior analysis",
+      "Wireframe exploration",
+      "Collaborative feedback loops"
+    ]
+  },
+  {
+    company: "Kartexa",
+    role: "UI/UX Design Intern",
+    period: "July 2023 – September 2023",
+    current: false,
+    description: "Built early experience in UI/UX design, collaborative design work and understanding design requirements.",
+    capabilities: [
+      "Design foundations",
+      "Grid & typography discipline",
+      "Requirements gathering"
+    ]
+  }
+];
+
+const principles = [
+  { num: "01", title: "Understand before designing.", desc: "Rooting every decision in clear user research, behavior analysis, and problem framing." },
+  { num: "02", title: "Make complex workflows feel simple.", desc: "Distilling intricate SaaS operations and data into intuitive, frictionless user journeys." },
+  { num: "03", title: "Design with consistency and purpose.", desc: "Leveraging scalable tokens, typography hierarchy, and accessible component libraries." },
+  { num: "04", title: "Collaborate to bring ideas to life.", desc: "Partnering closely with developers, PMs, and stakeholders to ensure seamless code handoff." }
+];
+
+const skillsList = [
+  "User Research", "UX Design", "Information Architecture", "Wireframing",
+  "UI Design", "Interaction Design", "Prototyping", "Design Systems",
+  "Accessibility", "Developer Handoff", "AI-Assisted Workflow Tools"
+];
+---
+
+<section id="about" class="relative py-32 sm:py-40 bg-[#030305] overflow-hidden" data-about-root>
+  {/* Cinematic Ambient Background Lighting */}
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute left-[-10%] top-1/4 h-[700px] w-[700px] bg-gradient-to-r from-purple-900/15 via-blue-900/10 to-transparent blur-[160px]" />
+    <div class="absolute right-[-10%] bottom-1/3 h-[700px] w-[700px] bg-gradient-to-l from-orange-900/10 via-purple-900/10 to-transparent blur-[160px]" />
+    <div
+      class="absolute inset-0 opacity-[0.025]"
+      style={{
+        backgroundImage: `linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)`,
+        backgroundSize: "80px 80px",
+      }}
+    />
+  </div>
+
+  <Container class="relative z-10">
+
+    {/* Section Header */}
+    <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+      <span class="inline-block px-4 py-2 text-[11px] font-semibold tracking-[0.3em] uppercase rounded-full border border-[#6EA8FF]/20 bg-[#6EA8FF]/10 text-[#6EA8FF]">
+        ABOUT ME / MY JOURNEY
+      </span>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-[#F5F5F7] tracking-tight leading-tight">
+        Curious by nature.<br />
+        <span class="bg-gradient-to-r from-[#FF8A3D] via-[#A970FF] to-[#6EA8FF] bg-clip-text text-transparent">
+          Creative by design.
+        </span>
+      </h2>
+      <p class="text-lg text-[#B3B5C0] font-light leading-relaxed max-w-2xl mx-auto pt-2">
+        Hey, I'm Rahul — a UI/UX Designer who enjoys turning complex requirements into intuitive digital experiences.
+      </p>
+    </div>
+
+    {/* Top Grid: Bio Story + 3D Character */}
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-28">
+      {/* Left: Bio Narrative */}
+      <div class="lg:col-span-7 space-y-8 p-8 sm:p-10 rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.01] backdrop-blur-2xl relative">
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#6EA8FF]/40 to-transparent" />
+
+        <span class="text-xs font-mono uppercase tracking-widest text-[#6EA8FF] block">The Person Behind The Pixels</span>
+
+        <div class="space-y-6 text-[#B3B5C0] text-base sm:text-lg font-light leading-relaxed">
+          <p class="text-white font-normal">
+            I have 1+ year of professional UI/UX experience at Netpy Technologies, where I currently work on SaaS products. My work involves understanding requirements, shaping user flows, creating wireframes and high-fidelity interfaces, prototyping interactions, and preparing designs for developer handoff.
+          </p>
+          <p>
+            Before Netpy, I built my design foundation through internships at Duhzine IT Solution and Kartexa, where I developed my understanding of user research, user behavior and collaborative design.
+          </p>
+          <p>
+            I bring together user-centered thinking, visual design, interaction design and a practical understanding of frontend development. I also explore AI-assisted tools to make ideation and prototyping more effective.
+          </p>
+        </div>
+
+        <div class="pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#B3B5C0]">
+          <div>
+            <span class="text-white font-bold block mb-1">Education</span>
+            <span>B.E. — Electronics and Communication Engineering</span>
+          </div>
+          <div class="text-right">
+            <span class="text-white font-bold block mb-1">Institution</span>
+            <span class="text-[#6EA8FF]">SRM Valliammai Engineering College</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Right: 3D Character Presentation */}
+      <div class="lg:col-span-5 relative flex justify-center items-center">
+        <AboutCharacterVideo client:load />
+      </div>
+    </div>
+
+    {/* Professional Experience Timeline Section */}
+    <div class="mb-28">
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <span class="text-xs font-mono uppercase tracking-widest text-[#A970FF]">Career Progression</span>
+        <h3 class="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight">
+          Professional Experience
+        </h3>
+        <p class="text-sm text-[#B3B5C0] font-light">
+          A track record of growth from foundational craft to SaaS product ownership.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {experiences.map((exp, index) => (
+          <div
+            class={`relative p-8 rounded-3xl border transition-all duration-500 flex flex-col justify-between group ${
+              exp.current
+                ? "bg-gradient-to-b from-white/[0.07] to-white/[0.02] border-[#A970FF]/50 shadow-[0_0_50px_rgba(169,112,255,0.15)]"
+                : "bg-gradient-to-b from-white/[0.03] to-white/[0.01] border-white/10 hover:border-white/25"
+            }`}
+          >
+            {exp.current && (
+              <div class="absolute -top-3 right-8 px-4 py-1 rounded-full bg-gradient-to-r from-[#A970FF] to-[#6EA8FF] text-black font-bold text-[10px] tracking-widest uppercase shadow-lg">
+                Current Role
+              </div>
+            )}
+
+            <div class="space-y-4">
+              <div class="flex items-center justify-between text-xs font-mono text-[#B3B5C0]">
+                <span>0{index + 1}</span>
+                <span class={exp.current ? "text-[#6EA8FF] font-bold" : ""}>{exp.period}</span>
+              </div>
+
+              <div>
+                <h4 class="text-2xl font-display font-bold text-white group-hover:text-[#6EA8FF] transition-colors">
+                  {exp.company}
+                </h4>
+                <p class="text-sm font-semibold uppercase tracking-wider text-[#FF8A3D] mt-1">
+                  {exp.role}
+                </p>
+              </div>
+
+              <p class="text-sm text-[#B3B5C0] font-light leading-relaxed">
+                {exp.description}
+              </p>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-white/10 space-y-2">
+              <span class="text-[10px] font-mono tracking-widest uppercase text-white/40 block">
+                Key Responsibilities & Focus:
+              </span>
+              <ul class="space-y-1.5">
+                {exp.capabilities.map((cap) => (
+                  <li class="text-xs text-[#B3B5C0] flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#A970FF]" />
+                    <span>{cap}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* How I Think About Design & Skills Summary */}
+    <div class="grid lg:grid-cols-12 gap-12 p-8 sm:p-12 rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.01] backdrop-blur-2xl relative">
+      <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FF8A3D]/40 to-transparent" />
+
+      {/* Left: Design Principles (7 cols) */}
+      <div class="lg:col-span-7 space-y-8">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-[#FF8A3D] block mb-2">Design Philosophy</span>
+          <h3 class="text-3xl font-display font-bold text-white tracking-tight">
+            How I Think About Design
+          </h3>
+          <p class="text-sm text-[#B3B5C0] mt-2">
+            Core principles that guide every interaction, wireframe, and shipped product.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          {principles.map((p) => (
+            <div class="p-5 rounded-2xl border border-white/5 bg-white/[0.02] space-y-2 hover:border-white/20 transition-all">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-[#6EA8FF]">{p.num}</span>
+              </div>
+              <h4 class="text-base font-bold text-white tracking-tight">{p.title}</h4>
+              <p class="text-xs text-[#B3B5C0] font-light leading-relaxed">{p.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Right: Skills Summary (5 cols) */}
+      <div class="lg:col-span-5 flex flex-col justify-between space-y-6 lg:border-l lg:border-white/10 lg:pl-12">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-[#A970FF] block mb-2">Core Competencies</span>
+          <h3 class="text-2xl font-display font-bold text-white tracking-tight">
+            Skills & Craft
+          </h3>
+          <p class="text-sm text-[#B3B5C0] mt-2">
+            A comprehensive overview of tools, research frameworks, and execution skills.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-2.5 py-4">
+          {skillsList.map((skill) => (
+            <span class="text-xs px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 text-white/90 font-mono tracking-wide hover:border-[#6EA8FF]/50 transition-colors">
+              {skill}
+            </span>
+          ))}
+        </div>
+
+        <div class="p-4 rounded-2xl border border-[#6EA8FF]/20 bg-[#6EA8FF]/5 text-xs text-[#6EA8FF] font-mono leading-relaxed">
+          ✦ AI-assisted tools are integrated into my workflow for accelerated ideation, exploration, and prototyping—always guided by human design judgment.
+        </div>
+      </div>
+    </div>
+
+  </Container>
+</section>

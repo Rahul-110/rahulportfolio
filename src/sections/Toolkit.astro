@@ -1,0 +1,30 @@
+---
+import Container from "../components/ui/Container.astro";
+import ToolkitWorkspace from "../components/motion/ToolkitWorkspace";
+---
+
+<section id="toolkit" class="relative py-28 md:py-40 bg-[--color-background] text-[--color-text] overflow-hidden">
+  <Container>
+    {/* Section Header */}
+    <div class="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-10 border-b border-[--color-border]/50 pb-12">
+        <div class="space-y-6 max-w-2xl">
+            <div class="inline-flex items-center gap-3">
+                <span class="w-8 h-px bg-[--color-accent]"></span>
+                <span class="text-[10px] font-mono font-bold tracking-[0.4em] uppercase text-[--color-accent]">04 / DESIGN WORKSPACE & TOOLKIT</span>
+            </div>
+            <h2 class="font-display text-5xl md:text-8xl font-medium tracking-tighter leading-[0.9]">
+                Tools for <br />
+                <span class="italic font-serif text-[--color-text-secondary]">thoughtful creation.</span>
+            </h2>
+        </div>
+        <div class="max-w-sm space-y-4">
+            <p class="text-sm md:text-base text-[--color-text-secondary] leading-relaxed">
+                From discovery and structured architecture to AI-assisted prototyping and code handoff, here is the system I use to bring ideas into production.
+            </p>
+        </div>
+    </div>
+
+    {/* Interactive Toolkit Workspace Component */}
+    <ToolkitWorkspace client:load />
+  </Container>
+</section>

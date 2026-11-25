@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import MotionRoot from "../components/motion/MotionRoot";
+import InteractiveBackground from "../components/ui/InteractiveBackground";
 
 type Props = {
   title?: string;
@@ -21,10 +22,27 @@ const {
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('portfolio-theme')) {
+          return localStorage.getItem('portfolio-theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+
+      if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    </script>
   </head>
-  <body class="bg-[--bg] text-[--text] antialiased">
+  <body class="bg-[--color-background] text-[--color-text] antialiased relative">
+    <InteractiveBackground client:load />
     <MotionRoot client:load />
     <slot />
   </body>
 </html>
-
