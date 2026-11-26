@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 export default function AboutCharacterVideo() {
   return (
@@ -13,7 +13,7 @@ export default function AboutCharacterVideo() {
           playsInline
           className="w-full h-full object-cover object-center rounded-3xl mix-blend-multiply opacity-90"
         >
-          <source src="/images/rahul-hero-video-final.mp4" type="video/mp4" />
+          <source src="/images/character-hero-wave.mp4" type="video/mp4" />
         </video>
       </div>
     </div>
