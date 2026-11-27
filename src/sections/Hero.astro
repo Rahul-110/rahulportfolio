@@ -3,35 +3,35 @@ import Container from "../components/ui/Container.astro";
 import HeroBackgroundVideo from "../components/motion/HeroBackgroundVideo";
 ---
 
-<section id="hero" class="relative min-h-screen flex flex-col justify-center pt-36 pb-24 overflow-hidden" data-hero-root>
+<section id="hero" class="relative min-h-[100dvh] flex flex-col justify-center pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden" data-hero-root>
   {/* Cinematic Full Background Video */}
   <HeroBackgroundVideo client:load />
 
-  <Container class="relative z-10">
-    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+  <Container class="relative z-10 w-full">
+    <div class="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
       {/* Editorial Content */}
-      <div class="lg:col-span-8 space-y-12 backdrop-blur-sm/0 p-4 rounded-3xl" data-hero-item>
-        <div class="flex items-center gap-4">
-          <span class="w-10 h-px bg-[--color-accent]"></span>
-          <span class="text-[11px] font-mono font-bold tracking-[0.25em] uppercase text-[--color-text]">
+      <div class="lg:col-span-10 xl:col-span-9 space-y-8 sm:space-y-12" data-hero-item>
+        <div class="flex items-center gap-3 sm:gap-4">
+          <span class="w-8 sm:w-10 h-px bg-[--color-accent]"></span>
+          <span class="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.25em] uppercase text-[--color-text]">
             1+ YEAR PROFESSIONAL EXPERIENCE
           </span>
         </div>
 
-        <h1 class="font-display text-6xl sm:text-7xl lg:text-[8.5rem] font-medium tracking-tight text-[--color-text] leading-[0.9]">
+        <h1 class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-[7.5xl] xl:text-[8.5rem] font-medium tracking-tight text-[--color-text] leading-[1.05] sm:leading-[0.95] lg:leading-[0.9]">
           I make complex <br />
           things feel <br />
           <span class="italic font-serif text-[--color-accent]">beautifully simple.</span>
         </h1>
 
-        <p class="text-lg sm:text-2xl font-normal leading-relaxed text-[--color-text-secondary] max-w-xl">
+        <p class="text-base sm:text-xl lg:text-2xl font-normal leading-relaxed text-[--color-text-secondary] max-w-xl">
           UI/UX Designer creating thoughtful SaaS and AI product experiences.
         </p>
 
-        <div class="flex flex-wrap items-center gap-6 pt-2">
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6 pt-2">
           <a
             href="#work"
-            class="group inline-flex items-center gap-3 bg-[--color-accent] text-white px-10 py-4 rounded-full text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:bg-[--color-text] hover:shadow-2xl hover:-translate-y-1"
+            class="group inline-flex items-center justify-center gap-3 bg-[--color-accent] text-white px-8 sm:px-10 py-4 rounded-full text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:bg-[--color-text] hover:shadow-2xl hover:-translate-y-1 text-center"
           >
             <span>Explore My Work</span>
             <span class="group-hover:translate-x-1.5 transition-transform duration-300">→</span>
@@ -40,7 +40,7 @@ import HeroBackgroundVideo from "../components/motion/HeroBackgroundVideo";
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            class="group inline-flex items-center gap-3 bg-[--color-surface]/80 border border-[--color-border] px-9 py-4 rounded-full text-[--color-text] text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:border-[--color-text] hover:bg-[--color-surface] hover:-translate-y-1 backdrop-blur-md"
+            class="group inline-flex items-center justify-center gap-3 bg-[--color-surface]/80 border border-[--color-border] px-8 sm:px-9 py-4 rounded-full text-[--color-text] text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:border-[--color-text] hover:bg-[--color-surface] hover:-translate-y-1 backdrop-blur-md text-center"
           >
             <span>Download Résumé</span>
             <span class="text-base group-hover:translate-y-0.5 transition-transform duration-300">↓</span>
@@ -50,7 +50,7 @@ import HeroBackgroundVideo from "../components/motion/HeroBackgroundVideo";
     </div>
 
     {/* Scroll Indicator */}
-    <div class="pt-32 flex items-center gap-4 text-[10px] font-mono font-bold tracking-[0.3em] text-[--color-text-secondary] uppercase opacity-70">
+    <div class="pt-16 sm:pt-28 flex items-center gap-4 text-[10px] font-mono font-bold tracking-[0.3em] text-[--color-text-secondary] uppercase opacity-70">
       <div class="w-5 h-9 rounded-full border border-[--color-border] flex items-start justify-center p-1.5 bg-[--color-surface]/50 backdrop-blur-sm">
         <div class="w-1.5 h-1.5 bg-[--color-accent] rounded-full animate-bounce"></div>
       </div>
