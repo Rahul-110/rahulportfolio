@@ -3,35 +3,29 @@ import Container from "../components/ui/Container.astro";
 import AboutCharacterVideo from "../components/motion/AboutCharacterVideo";
 ---
 
-<section id="hero" class="relative min-h-[95dvh] flex flex-col justify-center overflow-hidden pt-36 pb-20 bg-[--color-background]" data-hero-root>
-
+<section id="hero" class="relative min-h-[92dvh] flex flex-col justify-center pt-36 pb-24 bg-[--color-background] overflow-hidden" data-hero-root>
   <Container class="relative z-10">
     <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
-      {/* LEFT COLUMN: Editorial Copy */}
+      {/* LEFT COLUMN: Content */}
       <div class="lg:col-span-6 space-y-10" data-hero-item>
-
-        {/* Experience Line Indicator */}
-        <div class="inline-flex items-center gap-4">
-          <span class="w-12 h-px bg-[--color-accent]"></span>
-          <span class="text-[11px] font-mono font-bold tracking-[0.25em] uppercase text-[--color-text]">
+        <div class="inline-flex items-center gap-4 bg-[--color-surface] border border-[--color-border] px-5 py-2 rounded-full shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-[--color-accent]"></span>
+          <span class="text-[10px] font-mono font-bold tracking-[0.25em] uppercase text-[--color-text]">
             1+ YEAR PROFESSIONAL EXPERIENCE
           </span>
         </div>
 
-        {/* Expressive Editorial Headline */}
         <h1 class="font-display text-5xl sm:text-7xl lg:text-8xl font-medium tracking-tighter text-[--color-text] leading-[0.95]">
           I make complex <br />
           things feel <br />
           <span class="italic font-serif text-[--color-accent]">beautifully simple.</span>
         </h1>
 
-        {/* Narrative Description */}
         <p class="text-base sm:text-xl font-normal leading-relaxed text-[--color-text-secondary] max-w-lg">
           UI/UX Designer creating thoughtful SaaS and AI product experiences.
         </p>
 
-        {/* Call to Actions */}
         <div class="flex flex-wrap items-center gap-5 pt-2">
           <a
             href="#work"
@@ -44,7 +38,7 @@ import AboutCharacterVideo from "../components/motion/AboutCharacterVideo";
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            class="group inline-flex items-center gap-3 bg-transparent border border-[--color-text]/30 px-8 py-4 rounded-full text-[--color-text] text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:border-[--color-text] hover:bg-[--color-surface] hover:-translate-y-0.5"
+            class="group inline-flex items-center gap-3 bg-transparent border border-[--color-border] px-8 py-4 rounded-full text-[--color-text] text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:border-[--color-text] hover:bg-[--color-surface] hover:-translate-y-0.5"
           >
             <span>Download Résumé</span>
             <span class="text-sm">↓</span>
@@ -52,22 +46,20 @@ import AboutCharacterVideo from "../components/motion/AboutCharacterVideo";
         </div>
       </div>
 
-      {/* RIGHT COLUMN: Character Visual & Terracotta Arch */}
+      {/* RIGHT COLUMN: Cinematic Visual Integration */}
       <div class="lg:col-span-6 relative flex items-center justify-center min-h-[450px] lg:min-h-[550px]" data-hero-visual>
+        {/* Terracotta Arch Background */}
+        <div class="absolute right-4 bottom-0 w-[85%] h-[90%] bg-[--color-accent]/15 rounded-t-full border border-[--color-accent]/20 -z-0 pointer-events-none transform translate-y-2"></div>
 
-        {/* Decorative Terracotta Arch Background */}
-        <div className="absolute right-0 bottom-0 w-[85%] h-[90%] bg-[--color-accent]/15 rounded-t-full border border-[--color-accent]/20 -z-0 pointer-events-none transform translate-y-4"></div>
-
-        {/* Character Video Frame */}
-        <div class="relative w-full z-10 scale-100 hover:scale-[1.01] transition-transform duration-700">
+        {/* Character & Artifact Layer */}
+        <div class="relative w-full max-w-xl z-10">
           <AboutCharacterVideo client:load />
         </div>
       </div>
-
     </div>
 
     {/* Scroll Indicator */}
-    <div class="pt-16 flex items-center gap-3 text-[10px] font-mono font-bold tracking-[0.2em] text-[--color-text-secondary] uppercase">
+    <div class="pt-20 flex items-center gap-3 text-[10px] font-mono font-bold tracking-[0.2em] text-[--color-text-secondary] uppercase">
       <div class="w-4 h-7 rounded-full border border-[--color-border] flex items-start justify-center p-1">
         <div class="w-1 h-2 bg-[--color-accent] rounded-full animate-bounce"></div>
       </div>
@@ -75,9 +67,3 @@ import AboutCharacterVideo from "../components/motion/AboutCharacterVideo";
     </div>
   </Container>
 </section>
-
-<style>
-    #hero {
-        background-color: var(--color-background);
-    }
-</style>
