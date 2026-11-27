@@ -19,7 +19,7 @@ export default function AboutCharacterVideo() {
           playsInline
           className="w-full h-full object-cover object-center transition-all duration-1000 group-hover:scale-105"
         >
-          <source src="/images/character-hero-wave.mp4" type="video/mp4" />
+          <source src="/images/character-hero-action.mp4" type="video/mp4" />
         </video>
 
         {/* Soft lighting overlay */}
