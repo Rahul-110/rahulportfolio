@@ -1,17 +1,16 @@
 ---
 import Container from "../components/ui/Container.astro";
-import AboutCharacterVideo from "../components/motion/AboutCharacterVideo";
+import HeroBackgroundVideo from "../components/motion/HeroBackgroundVideo";
 ---
 
-<section id="hero" class="relative min-h-[92dvh] flex flex-col justify-center pt-36 pb-24 bg-[--color-background] overflow-hidden" data-hero-root>
-  <!-- Decorative background elements -->
-  <div class="absolute top-0 right-0 w-[40%] h-full bg-[--color-surface]/30 -skew-x-12 transform translate-x-1/4 pointer-events-none -z-0 border-l border-[--color-border]/20"></div>
+<section id="hero" class="relative min-h-screen flex flex-col justify-center pt-36 pb-24 overflow-hidden" data-hero-root>
+  {/* Cinematic Full Background Video */}
+  <HeroBackgroundVideo client:load />
 
   <Container class="relative z-10">
     <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-
-      {/* LEFT COLUMN: Editorial Content */}
-      <div class="lg:col-span-6 space-y-12" data-hero-item>
+      {/* Editorial Content */}
+      <div class="lg:col-span-8 space-y-12 backdrop-blur-sm/0 p-4 rounded-3xl" data-hero-item>
         <div class="flex items-center gap-4">
           <span class="w-10 h-px bg-[--color-accent]"></span>
           <span class="text-[11px] font-mono font-bold tracking-[0.25em] uppercase text-[--color-text]">
@@ -25,7 +24,7 @@ import AboutCharacterVideo from "../components/motion/AboutCharacterVideo";
           <span class="italic font-serif text-[--color-accent]">beautifully simple.</span>
         </h1>
 
-        <p class="text-lg sm:text-2xl font-normal leading-relaxed text-[--color-text-secondary] max-w-lg">
+        <p class="text-lg sm:text-2xl font-normal leading-relaxed text-[--color-text-secondary] max-w-xl">
           UI/UX Designer creating thoughtful SaaS and AI product experiences.
         </p>
 
@@ -41,29 +40,18 @@ import AboutCharacterVideo from "../components/motion/AboutCharacterVideo";
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            class="group inline-flex items-center gap-3 bg-transparent border border-[--color-border] px-9 py-4 rounded-full text-[--color-text] text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:border-[--color-text] hover:bg-[--color-surface] hover:-translate-y-1"
+            class="group inline-flex items-center gap-3 bg-[--color-surface]/80 border border-[--color-border] px-9 py-4 rounded-full text-[--color-text] text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:border-[--color-text] hover:bg-[--color-surface] hover:-translate-y-1 backdrop-blur-md"
           >
             <span>Download Résumé</span>
             <span class="text-base group-hover:translate-y-0.5 transition-transform duration-300">↓</span>
           </a>
         </div>
       </div>
-
-      {/* RIGHT COLUMN: Visual Identity Integration */}
-      <div class="lg:col-span-6 relative flex items-center justify-center pt-12 lg:pt-0" data-hero-visual>
-        {/* The Terracotta Arch backdrop from reference */}
-        <div class="absolute right-0 bottom-[-5%] w-[100%] h-[110%] bg-[--color-accent]/15 rounded-t-full border border-[--color-accent]/20 -z-0 pointer-events-none shadow-inner"></div>
-
-        {/* Character Visual Frame */}
-        <div class="relative w-full z-10 max-w-xl group">
-          <AboutCharacterVideo client:load />
-        </div>
-      </div>
     </div>
 
-    {/* Refined Scroll Indicator */}
+    {/* Scroll Indicator */}
     <div class="pt-32 flex items-center gap-4 text-[10px] font-mono font-bold tracking-[0.3em] text-[--color-text-secondary] uppercase opacity-70">
-      <div class="w-5 h-9 rounded-full border border-[--color-border] flex items-start justify-center p-1.5">
+      <div class="w-5 h-9 rounded-full border border-[--color-border] flex items-start justify-center p-1.5 bg-[--color-surface]/50 backdrop-blur-sm">
         <div class="w-1.5 h-1.5 bg-[--color-accent] rounded-full animate-bounce"></div>
       </div>
       <span>Scroll to explore</span>
