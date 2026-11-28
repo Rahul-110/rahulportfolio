@@ -10,7 +10,7 @@ export default function AboutCharacterVideo() {
       className="relative w-full flex items-center justify-center group"
     >
       {/* Container Frame */}
-      <div className="relative w-full max-w-2xl aspect-[16/10] flex items-center justify-center pointer-events-auto rounded-[2.5rem] overflow-hidden shadow-2xl border border-[--color-border]/40 bg-[--color-surface]">
+      <div className="relative w-full max-w-2xl aspect-[16/10] flex items-center justify-center pointer-events-auto rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border border-[--color-border]/40 bg-[--color-surface]">
         <video
           id="hero-character-video"
           autoPlay
@@ -30,18 +30,18 @@ export default function AboutCharacterVideo() {
       <motion.div
         animate={{ y: [0, -8, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-4 -right-4 sm:-right-8 w-32 sm:w-40 h-24 sm:h-28 bg-[--color-surface] border border-[--color-border] rounded-2xl shadow-2xl p-3.5 hidden sm:flex flex-col justify-between z-20 backdrop-blur-md"
+        className="absolute top-2 -right-2 sm:top-4 sm:-right-8 w-28 sm:w-40 h-20 sm:h-28 bg-[--color-surface] border border-[--color-border] rounded-xl sm:rounded-2xl shadow-2xl p-2.5 sm:p-3.5 flex flex-col justify-between z-20 backdrop-blur-md"
       >
         <div className="flex gap-2 items-center">
-          <div className="w-8 sm:w-10 h-8 sm:h-10 bg-[--color-accent]/20 rounded-lg flex items-center justify-center border border-[--color-accent]/30">
-            <span className="w-2.5 h-2.5 rounded-full bg-[--color-accent]"></span>
+          <div className="w-6 sm:w-10 h-6 sm:h-10 bg-[--color-accent]/20 rounded-lg flex items-center justify-center border border-[--color-accent]/30">
+            <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-[--color-accent]"></span>
           </div>
-          <div className="flex flex-col gap-1.5 flex-1">
-            <div className="w-full h-2 bg-[--color-text]/20 rounded-full"></div>
-            <div className="w-2/3 h-2 bg-[--color-text-secondary]/20 rounded-full"></div>
+          <div className="flex flex-col gap-1 sm:gap-1.5 flex-1">
+            <div className="w-full h-1.5 sm:h-2 bg-[--color-text]/20 rounded-full"></div>
+            <div className="w-2/3 h-1.5 sm:h-2 bg-[--color-text-secondary]/20 rounded-full"></div>
           </div>
         </div>
-        <div className="w-full h-1.5 bg-[--color-border]/40 rounded-full"></div>
+        <div className="w-full h-1 sm:h-1.5 bg-[--color-border]/40 rounded-full"></div>
       </motion.div>
     </motion.div>
   );
