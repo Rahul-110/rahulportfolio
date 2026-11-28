@@ -1,16 +1,18 @@
 ---
 import Container from "../components/ui/Container.astro";
-import HeroBackgroundVideo from "../components/motion/HeroBackgroundVideo";
+import AboutCharacterVideo from "../components/motion/AboutCharacterVideo";
 ---
 
-<section id="hero" class="relative min-h-[100dvh] flex flex-col justify-center pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden" data-hero-root>
-  {/* Cinematic Full Background Video */}
-  <HeroBackgroundVideo client:load />
+<section id="hero" class="relative min-h-[100dvh] flex flex-col justify-center pt-24 pb-12 sm:pt-32 sm:pb-20 overflow-hidden bg-[--color-background]" data-hero-root>
+  {/* The Terracotta Arch backdrop - positioned to the right as per reference */}
+  <div class="absolute right-0 top-0 w-full h-full overflow-hidden pointer-events-none -z-0">
+    <div class="absolute right-[-5%] top-[15%] w-[45%] h-[75%] bg-[--color-accent]/15 rounded-t-full border border-[--color-accent]/20 blur-2xl lg:blur-none"></div>
+  </div>
 
   <Container class="relative z-10 w-full">
-    <div class="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-      {/* Editorial Content */}
-      <div class="lg:col-span-10 xl:col-span-9 space-y-8 sm:space-y-12" data-hero-item>
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      {/* LEFT COLUMN: Editorial Content */}
+      <div class="lg:col-span-6 xl:col-span-7 space-y-8 sm:space-y-12" data-hero-item>
         <div class="flex items-center gap-3 sm:gap-4">
           <span class="w-8 sm:w-10 h-px bg-[--color-accent]"></span>
           <span class="text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.25em] uppercase text-[--color-text]">
@@ -18,7 +20,7 @@ import HeroBackgroundVideo from "../components/motion/HeroBackgroundVideo";
           </span>
         </div>
 
-        <h1 class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-[7.5xl] xl:text-[8.5rem] font-medium tracking-tight text-[--color-text] leading-[1.05] sm:leading-[0.95] lg:leading-[0.9]">
+        <h1 class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-[6.5rem] xl:text-[8.5rem] font-medium tracking-tight text-[--color-text] leading-[1.05] sm:leading-[0.95] lg:leading-[0.9]">
           I make complex <br />
           things feel <br />
           <span class="italic font-serif text-[--color-accent]">beautifully simple.</span>
@@ -40,17 +42,24 @@ import HeroBackgroundVideo from "../components/motion/HeroBackgroundVideo";
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            class="group inline-flex items-center justify-center gap-3 bg-[--color-surface]/80 border border-[--color-border] px-8 sm:px-9 py-4 rounded-full text-[--color-text] text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:border-[--color-text] hover:bg-[--color-surface] hover:-translate-y-1 backdrop-blur-md text-center"
+            class="group inline-flex items-center justify-center gap-3 bg-transparent border border-[--color-border] px-8 sm:px-9 py-4 rounded-full text-[--color-text] text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:border-[--color-text] hover:bg-[--color-surface] hover:-translate-y-1 text-center"
           >
             <span>Download Résumé</span>
             <span class="text-base group-hover:translate-y-0.5 transition-transform duration-300">↓</span>
           </a>
         </div>
       </div>
+
+      {/* RIGHT COLUMN: Visual Identity Integration (Video Frame) */}
+      <div class="lg:col-span-6 xl:col-span-5 relative flex items-center justify-center" data-hero-visual>
+        <div class="relative w-full z-10 max-w-xl group">
+          <AboutCharacterVideo client:load />
+        </div>
+      </div>
     </div>
 
     {/* Scroll Indicator */}
-    <div class="pt-16 sm:pt-28 flex items-center gap-4 text-[10px] font-mono font-bold tracking-[0.3em] text-[--color-text-secondary] uppercase opacity-70">
+    <div class="pt-16 sm:pt-24 flex items-center gap-4 text-[10px] font-mono font-bold tracking-[0.3em] text-[--color-text-secondary] uppercase opacity-70">
       <div class="w-5 h-9 rounded-full border border-[--color-border] flex items-start justify-center p-1.5 bg-[--color-surface]/50 backdrop-blur-sm">
         <div class="w-1.5 h-1.5 bg-[--color-accent] rounded-full animate-bounce"></div>
       </div>
